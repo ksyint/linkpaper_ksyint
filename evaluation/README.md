@@ -1,5 +1,9 @@
 # 평가
 
+논문용 LINK-DELTA의 네 가지 근거 환경, GPT·Claude·Gemini API와 로컬 CausalLM
+자동 로드, GPU 6 제한 및 묶음 평가는 [RESEARCH.md](RESEARCH.md)를 참조한다.
+가상 예제와 과학적 성능 실험을 구분하며, 기존 아래 평가 명령은 그대로 사용할 수 있다.
+
 이슈 #9의 **합성 데이터셋 생성·재생성 → vector RAG → 네 Ragas 지표** 실행은
 [합성 벤치마크 가이드](../docs/synthetic-benchmark.md)를 참고한다.
 `configs/vector.yaml`을 사용하고 `bench score`를 실행하면 faithfulness,

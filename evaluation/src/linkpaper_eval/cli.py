@@ -73,6 +73,10 @@ def build_parser() -> argparse.ArgumentParser:
     show_parser.add_argument("--config", required=True)
     show_parser.add_argument("--run-id", required=True)
 
+    from linkpaper_eval.research_bench.cli import register as register_research
+
+    register_research(subparsers)
+
     # 벤치마크와 평가셋 생성 명령은 별도 패키지에서 등록한다. 위 세 명령의
     # 동작에는 영향이 없고, 등록이 실패해도 기존 명령은 그대로 쓸 수 있다.
     try:

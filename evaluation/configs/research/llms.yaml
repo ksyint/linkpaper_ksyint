@@ -1,0 +1,52 @@
+# All paths passed to the research CLI are relative to the current directory.
+# API model IDs must be set explicitly; no silent 'latest' model substitution.
+schema_version: 1
+modality: text
+seed: 20261022
+repeats: 1
+max_prompt_chars: 80000
+bootstrap_samples: 1000
+models:
+  abstain:
+    provider: abstain
+  gpt:
+    provider: openai
+    model: ${LINKPAPER_GPT_MODEL}
+    api_key_env: OPENAI_API_KEY
+    max_output_tokens: 2048
+    # Leave temperature unset for models that do not support this parameter.
+  claude:
+    provider: anthropic
+    model: ${LINKPAPER_CLAUDE_MODEL}
+    api_key_env: ANTHROPIC_API_KEY
+    max_output_tokens: 2048
+  gemini:
+    provider: gemini
+    model: ${LINKPAPER_GEMINI_MODEL}
+    api_key_env: GEMINI_API_KEY
+    max_output_tokens: 2048
+  local-smoke:
+    provider: transformers
+    model: Qwen/Qwen3-0.6B
+    revision: c1899de289a04d12100db370d81485cdf75e47ca
+    gpu_index: 6
+    dtype: bfloat16
+    max_context_tokens: 8192
+    max_output_tokens: 768
+    temperature: 0.0
+    enable_thinking: false
+  local:
+    provider: transformers
+    model: ${LINKPAPER_LOCAL_MODEL}
+    revision: ${LINKPAPER_LOCAL_REVISION:-main}
+    gpu_index: 6
+    dtype: bfloat16
+    max_context_tokens: 16384
+    max_output_tokens: 2048
+    temperature: 0.0
+  served:
+    provider: openai_compatible
+    model: ${LINKPAPER_SERVED_MODEL}
+    base_url: ${LINKPAPER_SERVED_URL:-http://127.0.0.1:8000/v1}
+    api_key_env: OPENAI_COMPATIBLE_API_KEY
+    max_output_tokens: 2048
