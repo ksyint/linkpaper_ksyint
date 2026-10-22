@@ -147,6 +147,13 @@ docker compose up -d
 
 ---
 
+### 🧪 Research Direction
+
+NeurIPS 2027 벤치마크·평가 트랙을 목표로 한 연구 구상과 저장소 검토는
+[연구 문서](docs/research/neurips-2027/README.md)에 정리했습니다.
+추천 주제는 **과학적 주장의 적용 조건과 근거 변화에 따른 결론 수정 능력 평가**입니다.
+현재는 연구 제안 단계이며 데이터셋 구축·모델 성능 결과를 의미하지 않습니다.
+
 ### 📚 References
 
 #### Papers
