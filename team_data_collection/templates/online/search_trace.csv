@@ -1,0 +1,1 @@
+﻿예시ID,수집모드,문항ID,provider,검색어,검색API_URL,응답내순위,검색된논문ID,제목,원문URL,PDFURL,원본검색응답경로_비공개,검색응답SHA256,검색기록파일SHA256,검색세션시작UTC,검색세션종료UTC,기존manifest_mtimeUTC_관측값,시각근거,query_planner,오류,replay검증,replay네트워크호출수

@@ -13,6 +13,7 @@
 | [AGENTS_AND_EXPERIMENTS_KO.md](AGENTS_AND_EXPERIMENTS_KO.md) | 평가할 agent와 구성요소, 통제 실험·ablation·통계·실행 |
 | [METRICS_KO.md](METRICS_KO.md) | 결과 원천 하위 track의 GLRS 후보 지표·반례·사람 기반 검증 |
 | [TEAM_AND_DATA_KO.md](TEAM_AND_DATA_KO.md) | 5인 수집·수작업 gold·독립 검토·주별 배분·시간 산식 |
+| [팀원용 수집 안내·예시 폴더](../../../team_data_collection/DATA_COLLECTION_KO.md) | 바로 시작할 오프라인·온라인 수집 방법, 사람별 제출물과 모범 예시 |
 | [MANUAL_LABELING_KO.md](MANUAL_LABELING_KO.md) | PDF에서 무엇을 읽고 CSV에 무엇을 적는지, 논문별 3개씩 모범 문항과 수작업 안내 |
 | [RELATED_WORK_KO.md](RELATED_WORK_KO.md) | 1차 출처 중심 충돌표와 대조 실험 근거 |
 | [NOVELTY_COMPARISON_KO.md](NOVELTY_COMPARISON_KO.md) | K-BrowseComp·KoTAU 대비 차별성, 더 가까운 선행연구와 신규성 입증 조건 |

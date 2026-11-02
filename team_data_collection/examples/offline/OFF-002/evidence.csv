@@ -1,0 +1,3 @@
+﻿예시ID,수집모드,논문ID,근거ID,PDF쪽,표·절·행·열,대상·데이터,방법·조건,지표,값·결과서술,단위,보조근거위치,미확인사항,근거역할_비공개,관련추론단계_비공개,작성자,상태,독립검수자,최종gold여부
+OFF-002,offline,mora2011,MORA-E01,5,"Table 2 / Eukaryotes→Total 행 / Earth→Predicted, ±SE 열",지구 전체 진핵생물,상위 분류군 패턴을 이용한 종수 추정,예측 종수 및 표준오차,"예측 8,740,000; SE 1,300,000",종,"PDF 2쪽 Results; Table 2의 같은 행 Catalogued=1,233,500","Grand Total의 8,750,000과 구분. 예측값을 등록 종수로 바꾸지 않음. ±SE는 95% CI가 아님",결과 보고,질문별 answer_examples.csv의 근거 연결 단계 참조,AI보조 작성 예시,교육용_독립검수전,,false
+OFF-002,offline,mora2011,MORA-E04,5,Table 2 / Eukaryotes→Total / Earth→Catalogued,지구 전체 진핵생물,"동일 행 Predicted=8,740,000과 대응",등록 종수,"1,233,500",종,PDF 5쪽 Table 2의 열 제목,등록 수와 예측 수의 차이는 이 원문의 기준에서 계산한 추정상 차이이며 실제 미발견 종의 실측 총수가 아님,비교 기준·관측 등록치,질문별 answer_examples.csv의 근거 연결 단계 참조,AI보조 작성 예시,교육용_독립검수전,,false

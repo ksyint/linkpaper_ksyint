@@ -1,0 +1,7 @@
+﻿예시ID,수집모드,분야,원문언어,공개질문언어,실제수집상태,독립검수상태,상대경로
+OFF-001,offline,대비학습 표현 평가,en,ko,기존저장원문확인,검수전,examples/offline/OFF-001/
+OFF-002,offline,생물다양성 종수,en,ko,기존저장원문확인,검수전,examples/offline/OFF-002/
+OFF-003,offline,형태소 분석,ko,ko,기존저장원문확인,검수전,examples/offline/OFF-003/
+ON-001,online,배치 정규화,en,ko,실제arXiv검색및PDF수집,검수전,examples/online/ON-001/
+ON-002,online,중력파 관측,en,ko,실제arXiv검색및PDF수집,검수전,examples/online/ON-002/
+ON-003,online,지구 에너지 불균형,en,ko,실제arXiv검색및PDF수집,검수전,examples/online/ON-003/
