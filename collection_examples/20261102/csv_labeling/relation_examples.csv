@@ -1,0 +1,4 @@
+﻿논문ID,근거A,근거B,관계라벨,내부라벨,판정근거위치,판정이유,잠정결과그룹,미확인사항,작성자,상태,독립검수자,최종gold여부
+ioffe15,BN-E01,BN-E04,동일 결과 재서술,same_result_restatement,PDF 7쪽 Figure 3 Inception 행 ↔ §4.2.2 Inception 결과 설명,같은 모델·목표 정확도·검증 설정에서 31.0×10^6과 31×10^6 step을 그림과 본문으로 보고,BN-U01 후보,숫자 일치만이 아니라 같은 Inception 결과를 설명하는 문맥을 확인한 교육용 후보. 독립 검수 전,AI보조 작성 예시,교육용_독립검수전,,false
+mora2011,MORA-E01,MORA-E02,동일 결과 재서술,same_result_restatement,PDF 5쪽 Table 2 Earth/Eukaryotes Total ↔ 2쪽 Results,같은 지구 진핵생물 예측 8.74 million을 설명하며 본문이 Table 2를 직접 가리킴,MORA-U01 후보,위치 두 개를 새 결과 두 개로 세지 않음. 통계적 독립성을 판정한 라벨이 아님,AI보조 작성 예시,교육용_독립검수전,,false
+min2024,KO-E01,KO-E02,동일 결과 재서술,same_result_restatement,PDF 5쪽 Table 3 L6D256 음절 정확도 ↔ §4.5 같은 모델 설명,6계층·256차원·음절 정확도 97.06%와 주변 설명이 대응함,KO-U01 후보,다른 지표인 파라미터 비율·어절 정확도까지 같은 atomic 결과로 합치지 않음,AI보조 작성 예시,교육용_독립검수전,,false
