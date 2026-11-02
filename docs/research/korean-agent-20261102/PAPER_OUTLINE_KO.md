@@ -4,7 +4,7 @@
 
 영문 working title: *How Much Evidence Is Enough? Evaluating Scholarly Evidence Integration in Korean Agents*. 원문은 영어 다수·한국어 포함이며 AI에 한정하지 않는다. 제목은 제안이며 최초·우승·성능 결론을 암시하지 않는다.
 
-저자 계획: 김수용 1저자. 정상헌·남두현·오창원·이상민의 순위는 미정이다. 실제 기여·동의에 따라 기여문과 저자를 확인한다.
+연구 참여자: 김수용·정상헌·남두현·오창원·이상민. 기여문은 실제 작업 내용과 참여자 동의를 확인해 작성한다.
 
 ## 초록 골격
 
