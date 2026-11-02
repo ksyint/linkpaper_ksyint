@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+from collections import Counter, defaultdict
 import hashlib
 import json
 from pathlib import Path
@@ -16,6 +17,29 @@ from .lineage_metric import Episode, Triplet, evaluate
 from . import lineage_metric
 
 ARMS = ('B', 'R', 'N')
+
+
+def _source_counts(case: Case, evidence_lookup: dict[str, Evidence]):
+    """Count visible atomic records and declared language profiles per parent paper.
+
+    A paper with both en and ko records has the profile ``en+ko``; it is not
+    silently counted as two papers or conflated with a record labelled mixed.
+    These are metadata controls, not automatic language identification.
+    """
+    records = [evidence_lookup[e] for e in case.visible_evidence_ids]
+    paper_languages = defaultdict(set)
+    for record in records:
+        paper_languages[record.paper_id].add(record.source_language)
+    record_languages = Counter(record.source_language for record in records)
+    paper_profiles = Counter('+'.join(sorted(languages))
+                             for languages in paper_languages.values())
+    return {
+        'record_count': len(records),
+        'source_paper_count': len(paper_languages),
+        'record_source_language_counts': {
+            language: record_languages[language] for language in ('en', 'ko', 'mixed')},
+        'source_paper_language_profile_counts': dict(sorted(paper_profiles.items())),
+    }
 
 
 class TripletSpec(StrictModel):
@@ -75,15 +99,21 @@ def construct_triplets(corpus: list[Evidence], cases: list[Case], predictions: l
         except KeyError as exc:
             raise ValueError('Triplet references an unknown case ID') from exc
         base = selected['B']
+        base_counts = _source_counts(base, evidence_lookup)
         for case in selected.values():
+            counts = _source_counts(case, evidence_lookup)
             if (case.family_id, case.split, case.question, case.question_language,
                 case.gold.expected_conditions, len(case.visible_evidence_ids),
-                len({evidence_lookup[e].paper_id for e in case.visible_evidence_ids})) != (
+                counts['source_paper_count']) != (
                 spec.family_id, base.split, base.question, base.question_language,
                 base.gold.expected_conditions, len(base.visible_evidence_ids),
-                len({evidence_lookup[e].paper_id for e in base.visible_evidence_ids})
+                base_counts['source_paper_count']
             ):
                 raise ValueError('Matched cases require one family/split/question/language/conditions and equal record/source-paper counts')
+            if counts['record_source_language_counts'] != base_counts['record_source_language_counts']:
+                raise ValueError('Matched cases require equal record source-language counts')
+            if counts['source_paper_language_profile_counts'] != base_counts['source_paper_language_profile_counts']:
+                raise ValueError('Matched cases require equal source-paper language-profile counts')
         episodes = {}
         for arm, case in selected.items():
             eligible = spec.eligible_evidence_ids[arm]
@@ -141,11 +171,9 @@ def main(argv=None):
                 'contains_fixtures_or_drafts': core['contains_fixtures_or_drafts'],
                 'contains_oracle': core['contains_oracle'], 'scheduled_triplets': len(specs),
                 'seed': args.seed, 'budget': budget.model_dump(),
-                'matched_counts': {s.triplet_id: {arm: {
-                    'record_count': len(next(c for c in cases if c.case_id == getattr(s, arm)).visible_evidence_ids),
-                    'source_paper_count': len({e.paper_id for e in corpus if e.evidence_id in
-                        next(c for c in cases if c.case_id == getattr(s, arm)).visible_evidence_ids})
-                    } for arm in ARMS} for s in specs},
+                'matched_counts': {s.triplet_id: {arm: _source_counts(
+                    next(c for c in cases if c.case_id == getattr(s, arm)),
+                    {e.evidence_id: e for e in corpus}) for arm in ARMS} for s in specs},
                 'source_sha256': {name: hashlib.sha256(getattr(args, name).read_bytes()).hexdigest()
                                   for name in ('corpus', 'cases', 'predictions', 'triplets')},
                 'bridge_sha256': hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),

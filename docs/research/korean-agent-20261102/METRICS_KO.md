@@ -1,10 +1,12 @@
 # GLRS: 근거계보 반응 점수 연구 후보
 
-작성일: 2026-11-02. **Grounded Lineage Response Score(GLRS)**는 이 브랜치에서 독립적으로 구현한 **연구 후보**다. 이미 알려진 cluster matching/precision–recall, count error, matched intervention과 보수적 결합을 사용한다. B-cubed는 비교용 보조 진단에만 사용한다. 이들의 수학적 최초 제안이나 과학적으로 검증된 새 지표라고 주장하지 않는다. 새로운 부분으로 검증할 대상은 “실제 결과 계보를 사람이 확인한 한국어 실험 문헌에서, 반복 보고에는 unit 수를 유지하고 새 보고 단위에는 반응하는가를 취득한 근거와 함께 측정한다”는 구성과 적용 범위다. 이 구성의 novelty와 타당성도 아래 비교·human meta-eval이 끝나야 주장할 수 있다.
+작성일: 2026-11-02. **Grounded Lineage Response Score(GLRS)**는 이 브랜치에서 독립적으로 구현한 **연구 후보**다. 이미 알려진 cluster matching/precision–recall, count error, matched intervention과 보수적 결합을 사용한다. B-cubed는 비교용 보조 진단에만 사용한다. 이들의 수학적 최초 제안이나 과학적으로 검증된 새 지표라고 주장하지 않는다. 새로운 부분으로 검증할 대상은 “실제 결과 계보를 사람이 확인한 영어 다수·한국어 포함 실험 문헌과 한국어 중심 질문에서, 반복 보고에는 unit 수를 유지하고 새 보고 단위에는 반응하는가를 취득한 근거와 함께 측정한다”는 구성과 적용 범위다. 이 구성의 novelty와 타당성도 아래 비교·human meta-eval이 끝나야 주장할 수 있다.
 
 **최종 primary GLRS는 C/A를 포함한 엄격한 certificate 후보 점수다. 부드러운 일반 품질 순위 점수가 아니며, 부분 unit-matching G와 각 gate를 함께 보고한다.**
 
-코드: `evaluation/src/linkpaper_eval/lineage_metric.py`. 기존 `agent_bench/`를 변경하지 않는 독립 CPU scorer다. 합성 계산 예제만 있으며 실제 수집 corpus, 실제 agent 성능 또는 사람 품질평가 결과를 만들지 않았다.
+코드: `evaluation/src/linkpaper_eval/lineage_metric.py`. 기존 `agent_bench/`를 변경하지 않는 독립 CPU scorer다. 합성 계산 예제로 지표 계약을 검증했으며 본 평가용 실제 gold corpus, 실제 agent의 과학적 성능 또는 사람 품질평가 결과를 만들지 않았다. 소량 원문 수집 예시는 독립 검수된 gold와 별개다.
+
+주제는 AI에 한정하지 않는다. 영어·한국어의 자연과학·공학·환경·비임상 생명/농업 등에서도 같은 운영 정의를 사용할 수 있는지 pilot에서 검토하고, 실제 검수된 분야만 결과의 적용 범위로 주장한다. 영어 다수는 언어 구성의 목표이며 분야 비중을 정하지 않는다.
 
 ## 1. 무엇을 재고 무엇을 증명하지 않는가
 
@@ -22,7 +24,7 @@ reported unit은 문헌에서 식별 가능한 실험/분석/측정 결과의 �
 
 한 논문이 서로 다른 두 결과 단위를 보고하면 서로 다른 record로 나누고, 같은 parent `paper_id`에 연결한다. 하나의 논문 ID에 서로 다른 gold unit 두 개를 동시에 배정하거나, 논문의 모든 결과를 한 cluster 대상으로 취급하면 안 된다. 원문에서 같은 문단/표가 여러 unit을 언급하면 query-relevant 부분을 구분한 record와 정확한 locator를 만들고 주석으로 검증한다. 이런 record들은 같은 source/result family에 묶어 split 누출도 막는다. 여기서 record 하나의 unit ID는 논문 전체의 단일 실험 ID라는 뜻이 아니다.
 
-`len(gold_units)`의 control은 **visible RECORD 수**다. 물리적인 원문 논문 수와 다르다. core bridge는 parent `paper_id` metadata를 이용해 B/R/N의 unique parent-paper 수도 같게 검사하고 record 수와 논문 수를 둘 다 보고한다. 이 독립 metric JSON schema에는 parent mapping이 없으므로 standalone scorer만으로 논문 수 control을 검사했다고 주장할 수 없다. source 논문 수, record 수, 텍스트 길이/정보량, 검색 rank와 노출 예산은 각각 구분하여 감사한다. atomic record 경계를 잘못 만든 경우 수식이 원문 의미를 자동 복구하지 못한다.
+`len(gold_units)`의 control은 **visible RECORD 수**다. 물리적인 원문 논문 수와 다르다. core bridge는 parent `paper_id`와 `source_language` metadata를 이용해 B/R/N의 unique parent-paper 수, record별 원문 언어 빈도, parent-paper별 언어 profile 빈도를 같게 검사하고 보고한다. profile은 그 paper_id의 visible record에 선언된 source_language의 정렬된 집합이다(예: `en+ko`; `mixed`는 별도 값). 이 독립 metric JSON schema에는 parent mapping이나 source_language가 없으므로 standalone scorer만으로 논문 수 또는 원문 언어 구성 control을 검사했다고 주장할 수 없다. episode의 `language`는 질문 언어다. source 논문 수, record 수, 텍스트 길이/정보량, 검색 rank와 노출 예산은 각각 구분하여 감사한다. atomic record 경계를 잘못 만든 경우 수식이 원문 의미를 자동 복구하지 못한다.
 
 
 | 세계 | 의미 | curator가 확인할 조건 |
@@ -31,7 +33,7 @@ reported unit은 문헌에서 식별 가능한 실험/분석/측정 결과의 �
 | R, repeat | 같은 알려진 unit의 재보고/재서술 비중을 바꾼 bundle | B의 알려진 eligible unit 집합 자체를 유지 |
 | N, new | 새 eligible reported unit을 추가한 bundle | B unit을 모두 유지하면서 새 unit 1개 이상 포함 |
 
-세 세계는 질문 문장, 질문 언어, 조건 mapping, 전체 visible evidence RECORD 수가 같다. core 경로에서는 unique parent-paper 수도 같아야 한다. 새/반복 문서를 넣기 위해 기존 중복 문서 또는 적절한 padding 문서를 교체할 수 있지만, 그 때문에 기준 unit이 사라지면 유효한 new/repeat control이 아니다. 사람이 조건/문서 길이·형식·관련성·이용 가능성/도구 예산도 검토한다. **record 수나 source 논문 수를 같게 했다는 사실만으로 과학적으로 타당한 intervention이 완성되지는 않는다.**
+세 세계는 질문 문장, 질문 언어, 조건 mapping, 전체 visible evidence RECORD 수가 같다. core 경로에서는 unique parent-paper 수, record별 source_language 빈도, parent-paper별 언어 profile 빈도도 같아야 한다. 새/반복 문서를 넣기 위해 기존 중복 문서 또는 적절한 padding 문서를 교체할 수 있지만, 그 때문에 기준 unit이 사라지면 유효한 new/repeat control이 아니다. 사람이 조건/문서 길이·형식·관련성·이용 가능성/도구 예산도 검토한다. **record 수나 source 논문 수를 같게 했다는 사실만으로 과학적으로 타당한 intervention이 완성되지는 않는다.**
 
 에이전트 결과가 달라지는지, 특정 모델이 실패하는지를 보고 main case를 골라서는 안 된다. source와 gold 관계를 먼저 정하고 intervention 조건을 검증한다. 답변을 본 뒤 편리한 계보·eligible set으로 고치면 평가 누출이다.
 
@@ -129,11 +131,11 @@ C가 엄격해도 coherent한 부분 coverage는 가능하다. gold가 B/R={old 
 
 ## 5. control 검증과 eligibility
 
-standalone 구현은 질문·조건·언어·record 수 불일치, repeat의 unit 집합 변경, new의 기준 unit 누락/새 unit 미증가를 `ValueError`로 거절한다. repeat의 count만 같고 기존 unit을 다른 unit으로 바꾼 경우도 repeat이라고 볼 수 없어 거절한다. new의 총 count가 증가해도 기존 unit을 잃었다면 거절한다. 이는 요청된 count 검사보다 강한 구성 검증이다.
+standalone 구현은 질문·조건·질문 언어·record 수 불일치, repeat의 unit 집합 변경, new의 기준 unit 누락/새 unit 미증가를 `ValueError`로 거절한다. repeat의 count만 같고 기존 unit을 다른 unit으로 바꾼 경우도 repeat이라고 볼 수 없어 거절한다. new의 총 count가 증가해도 기존 unit을 잃었다면 거절한다. 이는 요청된 count 검사보다 강한 구성 검증이다.
 
 unknown gold가 있는 triplet은 잘못된 control이라고 단정할 수 없으므로 공통 형식 control은 검사하되, 미확인 unit 집합 비교를 추정으로 수행하지 않고 metric ineligible로 보고한다. 다만 B와 N 등 비교 가능한 known 세계 사이에서 이미 확인되는 control 위반은 다른 세계의 unknown으로 가리지 않고 거절한다. empty eligible gold도 별도 사유로 보고한다. 이 처리는 unknown을 독립 unit으로 세지 않기 위한 적용 범위 정의이며, unknown 인지/유보 능력을 잘 측정했다는 뜻은 아니다. 그 능력은 별도의 사람 평가 또는 검증된 유보 task로 평가해야 한다.
 
-standalone scorer에는 parent-paper mapping이 없으므로 물리 논문 수가 같다는 검증도 하지 못한다. core bridge의 parent-paper count 검증을 별도로 확인한다. 단순 형식 검사로 새 reported unit의 진실성, 같은 조건, 문헌 권리, corpus family 독립성을 증명할 수는 없다. 이 부분은 `TEAM_AND_DATA_KO.md`의 원문 locator/hash·독립 주석·조정 절차가 필요하다.
+standalone scorer에는 parent-paper mapping/source_language가 없으므로 물리 논문 수와 원문 언어 구성이 같다는 검증은 하지 못한다. core bridge가 `record_count`, `source_paper_count`, `record_source_language_counts`, `source_paper_language_profile_counts`를 따로 대조하고 manifest에 남긴다. 이 검사는 사람이 선언한 본문 언어 metadata를 이용하며 언어 판정을 자동 인증하지 않는다. 단순 형식 검사로 새 reported unit의 진실성, 같은 조건, 문헌 권리, corpus family 독립성을 증명할 수는 없다. 이 부분은 `TEAM_AND_DATA_KO.md`의 원문 locator/hash·독립 주석·조정 절차가 필요하다.
 
 ### 5.1 실패/누락 분모
 
@@ -205,7 +207,7 @@ unit test는 손계산·분모·불변성·schema 오류를 검증할 뿐 지표
 1. source/unit gold를 독립적으로 확인한 전문가가 agent의 B/R/N 출력과 취득 trace를 검토한다. 지표 이름/값·모델 이름을 가리고, 자신의 출제 문항은 유일한 judge로 맡기지 않는다.
 2. 적어도 두 명이 case별 여러 시스템 출력을 순위 또는 pairwise 선호로 평가하고, 불일치는 제3자가 조정한다. **조정 전 agreement**를 남긴다.
 3. rubric은 잘못된 합침/분리, 원문 조건 추적, 실제 취득한 근거, 반복에 대한 과잉 반응, 새 unit 누락, 정보 부족에 대한 유보를 각각 평가한다. 결론의 semantic correctness는 별도 항목으로 둔다.
-4. GLRS/component(C/A 포함), ordinary B-cubed, count delta, citation precision/recall, dedup/RARE류 기준, CUE-R류 intervention diagnostics가 사람 순위와 얼마나 맞는지 Spearman/Kendall·pairwise agreement·family-cluster CI로 비교한다. 모델·언어·분야 strata와 동점률도 보고한다.
+4. GLRS/component(C/A 포함), ordinary B-cubed, count delta, citation precision/recall, dedup/RARE류 기준, CUE-R류 intervention diagnostics가 사람 순위와 얼마나 맞는지 Spearman/Kendall·pairwise agreement·family-cluster CI로 비교한다. 모델·질문 언어·원문 언어 profile·분야 strata와 동점률도 보고한다. 같은 원문의 KO/EN 질문 비교와 서로 다른 원문의 EN/KO 관측 비교를 구별하고 후자를 언어의 인과 효과로 해석하지 않는다.
 5. evaluator gold의 오류와 metric의 오류를 구분한다. 사람이 인정한 alternate evidence subset을 GLRS가 부당하게 낮추는 사례, unknown-heavy 사례를 반드시 별도 분석한다.
 
 40 pilot base group으로 rubric·동점·비용을 점검하고, 사람이 검토 가능한 출력 수와 사전 최소효과/검정력에 따라 별도의 held-out meta-eval family 수를 정한다. pilot의 상관이 유리하다는 이유로 40개를 확정 검증으로 포장하지 않는다.
@@ -232,4 +234,4 @@ min G 대 mean G, C의 hard certificate 대 사전 정한 soft 보조 변형, A/
 
 검증 항목은 adequate duplicate witness 선택/같은 cluster의 반복 witness 불변성, 중복 unit 분리 감점, 서로 다른 unit 합침의 인증 실패, background 인용과 unit 주장 구분, unsupported claimed cluster 분모 보존, unsupported fake-count/OLD-unit 재취득 gaming 차단(C/A), coherent partial coverage, perfect=1, constant merge/separate=0, repeat overcount와 new 무반응 감점, cluster/gold unit 이름 불변성, 실제 열지 않은/누락/실패 응답의 0 및 분모 보존, wrong/ineligible 인용·누락 손계산, unknown gold coverage, control 불일치 오류, group/family macro, CLI roundtrip다. 이들은 보고 숫자가 잘못되어 연구 결론이 바뀌는 오류를 방지하기 위한 계산 검증이다.
 
-실제 agent integration은 `evaluation/src/linkpaper_eval/agent_lineage.py`가 원래 episode/trace/private gold registry를 검증해 이 schema로 변환한다. 실제 읽은 근거는 frozen tool replay로 확인하며, source paper 수와 record 수도 대조한다. 실제 과학 자료의 unit·eligible witness와 사람 타당성 검증은 추가로 필요하다. 합성 end-to-end smoke는 실제 model/science benchmark의 검증을 대체하지 않는다. 이 scorer는 CPU 전용이며 GPU 의존성이 없다. GPU 모델 실행은 [GPU 매뉴얼](GPU_EXECUTION_KO.md)의 할당 장치 설정을 따른다.
+실제 agent integration은 `evaluation/src/linkpaper_eval/agent_lineage.py`가 원래 episode/trace/private gold registry를 검증해 이 schema로 변환한다. 실제 읽은 근거는 frozen tool replay로 확인하며, source paper 수와 record 수, record별 원문 언어 빈도, paper별 언어 profile 빈도도 대조한다. 실제 과학 자료의 unit·eligible witness와 사람 타당성 검증은 추가로 필요하다. 합성 end-to-end smoke는 실제 model/science benchmark의 검증을 대체하지 않는다. 이 scorer는 CPU 전용이며 GPU 의존성이 없다. GPU 모델 실행은 [GPU 매뉴얼](GPU_EXECUTION_KO.md)의 할당 장치 설정을 따른다.

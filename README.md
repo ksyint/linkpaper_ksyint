@@ -18,7 +18,7 @@
 
 </div>
 
-> **2026-11-02 연구 확장:** [한국어 연구 에이전트 벤치마크 설계·실행 안내](docs/research/korean-agent-20261102/README.md). 같은 실험 결과의 재인용과 새 결과 단위를 구별하는 도구 agent 평가, GLRS 후보 지표, 에이전트/구성요소별 실험, 5인 수집·수작업 검수 계획을 정리했다. 현재는 CPU fixture로 검증한 프로토타입이며 실제 benchmark gold·모델 성능·메인 학회 채택을 주장하지 않는다. GPU 선택과 단일·다중 GPU 실행은 [GPU 매뉴얼](docs/research/korean-agent-20261102/GPU_EXECUTION_KO.md)을 따른다.
+> **2026-11-02 연구 확장:** [한국어 연구 에이전트 벤치마크 설계·실행 안내](docs/research/korean-agent-20261102/README.md). **영어 논문 비중이 높은 영어·한국어 원천**에 한국어 질문과 영어 대조 질문을 자체 작성한다. AI에 한정하지 않고 자연과학·공학·환경·생명과학 등의 논문도 포함한다. 같은 실험 결과의 재인용과 새 결과 단위를 구별하는 도구 agent 평가, GLRS 후보 지표, 에이전트/구성요소별 실험, 5인 수집·수작업 검수 계획을 정리했다. [실제 수집 예시](collection_examples/20261102/README_KO.md)도 별도 제공한다. 현재는 CPU fixture로 검증한 프로토타입이며 실제 benchmark gold·모델 성능·메인 학회 채택을 주장하지 않는다. GPU 선택과 단일·다중 GPU 실행은 [GPU 매뉴얼](docs/research/korean-agent-20261102/GPU_EXECUTION_KO.md)을 따른다.
 
 ### 📖 Introduction
 
@@ -153,14 +153,9 @@ docker compose up -d
 
 ### 🧪 Research Direction
 
-NeurIPS 2027 벤치마크·평가 트랙을 목표로 한 연구 구상과 저장소 검토는
-[연구 문서](docs/research/neurips-2027/README.md)에 정리했습니다.
-추천 주제는 **과학적 주장의 적용 조건과 근거 변화에 따른 결론 수정 능력 평가**입니다.
-현재는 연구 제안 단계이며 데이터셋 구축·모델 성능 결과를 의미하지 않습니다.
+현재 방향은 **주요 학회 main track 수준의 검증을 목표로 하는 문헌 근거 계보 agent benchmark**이며 [최신 연구 설계](docs/research/korean-agent-20261102/README.md)를 따릅니다. 영어가 다수인 영어·한국어 다분야 논문에서 같은 실험 결과의 재보고와 새 결과 보고를 구별하는지 평가합니다. 신규성·사람 gold·본 실험은 검증할 과제이며 학회 채택을 보장하지 않습니다.
 
-텍스트 LLM용 첫 실험 구현은 [실행 안내](evaluation/RESEARCH.md)를 참조하세요.
-GPT·Claude·Gemini API와 로컬 CausalLM 자동 로드, 물리 GPU 6 제한,
-네 근거 환경 생성·실행·재개·진단 집계를 지원합니다. 포함된 가상 fixture는 실행 검증용입니다.
+이전 NeurIPS 2027 벤치마크·평가 트랙 제안과 전체 근거를 미리 주는 packet 실험은 [과거 연구 문서](docs/research/neurips-2027/README.md)와 [packet 실행 안내](evaluation/RESEARCH.md)에 보존했습니다. 현재 도구 agent 설정과 구분합니다. 로컬 로더의 단일 GPU 선택, 여러 worker 및 외부 tensor-parallel 서버 실행은 [최신 GPU 매뉴얼](docs/research/korean-agent-20261102/GPU_EXECUTION_KO.md)을 따릅니다. 가상 fixture는 실행 검증용입니다.
 
 ### 📚 References
 

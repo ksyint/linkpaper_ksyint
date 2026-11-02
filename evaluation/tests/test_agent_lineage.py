@@ -125,6 +125,39 @@ def test_equal_record_count_does_not_hide_unequal_source_paper_counts(experiment
         construct_triplets(corpus, cases, predictions, specs)
 
 
+@pytest.mark.parametrize('language', ['ko', 'mixed'])
+def test_equal_record_and_paper_counts_do_not_hide_source_language_imbalance(experiment, language):
+    corpus, cases, specs, _ = experiment
+    # Only N contains source 04. Query language, record count and paper count
+    # stay equal, but the declared source-language composition no longer does.
+    corpus[3] = corpus[3].model_copy(update={'source_language': language})
+    predictions = run_demo('lexical', corpus, cases)
+    with pytest.raises(ValueError, match='record source-language counts'):
+        construct_triplets(corpus, cases, predictions, specs)
+
+
+def test_equal_record_language_counts_do_not_hide_parent_paper_profile_imbalance(experiment):
+    corpus, cases, specs, _ = experiment
+    # Each arm still has four records (en2/ko2) from three parent papers.
+    # B/R put both en records in one parent; N splits them between an en
+    # parent and an en+ko parent. Matching only marginal record counts misses it.
+    for index in (2, 5):
+        corpus[index] = corpus[index].model_copy(update={'paper_id': corpus[0].paper_id})
+    corpus[3] = corpus[3].model_copy(update={'paper_id': corpus[1].paper_id})
+    predictions = run_demo('lexical', corpus, cases)
+    with pytest.raises(ValueError, match='source-paper language-profile counts'):
+        construct_triplets(corpus, cases, predictions, specs)
+
+
+def test_equal_language_profiles_allow_multiple_atomic_records_per_parent(experiment):
+    corpus, cases, specs, _ = experiment
+    for index in (2, 3, 5):
+        corpus[index] = corpus[index].model_copy(update={'paper_id': corpus[0].paper_id})
+    predictions = run_demo('lexical', corpus, cases)
+    triplets, _ = construct_triplets(corpus, cases, predictions, specs)
+    assert evaluate(triplets)['family_macro_GLRS'] == 1
+
+
 def test_cli_bridges_core_predictions_and_writes_private_checksums(tmp_path, capsys):
     agent_out, evaluator_out = tmp_path / 'agent', tmp_path / 'evaluator'
     assert agent_main(['run-demo', '--corpus', str(FIXTURE / 'corpus.jsonl'),
@@ -139,6 +172,9 @@ def test_cli_bridges_core_predictions_and_writes_private_checksums(tmp_path, cap
     assert manifest['source_sha256']['predictions'] == hashlib.sha256((agent_out / 'predictions.jsonl').read_bytes()).hexdigest()
     assert 'EVALUATOR ONLY' in manifest['scope']
     assert manifest['matched_counts']['bridge-triplet-01'] == {
-        arm: {'record_count': 4, 'source_paper_count': 4} for arm in ('B', 'R', 'N')}
+        arm: {'record_count': 4, 'source_paper_count': 4,
+              'record_source_language_counts': {'en': 2, 'ko': 2, 'mixed': 0},
+              'source_paper_language_profile_counts': {'en': 2, 'ko': 2}}
+        for arm in ('B', 'R', 'N')}
     private = json.loads((evaluator_out / 'triplets.private.json').read_text())
     assert set(private[0]['B']['gold_units'].values()) == {'private-A', 'private-B', None}

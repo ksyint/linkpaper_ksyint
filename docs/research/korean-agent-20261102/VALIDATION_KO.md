@@ -1,10 +1,10 @@
 # 실제 실행한 검증
 
-2026-11-02, Python3.12 격리 환경에서 단위·계약 검사를 CPU로 실행했다. 공개 GPU 설정을 일반화하고 HF 정책을 추가한 최종 검증은 아래 271개 통과다. 별도로 사용자 허가에 따라 단일 모델 가중치를 내려받아 물리 GPU3에서 3개 합성 episode의 실제 생성 경로를 확인했다. 유료 모델 API는 호출하지 않았다. 단위 검사와 실제 모델 smoke의 목적·결과를 구분한다.
+2026-11-02, Python3.12 격리 환경에서 단위·계약 검사를 CPU로 실행했다. 공개 GPU 설정·HF 정책에 이어 원천 언어 구성 검사를 추가한 최종 검증은 아래 **275개 통과**다. 별도로 사용자 허가에 따라 단일 모델 가중치를 내려받아 물리 GPU3에서 3개 합성 episode의 실제 생성 경로를 확인했다. 유료 모델 API는 호출하지 않았다. 단위 검사와 실제 모델 smoke의 목적·결과를 구분한다.
 
 ```bash
 CUDA_VISIBLE_DEVICES='' LINKPAPER_TEST_DOCKER_NEO4J=0 uv run --project evaluation --frozen --extra dev --extra stores python -m pytest -q evaluation/tests
-# 271 passed, 4 skipped
+# 275 passed, 4 skipped in 3.68s
 bash scripts/run_korean_agent_demo.sh /path/to/new/output
 # Integrated synthetic GLRS: lexical=1, blind=0 (not scientific performance).
 ```
@@ -31,12 +31,15 @@ bash scripts/run_korean_agent_demo.sh /path/to/new/output
 - 모든 visible paper/version/result unit과 질문 언어 쌍의 split 누출.
 - 작성자를 제외한 독립 reviewer metadata, fixture/draft/oracle의 publication/semantic-score gate.
 - 같은 논문의 서로 다른 atomic record/locator와 matched record 수·source-paper 수의 구분.
+- 질문 언어가 같아도 B/R/N의 원천 record 언어 수가 다른 경우 거부. record 언어 수가 같더라도 parent paper별 visible-record 언어 profile 분포가 다른 경우 거부. 선언된 metadata의 검사이며 본문 언어 자동 판별·과학적 동등성 인증이 아님.
 
-추가로 새 소스의 Python3.11 문법 호환, bash 문법, git diff whitespace, 새 문서의 상대 링크를 검사했다. [validation_summary.json](validation_summary.json)에 source SHA와 합성 CLI 집계가 있다. raw fixture run은 로컬 evaluation/runs/korean-agent-validation-20261102에 있고 runs는 Git ignore 대상이다. CI의 korean-agent-smoke가 같은 스크립트를 CPU에서 재실행하고 artifact로 보관한다.
+추가로 새 소스의 Python3.11 문법 호환, bash 문법, git diff whitespace, 새 문서의 상대 링크를 검사했다. [validation_summary.json](validation_summary.json)에 source SHA와 합성 CLI 집계가 있다. 원천 언어 구성 보강 뒤 새 CPU run은 로컬 `evaluation/runs/bilingual-source-validation-20261102`에 있다. 이전 `evaluation/runs/korean-agent-validation-20261102`와 실제 HF smoke는 덮어쓰지 않았다. runs는 Git ignore 대상이다. CI의 korean-agent-smoke가 같은 스크립트를 CPU에서 재실행하고 artifact로 보관한다.
+
+현재 bridge fixture는 B/R/N 모두 영어2·한국어2 record 및 paper profile로 맞췄다. 원천6개 전체는 영어4·한국어2이지만, 어느 쪽도 본 데이터의 영어 다수 비중이나 분야 대표성 검증이 아니다. 실제 HF smoke는 보강 전 R의 언어 구성이 달랐으며, [당시 기록](REAL_LLM_SMOKE_KO.md)에 차이를 명시했다. 보강 뒤 모델을 다시 실행하지 않았다.
 
 ## 아직 필요한 연구 검증
 
-실제 한국어 원천 자료·수작업 gold/초기 IAA·대체 근거·권리·source-family split, 실제 model snapshot 고정과 공정한 budget 실험, 전문가 metric meta-eval은 수행 전이다. [팀 작업표](TEAM_AND_DATA_KO.md), [실험표](AGENTS_AND_EXPERIMENTS_KO.md), [새 지표의 한계](METRICS_KO.md)를 따른다. 완전한 GPU/모델 runtime 검증이나 full production LinkPaper online API 검증을 완료했다고 쓰지 않는다.
+영어가 다수인 영어·한국어 다분야 실제 원천의 수작업 gold/초기 IAA·대체 근거·권리·source-family split, 실제 model snapshot 고정과 공정한 budget 실험, 전문가 metric meta-eval은 수행 전이다. [실제 수집 예시](../../../collection_examples/20261102/README_KO.md)는 원문과 draft 후보를 준비한 것이며, 독립 검수된 benchmark gold가 아니다. [팀 작업표](TEAM_AND_DATA_KO.md), [실험표](AGENTS_AND_EXPERIMENTS_KO.md), [새 지표의 한계](METRICS_KO.md)를 따른다. 완전한 GPU/모델 runtime 검증이나 full production LinkPaper online API 검증을 완료했다고 쓰지 않는다.
 
 ## 추가 실제 LLM 생성 smoke
 

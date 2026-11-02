@@ -75,8 +75,8 @@ def factory():
 
     Command paths should be absolute because each decision uses an empty cwd.
     Model/provider credentials stay in the trusted child environment, never in
-    public task objects or command output. Configure physical CUDA3 separately
-    before a remote GPU-backed server is used. A local child defaults to CPU;
+    public task objects or command output. Configure the server's allocated GPU
+    separately before a remote GPU-backed server is used. A local child defaults to CPU;
     LINKPAPER_POLICY_USES_GPU=1 plus LINKPAPER_POLICY_GPU_INDEX selects one
     explicitly allocated physical GPU by UUID before spawning.
     """

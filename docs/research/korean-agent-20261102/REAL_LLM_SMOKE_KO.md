@@ -2,6 +2,8 @@
 
 실행일: 2026-11-02. **Qwen/Qwen3-0.6B 한 모델을 실제로 물리 GPU3에서 실행했다.** 목적은 모델 로딩·generation·public-only JSONL policy·엄격한 출력 검사·실패 분모·trace→GLRS 연결을 확인하는 integration smoke다. 대상은 새로 작성한 **가상 B/R/N fixture 3개**이며 실제 논문 데이터나 사람 주석 test set이 아니다. 이 결과를 논문 성능, 한국어 agent 역량 비교 또는 GLRS 타당성 검증으로 사용하면 안 된다.
 
+이후 원천 언어 구성 검사와 fixture를 보강했다. **이 문서의 실제 GPU 실행은 보강 전 corpus hash**를 사용했다. 당시 B/N은 영어2·한국어2 record, R은 영어1·한국어3이어서 원천 언어가 통제된 실험이 아니었다. 현재 fixture는 R 전용 가상 재서술 record를 영어로 다시 작성해 세 arm 모두 영어2·한국어2로 맞췄고 CPU로만 재검증했다. 아래 실제 모델의 원 응답·점수·시간·hash는 소급 변경하지 않았다. 영어 다수·다분야 본 데이터의 gold와 모델 성능은 별도 구축·측정할 대상이다.
+
 ## 1. 실제 결과: 3개 모두 schema 실패로 보존
 
 | 항목 | 실제 관측 |
@@ -134,4 +136,4 @@ evaluation/.venv/bin/python scripts/run_hf_agent_smoke.py \
   --out evaluation/runs/hf-agent-smoke-reproduce
 ```
 
-실제 모델 도구 선택/관찰/최종 답변 성공을 검증하는 후속 run은 별도로 필요하다. 현재 결과는 실제 실행을 했다는 사실과 실패를 정직하게 처리했다는 근거이며, 완료되지 않은 benchmark 개발·실제 한국어 gold 수집·전문가 meta-eval을 대신하지 않는다.
+실제 모델 도구 선택/관찰/최종 답변 성공을 검증하는 후속 run은 별도로 필요하다. 현재 결과는 실제 실행을 했다는 사실과 실패를 정직하게 처리했다는 근거이며, 완료되지 않은 benchmark 개발·실제 영어·한국어 문헌 gold 수집·전문가 meta-eval을 대신하지 않는다.

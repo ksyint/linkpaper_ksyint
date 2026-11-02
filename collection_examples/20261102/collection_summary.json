@@ -1,0 +1,13 @@
+{
+  "source_count": 7,
+  "source_languages": {
+    "en": 6,
+    "ko": 1
+  },
+  "total_pdf_bytes": 12847303,
+  "annotation_status": "review_pending",
+  "benchmark_gold_cases": 0,
+  "completed_B_R_N_triplets": 0,
+  "scope": "illustrative collection only; not final domain or language quota",
+  "pdfs_committed": false
+}

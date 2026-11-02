@@ -10,11 +10,11 @@
 
 인용 수가 독립적인 증거 수와 같지 않다는 문제 역시 새 발견이 아니다. Greenberg는 2009년에 과학 인용망에서 새 데이터를 제공하지 않는 논문들이 주장의 권위를 증폭하는 과정을 분석했다. 최근 CONFPROP 연구도 공통 상위 출처와 복제 연쇄를 가진 증거를 독립적으로 합산하는 문제를 직접 다룬다. [Greenberg](https://doi.org/10.1136/bmj.b2680), [CONFPROP](https://doi.org/10.1007/s44163-026-02245-5)
 
-따라서 새 이름이나 요소 조합 자체를 기여로 삼으면 약하다. **한국어 1차 문헌의 실제 실험·데이터 계보를 사람이 확인한 평가 자료**, **에이전트가 그 계보를 탐색하는 과정**, **텍스트 중복과 실증적 독립성의 혼동을 분리하는 대조 실험**을 제공하고, 이것이 기존 점수에서 보이지 않는 실패를 드러내는지 검증하는 쪽이 더 방어 가능하다. 이 차이도 아직 입증된 독창성이 아니라 검증할 후보 경계다.
+따라서 새 이름이나 요소 조합 자체를 기여로 삼으면 약하다. **영어 다수·한국어 포함 실제 논문의 실험·데이터 계보를 사람이 확인한 평가 자료**, **에이전트가 그 계보를 탐색하는 과정**, **텍스트 중복과 서로 다른 reported-result 단위의 혼동을 분리하는 대조 실험**을 제공하고, 이것이 기존 점수에서 보이지 않는 실패를 드러내는지 검증하는 쪽이 더 방어 가능하다. 이 차이도 아직 입증된 독창성이 아니라 검증할 후보 경계다. 원문은 영어 논문이 더 많고 한국어 논문도 포함한다. 따라서 영어 학술 자료를 다루는 SciNet·ScholarGym·AgentHop 등과의 충돌이 직접적이며, 원문이 한국어라는 사실을 주된 novelty로 쓸 수 없다. 한국어 질문과 영어 질문 대조는 원문 언어와 별개의 축이다. 주제도 AI에 한정하지 않고 판정 역량을 확보한 자연과학·공학·환경·비임상 생명/농업 등을 포함한다. 넓은 분야 후보를 찾았다는 사실만으로 모든 분야에 일반화한다고 주장하지 않는다.
 
 ## 2. 추천하는 중심 연구 질문 하나
 
-> 문서 수·주장의 표면적 지지·검색 예산을 통제했을 때, 한국어 연구 에이전트는 **한 실험의 결과를 재인용한 여러 문헌**과 **원문으로 확인되는 서로 다른 실험·결과 단위의 증거**를 구별하는가? 반복 인용이 늘 때는 결론을 유지하고, 조건에 맞는 새 실험·결과 단위가 추가될 때는 결론을 적절히 바꾸는가?
+> 영어 다수·한국어 포함 원문에서 문서 수·주장의 표면적 지지·원문 언어 구성·검색 예산을 통제했을 때, 한국어로 질문받은 연구 에이전트는 **한 실험의 결과를 재인용한 여러 문헌**과 **원문으로 확인되는 서로 다른 실험·결과 단위의 증거**를 구별하는가? 반복 인용이 늘 때는 결론을 유지하고, 조건에 맞는 새 실험·결과 단위가 추가될 때는 결론을 적절히 바꾸는가?
 
 가제는 **“한국어 학술 에이전트의 실증 근거 계보 추적 평가”** 정도로 두자. 이름에 “first”, “causal”, “independent truth”, “complete scientific verification”를 넣지 않는다. 기존 LinkPaper의 논문 검색·본문·인용 연결 기능은 평가 환경으로 활용할 수 있다. 서비스 UI를 개선했다는 사실과 새 평가가 유효하다는 사실은 각각 확인한다. [LinkPaper 소개](https://github.com/linkmind-ai/linkpaper)
 
@@ -55,7 +55,7 @@
 | [AgentHop](https://arxiv.org/abs/2609.34428), 2026-09-28 | 1,011개 과학 MCQ, 7개 도구, 예산 제한. 검색·합성·도구·자원 진단. [공식 데이터 카드](https://huggingface.co/datasets/nlpai-lab/agenthop) | seed paper의 인용망 탐색과 실패 분해는 기존 작업이다. 실험 계보 단위의 과제와 평가가 추가로 필요하다. 매우 높음. |
 | [IdeaGene-Bench](https://arxiv.org/abs/2607.08758), 2026-07-09 preprint | 아이디어의 상속·변형·재조합 계보와 새 아이디어 생성 평가. [공식 코드](https://github.com/VisionXLab/IdeasHaveGenomes) | “과학 계보 추론 최초”는 주장할 수 없다. 아이디어 상속과 실험 결과 재보고 계보를 구분하고, 후자를 실제로 새롭게 측정하는지 검증한다. 매우 높음. |
 | [SciNet](https://proceedings.mlr.press/v306/shao26h.html), ICML 2026 main | 논문 관계를 ego/pair/path 수준에서 검색하는 8,940과제. 상충 연구·기술 계보 등. | 인용 관계·연구 흐름을 찾는 것만으로 새롭지 않다. bibliographic lineage와 empirical study lineage를 분리해야 한다. 매우 높음. |
-| [SciValidityBench](https://arxiv.org/abs/2610.34767), 2026-10-26 preprint | 64 TaskSpec, 다섯 validity 모듈과 여섯 과학 영역. 결정의 유효성, 쌍 조건과 손상·복구. | 일반 조건 적합성·과학 상태 ledger·counterfactual은 선행연구로 인정한다. 실제 한국어 문헌의 데이터 계보 감사가 별도 측정 대상을 만드는지 검증한다. 매우 높음. |
+| [SciValidityBench](https://arxiv.org/abs/2610.34767), 2026-10-26 preprint | 64 TaskSpec, 다섯 validity 모듈과 여섯 과학 영역. 결정의 유효성, 쌍 조건과 손상·복구. | 일반 조건 적합성·과학 상태 ledger·counterfactual은 선행연구로 인정한다. 실제 영어·한국어 문헌의 reported-result 계보 감사와 취득 trace가 별도 측정 대상을 만드는지 검증한다. 원문 언어 변경만으로 차별화하지 않는다. 매우 높음. |
 | [SciConBench](https://arxiv.org/abs/2606.11337), 2026-06-09 | 체계적 문헌고찰 기반 9.11K 질문·결론, clean-room 도구, 원자 사실 precision/recall. | 과학 결론 종합·상충 근거 해소·답안 누출 차단은 기존이다. 전문 임상 결론의 진위를 새로 판정하는 범위까지 확대하지 않는다. 높음. |
 | [ScholarGym](https://arxiv.org/abs/2601.21654), 2026-01-29 | 570K 논문, 2,536 전문가 주석 질의, 결정적 검색, 계획·도구·관련성 분해. | frozen academic tool environment 자체는 새 기여가 아니다. 매우 높음. |
 | [PaperArena](https://arxiv.org/abs/2510.10909), 2025-10-13 | 여러 논문의 다양한 형식을 통합하고 parsing·retrieval·computation 도구로 답하는 플랫폼. | 학술 도구 orchestration·cross-paper QA 자체는 새롭지 않다. 매우 높음. |
@@ -87,9 +87,9 @@ KoTAU는 로컬 `README.md`에서 한국 여행용 offline tool 환경과 DB 사
 
 가능한 기여 후보는 다음 네 가지를 **함께 검증했을 때** 성립한다.
 
-1. 한국어 원문을 포함한 실제 학술 자료에서 `publication ↔ study ↔ data/experiment`의 관계를 근거 span까지 확인한 새 주석 자료.
+1. 영어 논문이 다수이고 한국어 논문을 포함한 실제 학술 자료에서 `publication ↔ study ↔ data/experiment`의 관계를 근거 span까지 확인한 새 주석 자료.
 2. agent가 제한된 관측과 도구 예산으로 원문·참조·방법을 찾아 그 관계를 복원하는 과제.
-3. 문서 개수·텍스트 유사도·주장 지지·독립 실험 개수를 분리하는 matched intervention. 인위적인 예시는 controlled split으로 명확히 표시하고 실제 관찰 문헌과 합쳐 하나의 자연 분포라고 주장하지 않는다.
+3. 문서 개수·텍스트 유사도·주장 지지·서로 다른 reported-result 단위 수를 분리하는 matched intervention. 인위적인 예시는 controlled split으로 명확히 표시하고 실제 관찰 문헌과 합쳐 하나의 자연 분포라고 주장하지 않는다.
 4. 최종답·개별 citation 점수가 높은 agent도 study-family 중복 집계나 잘못된 독립성 선언을 하는지에 관한 사전 등록된 실증 분석.
 
 아래 표현은 근거가 부족하다.
@@ -106,7 +106,7 @@ KoTAU는 로컬 `README.md`에서 한국 여행용 offline tool 환경과 DB 사
 
 ### 5.1 과제의 출력과 gold
 
-1차 과제는 장문의 자유 보고서보다 닫힌 평가가 가능한 **근거 집합 판단**으로 시작한다. 예: “지정한 조건에서 서로 다른 실험·결과 단위가 두 개 이상 이 주장을 직접 지지하는가?” 문제에는 독립성의 운영 정의와 기준 시점을 명시한다. agent는 `supported_threshold / below_threshold / indeterminate` 중 하나와 1차 보고 문헌·근거 span·문헌 사이의 계보 설명을 반환한다.
+1차 과제는 장문의 자유 보고서보다 닫힌 평가가 가능한 **근거 집합 판단**으로 시작한다. 예: “지정한 조건에서 서로 다른 실험·결과 단위가 두 개 이상 이 주장을 직접 지지하는가?” 문제에는 reported-result 단위의 운영 정의와 기준 시점을 명시한다. 이 구분을 통계적 독립성이라고 부르지 않는다. agent는 `supported_threshold / below_threshold / indeterminate` 중 하나와 1차 보고 문헌·근거 span·문헌 사이의 계보 설명을 반환한다.
 
 gold는 판단·적격한 연구 단위 집합·허용 가능한 대체 지지 span·알려진 의존성 관계를 가진다. `indeterminate`는 annotation 누락을 숨기는 답이 아니라 공개된 입력에서 필요한 계보를 판별할 수 없다는 전문가 합의여야 한다. 실제 세계 전체에서 연구가 없다고 말하지 않고 **버전 고정된 bounded corpus 안에서의 판정**으로 한정한다.
 
@@ -120,7 +120,8 @@ agent가 study-family의 숨겨진 gold ID를 그대로 출력하게 하지 않�
 | 계보 정보 | 본문·기본 인용 / bibliographic graph / 사람이 검증한 계보 oracle | 그래프 존재와 올바른 계보 이해를 분리 |
 | 문서 집합 | 실증 단위 유지하며 secondary report 증가 / 실제 별도 1차 실험 추가 | 문서 수와 실증 수 분리 |
 | 표면 형태 | exact copy / 낮은 유사도 paraphrase·review / 유사한 표현의 별도 실험 | 텍스트 dedup shortcut 점검 |
-| 언어 | 한국어 질문·원문 / 같은 원문의 영어 질문 / 검토된 bilingual 대응 자료 | 질문 언어와 evidence 언어를 분리 |
+| 질문 언어 | 같은 영어·한국어·혼합 원문 bundle에 한국어 질문 / 의미 대응 영어 질문 | source를 고정하고 질문 언어 대조 |
+| 원문 언어 | 영어 다수의 corpus 내 EN-only / KO-only / mixed bundle strata | 분야·venue·시기·내용 차이가 섞인 관측 분석. 언어의 인과 효과를 주장하지 않음 |
 | 예산 | 동일 tool call cap + 기록된 input/output token·시간·비용 | 더 많은 compute를 능력 향상으로 오해하지 않음 |
 | 난도 | 문헌 수·계보 깊이·대체 근거 수·미상 관계 비율 | 쉬운 metadata shortcut과 진짜 복합 판정 분리 |
 
@@ -141,7 +142,7 @@ CONFPROP를 구현·이식한다면 원 구현과 라이선스를 먼저 확인�
 
 ### 5.4 측정 항목
 
-1차 지표는 **같은 base claim에서 만들어진 두 조건을 모두 맞히는 비율**과 계보 변화에 대한 올바른 `유지/변경`이다. “무조건 답을 바꾸는 agent”와 “무조건 유보하는 agent”가 통과하지 못해야 한다. primary metric·분모·parse 실패 처리·재시도 규칙을 pilot 이전에 고정한다.
+계보의 주요 후보 점수는 [GLRS](METRICS_KO.md)의 B/R/N 세 조건 grounding·반복 불변성·새 reported unit 반응이다. 최종 의미 판단은 failure-inclusive expert-adjudicated accuracy/F1로 별도 보고한다. GLRS를 최종 primary로 쓸지는 인간 meta-eval을 포함한 사전 protocol에서 고정하며, 그 전에는 검증된 새 지표라 부르지 않는다. 새 unit이 추가돼도 과학적 verdict가 반드시 바뀌지는 않는다. “무조건 답을 바꾸는 agent”와 “무조건 유보하는 agent”를 대조군으로 두고 primary metric·분모·parse 실패·재시도 규칙을 pilot 이전에 명세한다.
 
 보조 지표는 다음을 분리한다.
 
@@ -162,7 +163,7 @@ CONFPROP를 구현·이식한다면 원 구현과 라이선스를 먼저 확인�
 
 각 문헌의 URL/DOI, 버전, 접근일, 원문 hash, 언어, 공개 라이선스, 사용 허용 범위, section/page/표 식별자를 남긴다. 문제·번역·태그·label도 작성자와 검수 이력을 분리한다. 기존 benchmark 문제나 예상 경로를 seed로 삼지 않는다.
 
-공개 metadata의 이용 조건과 PDF 본문·번역문의 재배포 조건은 다르다. 코드가 MIT/Apache여도 논문 원문까지 같은 조건으로 배포 가능한 것은 아니다. 한국어 논문은 기관 사이트에 보인다는 이유만으로 수집·재배포가 허용되었다고 간주하지 않는다. 허용 조건이 확인된 원문을 우선하고, 나머지는 URL·서지 정보·직접 작성한 annotation을 분리해 다룬다.
+공개 metadata의 이용 조건과 PDF 본문·번역문의 재배포 조건은 다르다. 코드가 MIT/Apache여도 논문 원문까지 같은 조건으로 배포 가능한 것은 아니다. 영어·한국어 논문 모두 학회·기관 사이트에 보인다는 이유만으로 수집·재배포가 허용되었다고 간주하지 않는다. 허용 조건이 확인된 원문을 우선하고, 나머지는 URL·서지 정보·직접 작성한 annotation을 분리해 다룬다.
 
 ### 6.2 수작업이 필요한 핵심 주석
 
@@ -181,13 +182,15 @@ CONFPROP를 구현·이식한다면 원 구현과 라이선스를 먼저 확인�
 
 확정된 저자는 김수용(1저자), 정상헌·남두현·오창원·이상민(순위 미정)이다. 기존 프로젝트의 직함은 이 배분에 사용하지 않는다. 아래는 **실행 가능한 첫 40 base case pilot**의 균등 수집·교차검수 예시이며 저자 순위를 정하는 규칙이 아니다.
 
-| 담당 | 1차 수집·주석 | 독립 2차 검수 | 공동 산출물 |
+| 출제·수집 담당 | base case | 독립 reviewer R1 / R2 | 불일치 조정자 |
 |---|---:|---|---|
-| 정상헌 | 10 base case | 남두현의 10건 | case manifest·원문 권한·study mapping |
-| 남두현 | 10 base case | 오창원의 10건 | 동일 |
-| 오창원 | 10 base case | 이상민의 10건 | 동일 |
-| 이상민 | 10 base case | 정상헌의 10건 | 동일 |
-| 김수용 | pilot 규약·harness·통계 설계 | 불일치 adjudication을 조율하고 일부 독립 재검수 | protocol freeze, baseline 실행, 오류 분석·논문 통합 |
+| 김수용 | 8 | 정상헌 / 남두현 | 오창원 |
+| 정상헌 | 8 | 남두현 / 오창원 | 이상민 |
+| 남두현 | 8 | 오창원 / 이상민 | 김수용 |
+| 오창원 | 8 | 이상민 / 김수용 | 정상헌 |
+| 이상민 | 8 | 김수용 / 정상헌 | 남두현 |
+
+정확한 source 탐색 배분·32개씩 후보 screening·공동 산출물·독립 감사자는 [단일 운영 기준 문서](TEAM_AND_DATA_KO.md)와 [assignments.csv](collection_templates/assignments.csv)를 따른다. R1/R2는 잠정 gold와 서로의 라벨을 보지 않고 작성하고, 출제자·두 reviewer와 다른 사람이 조정한다. 다섯 사람 모두 영어 다수·한국어 포함 source pool과 실제 수작업 주석에 참여한다.
 
 김수용이 원자료 전문 판정을 혼자 대신하지 않는다. 대규모 확장 전에 40건에서 유효 case 수·수집 탈락률·검수 시간·agreement·모델 cost를 측정한다. 40건이나 그 파생 수백 world를 최종 논문 benchmark 크기로 포장하지 않는다. 본 데이터 크기와 인력은 pilot 측정 후 조정하고, 나머지 공저자도 실험·분석·집필 기여를 맡아 학술적 기여가 수집 건수에만 묶이지 않게 한다.
 
@@ -195,7 +198,7 @@ CONFPROP를 구현·이식한다면 원 구현과 라이선스를 먼저 확인�
 
 - 관련 연구에서 문제를 먼저 읽고 비슷하게 바꾸는 방식으로 task를 만들지 않는다. corpus의 원문 사실에서 시작해 독립적으로 질문을 작성하고, 이후 별도 검수자가 benchmark 질문 중복을 확인한다.
 - 차용한 데이터·코드·그림·수식·평가 항목과 독립 작성물을 `source / license / copied files / changes / citation` 단위로 기록한다. 원래 LinkPaper MIT 파일을 발전시킬 때 저작권 고지와 기존 기여를 보존한다.
-- 논문의 중심 아이디어가 선행연구와 겹치면 “동일 원리의 한국어 실제 문헌 검증”처럼 범위를 정확히 쓴다. attribution은 중요하지만 인용 하나가 독창성 증명을 대신하지는 않는다.
+- 논문의 중심 아이디어가 선행연구와 겹치면 “기존 원리를 영어·한국어 실제 문헌과 한국어 질문에 적용한 검증”처럼 범위를 정확히 쓴다. attribution은 중요하지만 인용 하나가 독창성 증명을 대신하지는 않는다.
 - task text·답·gold graph·예상 경로·adjudication note는 agent에게 제공하는 corpus/tool view와 분리한다. test split의 base family를 dev에 공유하지 않는다.
 - 수집 문헌 자체에 benchmark 답안·review·프로젝트 설명이 섞였는지 검사한다. 논문 hash·DOI·근거 span·주장 embedding 등을 보조로 쓰고 사람이 false positive를 확인한다.
 - 새로운 문헌·버전의 시간 holdout, 저자/연구/데이터 단위 cluster holdout을 각각 평가한다. “모델 지식 cutoff 이후 자료”만으로 오염이 없다고 단정하지 않는다.
@@ -207,12 +210,12 @@ CONFPROP를 구현·이식한다면 원 구현과 라이선스를 먼저 확인�
 
 1. **측정 유효성:** 전문가가 동일 연구·별도 연구·불명을 안정적으로 구별하며, task의 정답을 강한 텍스트/DOI shortcut만으로 대부분 맞히지 못한다.
 2. **차별적 발견:** 기존 final-answer/citation 점수와 계보 실패의 차이를 통계적으로 검증한다. 차이가 없으면 새 지표 필요성 주장을 약화한다.
-3. **원인 분리:** 문서 길이·검색 order·더 많은 token·번역 품질·도구 차이가 효과를 설명하지 않는지 matched control로 본다.
-4. **일반화:** 여러 모델 family·새 corpus family·한국어/영어 대응 조건에서 결과를 확인한다. 한 모델·한 분야만의 현상은 그 범위로 쓴다.
+3. **원인 분리:** 문서 길이·source 언어 구성·검색 order·더 많은 token·질문 번역 품질·도구 차이가 효과를 설명하지 않는지 matched control로 본다.
+4. **일반화:** 여러 모델 family·새 corpus family·동일 원문 KO/EN 질문 대응 조건 및 원문 언어 strata에서 결과를 확인한다. 한 모델·한 분야만의 현상은 그 범위로 쓴다.
 5. **방법의 가치:** 새 agent 정책을 제안한다면 단순 DOI dedup·near-duplicate clustering·source-discounting을 넘어서는 이점과 비용을 확인한다. 이득이 없다면 benchmark 결과를 숨기지 않는다.
 6. **재현 가능성:** snapshot·schema·도구 trace·실패·채점 규칙과 실행 명령이 독립 환경에서 돌아가야 한다. 유료 모델의 실제 실행 없이 점수 표를 만들어 두지 않는다.
 
-2026 NeurIPS 공식 CFP는 main과 Evaluations & Datasets를 별도 트랙으로 명시하며, main도 기존 방법의 한계를 새롭게 분석하는 연구를 환영한다. E&D의 채택도 본 학회 proceedings에 실리지만 main track과 동일한 트랙이라고 표현하면 안 된다. 2027 트랙·마감은 현재 문서에서 확정하지 않는다. 한국어 agent에 대한 실증 분석이 중심이면 향후 ACL/EMNLP main의 해당 연도 CFP도 확인해 적합성을 판단한다. [Main CFP](https://neurips.cc/Conferences/2026/CallForPapers), [E&D CFP](https://neurips.cc/Conferences/2026/CallForEvaluationsDatasets)
+2026 NeurIPS 공식 CFP는 main과 Evaluations & Datasets를 별도 트랙으로 명시하며, main도 기존 방법의 한계를 새롭게 분석하는 연구를 환영한다. E&D의 채택도 본 학회 proceedings에 실리지만 main track과 동일한 트랙이라고 표현하면 안 된다. NeurIPS 2027 트랙·마감은 현재 문서에서 확정하지 않는다. 한국어 agent에 대한 실증 분석이 중심이면 향후 ACL/EMNLP main의 해당 연도 CFP도 확인해 적합성을 판단한다. [Main CFP](https://neurips.cc/Conferences/2026/CallForPapers), [E&D CFP](https://neurips.cc/Conferences/2026/CallForEvaluationsDatasets)
 
 ## 9. 조사·권한 확인 범위
 

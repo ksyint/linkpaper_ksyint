@@ -4,7 +4,9 @@
 
 `evaluation/src/linkpaper_eval/agent_bench/`는 public task에 모든 근거를 미리 넣지 않는 CPU 도구 agent harness다. search/open/citations allowlist, 호출/관측 예산, opaque ID, episode별 상태, 근거 텍스트 hash·출처·버전·원문 locator, 모든 visible 문헌/알려진 result unit의 split 격리, 읽은 근거 인용 검증, 오류 포함 채점, 응답 hash 의미 검수를 제공한다. Python policy는 신뢰하는 실험 코드이며 OS 보안 sandbox가 아니다.
 
-`evaluation/src/linkpaper_eval/lineage_metric.py`는 별도 GLRS 후보 지표와 matched triplet validator다. `evaluation/src/linkpaper_eval/agent_lineage.py`가 private triplet registry와 실제 core tool trace를 연결해 GLRS 입력을 만든다. 읽었다는 자기주장을 믿지 않고 frozen tool replay를 대조한다. 원문 record와 parent paper 수·unit 제약도 검사한다. output에는 private gold가 있으므로 agent 입력으로 쓰지 않는다. 실제 자료의 eligible witness와 계보는 별도 사람 검수가 필요하다.
+`evaluation/src/linkpaper_eval/lineage_metric.py`는 별도 GLRS 후보 지표와 matched triplet validator다. `evaluation/src/linkpaper_eval/agent_lineage.py`가 private triplet registry와 실제 core tool trace를 연결해 GLRS 입력을 만든다. 읽었다는 자기주장을 믿지 않고 frozen tool replay를 대조한다. 원문 record와 parent paper 수·unit 제약을 검사하며, B/R/N의 record별 원천 언어 구성과 paper별 언어 profile 구성도 맞춘다. standalone metric만 호출하면 paper/언어 metadata까지 자동 검증되는 것은 아니다. output에는 private gold가 있으므로 agent 입력으로 쓰지 않는다. 실제 자료의 eligible witness와 계보는 별도 사람 검수가 필요하다.
+
+`Evidence.source_language`는 원천 record의 본문 언어이고 `Case.question_language`는 질문 언어다. 영어 논문에 한국어 질문을 붙일 수 있다. 본 데이터는 영어 논문이 다수인 영어·한국어 집합을 목표로 하며, 작은 합성 fixture의 언어 비율은 수집 목표를 실현했다는 증거가 아니다. [실제 수집 예시](../../../collection_examples/20261102/README_KO.md)는 원천과 검수 전 후보를 보여 주며 아직 publication gold가 아니다.
 
 선택적으로 `hf_agent_policy.py`와 별도 Python worker가 실제 text LLM의 JSON 결정을 연결한다. 공개 task/history만 전달하며 모델은 상주하고 대화는 매 요청 새로 구성한다. [실제 smoke](REAL_LLM_SMOKE_KO.md)는 GPU3에서 가상3과제의 생성/실패 경로를 확인했다. 임의 모델의 prompt를 자동으로 최적화하거나 형식 오류를 복구하지 않는다.
 
@@ -32,7 +34,7 @@ publication 검사는 fixture/draft를 거부한다. reviewer 이름·권리 met
 bash scripts/run_korean_agent_demo.sh /tmp/linkpaper-korean-agent-demo
 ```
 
-도구 fixture의 lexical/blind/oracle, 손계산 GLRS fixture, **실제 tool trace→GLRS bridge**를 함께 실행한다. bridge 전용 자료는 별도로 직접 작성한 가상 record6개와 B/R/N 3개 episode다. visible record 수와 paper 수를 맞추고 known unit 수는2/2/3이며, 세 verdict는 모두 supported다. unit 추가가 항상 verdict flip이라는 shortcut을 만들지 않는 예시다. 이 자료도 실제 논문/모델 결과가 아니다.
+도구 fixture의 lexical/blind/oracle, 손계산 GLRS fixture, **실제 tool trace→GLRS bridge**를 함께 실행한다. bridge 전용 자료는 별도로 직접 작성한 가상 record6개와 B/R/N 3개 episode다. visible record 수와 paper 수, 원천 언어 구성을 맞추고 known unit 수는2/2/3이며, 세 verdict는 모두 supported다. unit 추가가 항상 verdict flip이라는 shortcut을 만들지 않는 예시다. 이 자료도 실제 논문/모델 결과가 아니다. 언어 구성을 보강하기 전의 실제 HF smoke 기록은 당시 hash와 결과를 그대로 보존한다.
 
 상위 CLI에서도 `linkpaper-eval agent ...`, `linkpaper-eval lineage-metric ...`, `linkpaper-eval agent-lineage ...`를 사용할 수 있다.
 

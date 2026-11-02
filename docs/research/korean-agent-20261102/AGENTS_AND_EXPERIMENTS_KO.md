@@ -1,6 +1,8 @@
 # 평가할 에이전트·구성요소와 실험 계획
 
-이 문서의 목록은 본 데이터에서 평가할 대상이다. 현재 구현·실행한 것은 CPU 가상 fixture의 lexical/blind/oracle과 정책 plugin 계약이며, 아래의 실제 LLM·multi-agent 성능을 측정했다고 주장하지 않는다.
+이 문서의 목록은 본 데이터에서 평가할 대상이다. 현재 구현·실행한 것은 CPU 가상 fixture의 lexical/blind/oracle과 정책 plugin 계약이며, 아래의 본 데이터 LLM·multi-agent 성능을 측정했다고 주장하지 않는다. 별도의 소형 LLM smoke는 연결·출력 실패 계측이며 실제 corpus 성능과 구분한다.
+
+원문은 **영어 다수·한국어 포함**, 주 질문은 **한국어**, 영어 질문은 같은 원문을 이용하는 대조 조건이다. 주제는 AI에 한정하지 않으며 컴퓨터·자연과학·공학·환경·비임상 생명/농업 등에서 판정 가능한 영어·한국어 문헌을 탐색한다. 영어 다수는 언어의 비중이지 특정 분야의 비중을 뜻하지 않는다. 원문 언어와 질문 언어를 하나의 `language`로 합쳐 해석하지 않는다.
 
 ## 1. 에이전트 종류
 
@@ -36,7 +38,7 @@ GUI browser agent는 같은 archive를 브라우저로 보여 주더라도 actio
 | 예산·스케줄러 | call·observation chars·LLM token·시간·실비·재시도 | 6/12/24 calls 등 사전 등록 곡선. 실제 가능한 범위 사용 |
 | 계측·채점 | tool trace hash, 원문 열람 집합, 지표/검수 버전 | scorer가 알고 있는 gold는 policy에 전달하지 않음 |
 
-현재 public document_id는 원문 locator를 가진 근거 record ID다. paper_id와 분리하고 같은 논문의 여러 결과를 서로 다른 record로 나타낸다. 통제 실험에서 source-paper 수와 record 수를 각각 기록한다.
+현재 public document_id는 원문 locator를 가진 근거 record ID다. paper_id와 분리하고 같은 논문의 여러 결과를 서로 다른 record로 나타낸다. 통제 실험에서 source-paper 수와 record 수, record별 source_language 구성과 parent paper별 언어 profile 구성을 각각 기록하고 B/R/N에서 맞춘다.
 
 일반 CITES와 인간 gold result-unit edge는 같은 정보가 아니다. 실제 LinkPaper graph를 연결할 때도 정답 chunk를 알려 주는 edge를 만들지 않고 원래 paper CITES와 중립적인 record 선택 절차를 고정한다. gold graph를 쓴 시스템은 oracle로 표시한다. `search`와 `open`을 하지 않은 최종 답변의 인용을 도구 성공으로 채점하지 않는다.
 
@@ -62,14 +64,16 @@ GUI browser agent는 같은 archive를 브라우저로 보여 주더라도 actio
 |---|---|---|
 | E0 | fixture·형식·hash·격리·budget·오류 분모 | 소프트웨어 검증. 실제 모델 능력 결과 아님 |
 | E1 | 자연 문헌 test에서 8설정 비교 | 최종 의미 판단·획득·인용·unit grouping·비용을 분리 |
-| E2 | 같은 결과의 반복 / 새 결과 triplet | 문서 수·질문·조건·언어 고정, GLRS와 각 component |
+| E2 | 같은 결과의 반복 / 새 결과 triplet | record 수·paper 수·원문 언어 구성·질문·조건·질문 언어 고정, GLRS와 각 component |
 | E3 | 표현 유사성 높음/낮음 × 결과 단위 같음/다름 | 일반 중복 제거로 설명되는지 검증하는 핵심 novelty gate |
-| E4 | KO/EN 의미 대조 + query rewriting | 원문은 고정, 질문/탐색 언어의 효과 분리 |
+| E4 | 같은 bundle의 KO/EN 질문 대조 + query rewriting; 원문 언어 strata | KO/EN 질문은 같은 원문·조건을 유지한 paired 대조. EN-only/KO-only/mixed source bundle 비교는 내용·분야가 다른 관측 층화 분석 |
 | E5 | 실제 검색 / oracle-read / oracle lineage | 발견·해석·출처 복원의 병목 분리. 상한 대조는 main 순위에서 분리 |
 | E6 | graph·reranker·memory·verifier 각각 제거 | 한 번에 하나만 변경, 동일 backbone과 총 예산 |
 | E7 | budget·단일/다중 agent | 실패 포함 성능-비용 Pareto, tool·LLM 합산 지출 |
 | E8 | metric meta-eval | 전문가 품질 순위·반례·기존 지표와의 추가 식별력 |
 | E9 | source-family heldout, 문서 순서·opaque ID·제목 대조 | 과적합/순위·형식 shortcut/주제 전이 |
+
+E4의 source strata는 family/venue/연도/분야/길이/권리 확보율과 유효 표본 수를 함께 보고한다. 서로 다른 영어·한국어 논문에서 생긴 차이를 원문 언어의 인과 효과라고 해석하지 않는다. source language를 바꾸려면 별도의 내용 대응·권리·번역 검수가 필요하며, 원문의 자연 번역본과 같은 의미 질문 대조도 서로 다른 실험이다.
 
 E3에서 효과가 DOI/text dedup 또는 공통 부모 규칙만으로 설명되면 새 계보 이해 기여를 축소한다. metric의 성능 순위가 전문가의 판단과 맞지 않으면 metric을 수정하고 새로운 잠금 자료에서 검증한다.
 
@@ -109,7 +113,7 @@ E3에서 효과가 DOI/text dedup 또는 공통 부모 규칙만으로 설명되
 
 - Main: setting/model/snapshot, N과 family 수, failure-inclusive semantic score, citation support, unit coverage, GLRS/component, 비용·CI.
 - Control: repetition invariance/new-unit response, high/low lexical similarity, DOI/text/CITES baseline.
-- Language: 같은 원문을 사용한 KO/EN paired gap과 oracle-read gap.
+- Language: 같은 원문을 사용한 KO/EN 질문 paired gap과 oracle-read gap. 원문은 EN-only/KO-only/mixed strata의 N·family 수·분야·venue·접근성 구성을 함께 보고하고 관측 차이로 제한.
 - Metric: 전문가 순위 일치·기존 점수와의 불일치·공격 baseline·적용률/unknown.
 - Appendix: 모든 실패·exclusion·raw disagreement·budget curve·split component와 전체 hyperparameters.
 

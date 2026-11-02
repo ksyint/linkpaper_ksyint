@@ -1,1 +1,1 @@
-candidate_id,collector,discovery_url,discovery_query,discovered_at,paper_id,title,source_language,publisher_url,version,rights_status,inclusion_status,exclusion_reason,minutes
+candidate_id,collector,discovery_url,discovery_query,discovered_at,paper_id,version_family_id,title,source_language,language_evidence_locator,venue,publication_year,domain,publication_status,publisher_url,version,rights_status,inclusion_status,exclusion_reason,minutes

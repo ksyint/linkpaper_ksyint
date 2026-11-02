@@ -14,7 +14,7 @@
 | LINK-DELTA packet 연구 코드 | fork의 기존 research branch | 이전 구현으로 명시 |
 | agent_bench 도구·격리·trace | 이번 branch 자체 작성 | 실행 가능한 새 프로젝트 코드; 도구 agent 방식 발명 주장은 아님 |
 | lineage_metric GLRS | 이번 branch 지표 후보; B-cubed·근거 개입은 선행 방법 | 구체적 운영화/타당성은 새로 검증할 대상 |
-| 실제 한국어 결과 계보 gold | 아직 구축 전 | 현재 dataset 기여/성능 결과로 발표하지 않음 |
+| 영어 다수·한국어 포함 실제 결과 계보 gold | 본 corpus 구축·독립 검수 전 | 소량 수집 예시나 합성 fixture를 실제 benchmark gold/성능 결과로 발표하지 않음 |
 | KoTAU | 비교 조사. 전 branch에서 license 파일을 확인하지 못함 | 구현·task를 복사하지 않음 |
 | K-BrowseComp 및 학술 benchmark | 관련 연구 인용·공개 schema 비교 | 원 문제를 번역/부분 변형해 새 문항으로 발표하지 않음 |
 
@@ -35,6 +35,8 @@
 권리 확인 전 PDF·제3자 원문을 새 공개 repo에 일괄 넣지 않는다. 재배포가 확인된 원문은 조건에 맞춰 보존하고, 나머지는 metadata/원문 링크/자체 주석을 분리한다. 변환물의 이용 조건도 원문과 함께 검토한다. 검수용 비공개 holdout은 public fixture와 다른 저장소·권한·hash로 관리한다.
 
 ## 5. 지표 독창성과 논문 검증
+
+원문은 영어 논문이 다수이고 한국어 논문을 포함하므로, 한국어 원문을 새로 다룬다는 주장만으로 기존 영어 scholarly benchmark와 구분하지 않는다. 주제는 AI에 한정하지 않는다. 주 질문의 한국어와 source_language를 분리하고 결과 단위 주석·탐색 통제·측정의 추가 가치를 검증한다. 여러 분야를 수집했다는 사실만으로 학문 전체를 검증했다고 하지 않는다.
 
 새 GLRS는 novelty **후보**다. CUE-R·RARE·CONFPROP·SciValidityBench 등의 지표가 이미 같은 판정을 제공하는지 식·입력·실패 사례를 대조한다. 동일한 측정을 재명명한 것으로 확인되면 원 지표를 인용하고 이 프로젝트의 새 지표라는 주장을 철회한다.
 
