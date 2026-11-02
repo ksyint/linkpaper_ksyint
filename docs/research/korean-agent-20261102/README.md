@@ -12,6 +12,7 @@
 | [TEAM_AND_DATA_KO.md](TEAM_AND_DATA_KO.md) | 5인 수집·수작업 gold·독립 검토·주별 배분·시간 산식 |
 | [MANUAL_LABELING_KO.md](MANUAL_LABELING_KO.md) | PDF에서 무엇을 읽고 CSV에 무엇을 적는지, 논문별 3개씩 모범 문항과 수작업 안내 |
 | [RELATED_WORK_KO.md](RELATED_WORK_KO.md) | 1차 출처 중심 충돌표와 대조 실험 근거 |
+| [NOVELTY_COMPARISON_KO.md](NOVELTY_COMPARISON_KO.md) | K-BrowseComp·KoTAU 대비 차별성, 더 가까운 선행연구와 신규성 입증 조건 |
 | [ORIGINALITY_KO.md](ORIGINALITY_KO.md) | 독립 작성·출처·코드/데이터 이용 조건·중복 감사 |
 | [PAPER_OUTLINE_KO.md](PAPER_OUTLINE_KO.md) | 논문 구성과 검증 전 주장의 작성 원칙 |
 | [REPOSITORY_COVERAGE_KO.md](REPOSITORY_COVERAGE_KO.md) | 모든 조사 대상 branch/file의 범위와 전수 inventory |
