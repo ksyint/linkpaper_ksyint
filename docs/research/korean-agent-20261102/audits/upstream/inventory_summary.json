@@ -1,0 +1,14 @@
+{
+  "as_of": "2026-11-02T05:22:30.628014+00:00",
+  "repositories": 2,
+  "branches": 12,
+  "branch_file_rows": 2362,
+  "unique_blobs": 381,
+  "unique_blob_bytes": 2890924,
+  "kinds": {
+    "text": 151,
+    "python": 226,
+    "binary": 4
+  },
+  "parse_errors": []
+}

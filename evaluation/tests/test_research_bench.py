@@ -404,8 +404,10 @@ def test_registry_validates_only_selected_models_and_rejects_non_text_config(
     preflight(cfg, ["abstain"])
     with pytest.raises(ValueError, match="model ID"):
         preflight(cfg, ["gpt"])
-    with pytest.raises(ValueError):
-        ModelSpec(provider="transformers", model="text", gpu_index=5)
+    assert ModelSpec(provider="transformers", model="text", gpu_index=5).gpu_index == 5
+    for invalid_index in (-1, True, 1.5, '3', None):
+        with pytest.raises(ValueError):
+            ModelSpec(provider="transformers", model="text", gpu_index=invalid_index)
     with pytest.raises(ValueError):
         ModelSpec(provider="transformers", model="text", modality="image")
 

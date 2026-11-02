@@ -1,0 +1,1882 @@
+[
+  {
+    "path": "K-BrowseComp-main/",
+    "bytes": 0,
+    "compressed_bytes": 0,
+    "directory": true,
+    "crc32": "0x0"
+  },
+  {
+    "path": "K-BrowseComp-main/.github/",
+    "bytes": 0,
+    "compressed_bytes": 0,
+    "directory": true,
+    "crc32": "0x0"
+  },
+  {
+    "path": "K-BrowseComp-main/.github/workflows/",
+    "bytes": 0,
+    "compressed_bytes": 0,
+    "directory": true,
+    "crc32": "0x0"
+  },
+  {
+    "path": "K-BrowseComp-main/.github/workflows/ci.yml",
+    "bytes": 1057,
+    "compressed_bytes": 363,
+    "directory": false,
+    "crc32": "0x81f76464",
+    "sha256": "501a8d0a0f76b990b09f60b918270b2891cd57a0c47f809b10e3ac2704893d87",
+    "inspection": "text read",
+    "lines": 42,
+    "headings": [],
+    "symbols": []
+  },
+  {
+    "path": "K-BrowseComp-main/.gitignore",
+    "bytes": 1438,
+    "compressed_bytes": 491,
+    "directory": false,
+    "crc32": "0xb9c99be5",
+    "sha256": "c8160b8fab78dabf956bdfdc5d1eefce3cc9a1288027f0712c0cd3c5fe440103",
+    "inspection": "text read",
+    "lines": 64,
+    "headings": [
+      "Test artifacts",
+      "Debug scripts"
+    ],
+    "symbols": []
+  },
+  {
+    "path": "K-BrowseComp-main/.pre-commit-config.yaml",
+    "bytes": 459,
+    "compressed_bytes": 267,
+    "directory": false,
+    "crc32": "0xd425fdfa",
+    "sha256": "629c0e5152a9bd6b08a7bcbd397aaf261c343f872309b9711ab3a41585a07580",
+    "inspection": "text read",
+    "lines": 18,
+    "headings": [],
+    "symbols": []
+  },
+  {
+    "path": "K-BrowseComp-main/LICENSE",
+    "bytes": 1112,
+    "compressed_bytes": 651,
+    "directory": false,
+    "crc32": "0xde932d18",
+    "sha256": "4eb6e9f7544ba108007fd5864cc40495d421456a028a7ab569aad73d3b09b46c",
+    "inspection": "text read",
+    "lines": 22,
+    "headings": [],
+    "symbols": []
+  },
+  {
+    "path": "K-BrowseComp-main/README.md",
+    "bytes": 7508,
+    "compressed_bytes": 2974,
+    "directory": false,
+    "crc32": "0x9ac86a5d",
+    "sha256": "f63b588a95a49fbe2ccbdbf09ba4fefdd73b63eee3f8254f6de2f1dae4649014",
+    "inspection": "text read",
+    "lines": 220,
+    "headings": [
+      "K-BrowseComp",
+      "Introduction",
+      "K-BrowseComp Search Evals",
+      "License and Attribution",
+      "Setup",
+      "Colab Quickstart",
+      "Credentials",
+      "Run Evaluations",
+      "Automated Problem Generation",
+      "Tests"
+    ],
+    "symbols": []
+  },
+  {
+    "path": "K-BrowseComp-main/automated_data_gen/",
+    "bytes": 0,
+    "compressed_bytes": 0,
+    "directory": true,
+    "crc32": "0x0"
+  },
+  {
+    "path": "K-BrowseComp-main/automated_data_gen/README.md",
+    "bytes": 1611,
+    "compressed_bytes": 787,
+    "directory": false,
+    "crc32": "0x1ddd93a2",
+    "sha256": "a0bbfc1693e50e553a985279a745a7259c5b92418c191bae9bb9cc621b787cb5",
+    "inspection": "text read",
+    "lines": 50,
+    "headings": [
+      "automated_data_gen",
+      "Stages",
+      "Problem Generation Defaults",
+      "Local Credentials",
+      "Smoke Checks"
+    ],
+    "symbols": []
+  },
+  {
+    "path": "K-BrowseComp-main/automated_data_gen/mine_seed_bank.py",
+    "bytes": 37156,
+    "compressed_bytes": 9786,
+    "directory": false,
+    "crc32": "0xbc790ef9",
+    "sha256": "3d9cc43fbd4647184b2d58414a064edff1855df767ad0abac6f897ea757db5b9",
+    "inspection": "text read",
+    "lines": 918,
+    "headings": [
+      "---------------------------------------------------------------------------",
+      "Source-class rule table.",
+      "# Order matters: first match wins. Each rule has:",
+      "- predicate(host, path_segments_decoded, raw_url) -> bool",
+      "- class_name",
+      "- prior_failure_modes: human hypothesis of which failure modes this class tends",
+      "to produce. Empirical failure-mode distribution comes from data (the joins",
+      "with classification.jsonl below); this prior is for human review only.",
+      "- retrieval_hypothesis: one-line rationale to record in the report.",
+      "---------------------------------------------------------------------------",
+      "---------------------------------------------------------------------------",
+      "Loaders.",
+      "---------------------------------------------------------------------------",
+      "---------------------------------------------------------------------------",
+      "Trajectory parsing (handles both Gemini and OpenAI Responses message shapes).",
+      "---------------------------------------------------------------------------",
+      "---------------------------------------------------------------------------",
+      "Exemplar curation.",
+      "---------------------------------------------------------------------------",
+      "---------------------------------------------------------------------------",
+      "Mining the seed bank.",
+      "---------------------------------------------------------------------------"
+    ],
+    "symbols": [
+      "Rule",
+      "_has_segment",
+      "classify_url",
+      "norm_text",
+      "load_seed_questions",
+      "load_classifications",
+      "parse_trajectory",
+      "curate_exemplars",
+      "ClassStats",
+      "mine",
+      "_compute_chain_archetypes",
+      "_counter_keys_to_str",
+      "write_outputs",
+      "write_report",
+      "main"
+    ]
+  },
+  {
+    "path": "K-BrowseComp-main/automated_data_gen/problem_generation/",
+    "bytes": 0,
+    "compressed_bytes": 0,
+    "directory": true,
+    "crc32": "0x0"
+  },
+  {
+    "path": "K-BrowseComp-main/automated_data_gen/problem_generation/README.md",
+    "bytes": 16033,
+    "compressed_bytes": 5915,
+    "directory": false,
+    "crc32": "0xf0fdab7f",
+    "sha256": "b31078a47cdaef1b44523ae6ee930e36ab9250e4293f01edfb887eb4abaccb0a",
+    "inspection": "text read",
+    "lines": 331,
+    "headings": [
+      "problem_generation",
+      "Quick start",
+      "Pick a proposer: Claude Code vs Codex",
+      "Per-section launch (work split into 13 chunks of 100)",
+      "Claude Code — section i, in-parallel 4 seeds at a time",
+      "Codex CLI — same shape, different proposer",
+      "Where API keys go",
+      "Files",
+      "The 3-gate test (per attempt)",
+      "Per-seed workspace layout",
+      "Result schema",
+      "Credentials",
+      "Usage",
+      "Sanity check: 1 seed, multi-model adversarial (gpt-5.4-mini + gemini-3-flash-preview)",
+      "Smoke test with a local/private seed file instead of generated aggregate data",
+      "Single specific seed by id (sha1(url)[:10])",
+      "Restrict by axis (intra / inter) and failure modes",
+      "Concurrent (interleaved logs)",
+      "Resume — skip seeds that already have a prior final.json",
+      "Custom target models for Gate 3 (comma-list — must ALL fail for acceptance)",
+      "Custom Oracle (well-formedness reference) model",
+      "Dry-run — render task_spec.md per seed without launching claude",
+      "Non-litellm code path (direct OpenAI + Gemini; needs OPENAI_API_KEY and GEMINI_API_KEY)",
+      "Monitoring a run",
+      "Tabular status of all workspaces",
+      "Filter to one run_id",
+      "Full detail of one workspace (gates + iter history)",
+      "Follow proposer events live while a run is in progress",
+      "Cost note",
+      "How this differs from a vanilla \"generate then test\" pipeline",
+      "Sanity check command (one-liner)"
+    ],
+    "symbols": []
+  },
+  {
+    "path": "K-BrowseComp-main/automated_data_gen/problem_generation/_load_env.py",
+    "bytes": 2200,
+    "compressed_bytes": 1031,
+    "directory": false,
+    "crc32": "0x34db532e",
+    "sha256": "34db16a5ae947bc4d049b63bd2dd03c236ff4131a133f92926fae883e5c008da",
+    "inspection": "text read",
+    "lines": 63,
+    "headings": [
+      "(filename, [env var(s) to set with that value])",
+      "Apply on import."
+    ],
+    "symbols": [
+      "_first_existing",
+      "load_env"
+    ]
+  },
+  {
+    "path": "K-BrowseComp-main/automated_data_gen/problem_generation/launch.sh",
+    "bytes": 1988,
+    "compressed_bytes": 988,
+    "directory": false,
+    "crc32": "0xafe35d57",
+    "sha256": "7468154c21e05ac4c4462613df475d29b469d8f1434836a7a28b69c31e54edd1",
+    "inspection": "text read",
+    "lines": 54,
+    "headings": [
+      "# launch.sh — sequential adversarial K-BrowseComp problem generation.",
+      "# Runs problem_generation/run.py over ALL seeds in",
+      "seed_expansion/{intra,inter}_domain_candidates.json, ONE Claude Code",
+      "proposer session at a time (no --parallel), routed through the LiteLLM",
+      "proxy (--litellm) so it uses the configured azure_ai + gemini target models.",
+      "# Usage:",
+      "./launch.sh                 # resume: skip seeds with a valid final.json",
+      "./launch.sh --fresh         # archive work/ + aggregates, then run all seeds",
+      "./launch.sh --max-seeds 2   # smoke test (pass-through args go to run.py)",
+      "./launch.sh --fresh --max-seeds 2",
+      "# Long job (up to ~1h/seed). Run it inside tmux/nohup so it survives logout:",
+      "tmux new -s datagen",
+      "./launch.sh --fresh",
+      "set -euo pipefail",
+      "--- preflight: tools the pipeline shells out to must be on PATH ---",
+      "--- optional fresh start: move work/ + aggregates aside (reversible) ---",
+      "--- launch (sequential: NO --parallel; --resume makes re-runs safe) ---"
+    ],
+    "symbols": []
+  },
+  {
+    "path": "K-BrowseComp-main/automated_data_gen/problem_generation/launch_codex.sh",
+    "bytes": 2798,
+    "compressed_bytes": 1316,
+    "directory": false,
+    "crc32": "0xa9650968",
+    "sha256": "5ed1d9b5f9e61e062fa49e4e49f86fc5fc0903f19112875f90f7094a20b082b9",
+    "inspection": "text read",
+    "lines": 63,
+    "headings": [
+      "# launch_codex.sh — Codex-proposer problem generation, REVERSE seed order.",
+      "# Counterpart to launch.sh. Uses run_codex.py (OpenAI Codex CLI as the proposer)",
+      "and walks the interleaved seed pool BACK-TO-FRONT (--reverse). Paired with a",
+      "forward launch.sh (Claude) run, the two cover opposite ends of the same 1298-",
+      "seed sequence and only overlap once both pass the midpoint (~seed 649 each).",
+      "# Outputs are Codex-specific and never collide with the Claude run:",
+      "work_codex/ , accepted_problems_codex.jsonl , rejected_problems_codex.jsonl",
+      "# Portable: paths derive from this script's own location, so a coauthor can run",
+      "it from their own checkout. They need, on their machine:",
+      "- the Codex CLI installed + authenticated (`codex login` -> ~/.codex/auth.json)",
+      "- `uv` on PATH",
+      "- repo-root api_keys/ files (api_key_perplexity.txt, litellm.txt, base_url.txt, gemini.txt)",
+      "so _load_env can route the solver/grader through the LiteLLM proxy",
+      "# Usage:",
+      "./launch_codex.sh                 # resume the reverse run",
+      "./launch_codex.sh --fresh         # archive work_codex/ + *_codex.jsonl, then run",
+      "./launch_codex.sh --max-seeds 2   # smoke test (extra args pass through to run_codex.py)",
+      "# Multi-day job — run under tmux, and keep the machine awake:",
+      "tmux new -s datagen_codex",
+      "caffeinate -is ./launch_codex.sh        # macOS; on Linux just ./launch_codex.sh",
+      "set -euo pipefail",
+      "--- preflight: Codex CLI + uv must be on PATH ---",
+      "--- optional fresh start: archive Codex work + aggregates (reversible mv) ---",
+      "--- launch: Codex proposer, REVERSE interleaved order, sequential, resume-safe ---"
+    ],
+    "symbols": []
+  },
+  {
+    "path": "K-BrowseComp-main/automated_data_gen/problem_generation/litellm_grader.py",
+    "bytes": 3576,
+    "compressed_bytes": 1382,
+    "directory": false,
+    "crc32": "0x3582eac6",
+    "sha256": "e5de312f77c1a3fec8d780d27249c03600bad50fddea372fe151821c373d1eb4",
+    "inspection": "text read",
+    "lines": 97,
+    "headings": [],
+    "symbols": [
+      "LiteLLMProxyGrader"
+    ]
+  },
+  {
+    "path": "K-BrowseComp-main/automated_data_gen/problem_generation/monitor.py",
+    "bytes": 19258,
+    "compressed_bytes": 5383,
+    "directory": false,
+    "crc32": "0x3d12f375",
+    "sha256": "c2ea6fe38292ddf46685073f1155172b35226706f1d5dca7adbbf9799452355b",
+    "inspection": "text read",
+    "lines": 491,
+    "headings": [],
+    "symbols": [
+      "C",
+      "_short",
+      "_load_json",
+      "_attempt_dirs",
+      "_all_workspaces",
+      "_latest_workspace",
+      "_gate_status",
+      "_ws_status",
+      "cmd_list",
+      "_proposer_log_preview",
+      "_solver_trace_lines",
+      "_resolve_ws",
+      "cmd_show",
+      "cmd_tail",
+      "main"
+    ]
+  },
+  {
+    "path": "K-BrowseComp-main/automated_data_gen/problem_generation/perplexity_check.py",
+    "bytes": 7369,
+    "compressed_bytes": 2820,
+    "directory": false,
+    "crc32": "0xd1f870a4",
+    "sha256": "7119b546685ea03cf1ef5b6fb5557aadb9a9534367cd3aa65d3376c2b0c2c8e5",
+    "inspection": "text read",
+    "lines": 197,
+    "headings": [
+      "Make search_evals importable + load credentials from repo-root txt files."
+    ],
+    "symbols": [
+      "_generate_queries",
+      "main_async",
+      "main"
+    ]
+  },
+  {
+    "path": "K-BrowseComp-main/automated_data_gen/problem_generation/run.py",
+    "bytes": 48957,
+    "compressed_bytes": 14784,
+    "directory": false,
+    "crc32": "0x9fa01d99",
+    "sha256": "019ef7b64f7f613c8d1e942147181edfe7d76016c748c95df7523e92bde16b71",
+    "inspection": "text read",
+    "lines": 1148,
+    "headings": [
+      "Substring patterns indicating the proposer CLI has hit a usage cap / rate",
+      "limit. When any pattern matches a line of proposer output, we set",
+      "_RATE_LIMIT_HIT and abort the entire orchestration so we don't burn through",
+      "remaining seeds with empty rejects. run_codex.py extends this list with",
+      "OpenAI-specific phrases.",
+      "Outcomes are appended to the JSONLs incrementally (one line per finished",
+      "seed) instead of batched at the end, so a Ctrl-C / crash never loses",
+      "completed work. _WRITE_LOCK guards the append when --parallel > 1.",
+      "Populate API credentials from repo-root txt files.",
+      "---------------------------------------------------------------------------",
+      "Preflight.",
+      "---------------------------------------------------------------------------",
+      "---------------------------------------------------------------------------",
+      "Subprocess plumbing (mirrors seed_expansion/run.py).",
+      "---------------------------------------------------------------------------",
+      "---------------------------------------------------------------------------",
+      "Seed loading + workspace setup.",
+      "---------------------------------------------------------------------------",
+      "---------------------------------------------------------------------------",
+      "Per-seed runner.",
+      "---------------------------------------------------------------------------",
+      "---------------------------------------------------------------------------",
+      "Entry point.",
+      "---------------------------------------------------------------------------"
+    ],
+    "symbols": [
+      "check_auth",
+      "check_claude_version",
+      "check_solver_prereqs",
+      "_kill_process_group",
+      "_short",
+      "_tool_summary",
+      "_format_event",
+      "_check_rate_limit",
+      "run_claude",
+      "seed_id",
+      "_load_original_index",
+      "_interleave_by_source_class",
+      "_read_seed_entries",
+      "load_seeds",
+      "_failure_mode_glossary",
+      "_model_slug",
+      "_render_target_models_block",
+      "render_brief",
+      "setup_seed_workspace",
+      "seed_has_prior_final",
+      "run_proposer",
+      "_collect_proposed_iterations",
+      "_collect_per_model_adversarial",
+      "_lineage_fields",
+      "collect_outcome",
+      "process_seed",
+      "_append_result",
+      "main"
+    ]
+  },
+  {
+    "path": "K-BrowseComp-main/automated_data_gen/problem_generation/run_codex.py",
+    "bytes": 15426,
+    "compressed_bytes": 5087,
+    "directory": false,
+    "crc32": "0x169a439a",
+    "sha256": "3c2cb8d568ba9f690fd82053304ffc0926c9176b93bf4da9c7a79e43e3f6fbe4",
+    "inspection": "text read",
+    "lines": 388,
+    "headings": [
+      "Import the shared orchestrator + ensure credential env vars are loaded.",
+      "`run` triggers `_load_env` on import, which populates LITELLM/OPENAI/etc.",
+      "---------------------------------------------------------------------------",
+      "Codex-specific constants.",
+      "---------------------------------------------------------------------------",
+      "Per-CLI workspace + aggregate output files so Codex and Claude runs don't",
+      "collide on the same seed_id.",
+      "Banner overrides so `[run]` lines name Codex correctly.",
+      "Extend the run-wide rate-limit patterns with OpenAI / Codex-specific",
+      "phrases so a quota event in either CLI aborts the entire orchestration.",
+      "---------------------------------------------------------------------------",
+      "Codex auth + version check (replacing the Claude-specific versions).",
+      "---------------------------------------------------------------------------",
+      "---------------------------------------------------------------------------",
+      "Stream-JSON parser for `codex exec --json`. Event shapes documented at",
+      "https://developers.openai.com/codex/noninteractive.",
+      "---------------------------------------------------------------------------",
+      "---------------------------------------------------------------------------",
+      "Codex subprocess runner — mirrors run_claude's workspace-restore logic.",
+      "---------------------------------------------------------------------------",
+      "---------------------------------------------------------------------------",
+      "Wire the overrides into the `run` module so its `process_seed` and",
+      "orchestrator pick up Codex behavior via Python's late-binding name lookup.",
+      "---------------------------------------------------------------------------"
+    ],
+    "symbols": [
+      "check_auth",
+      "check_codex_version",
+      "_codex_format_event",
+      "run_codex",
+      "run_proposer_codex"
+    ]
+  },
+  {
+    "path": "K-BrowseComp-main/automated_data_gen/problem_generation/solver_runner.py",
+    "bytes": 12322,
+    "compressed_bytes": 4003,
+    "directory": false,
+    "crc32": "0xcefa1fc1",
+    "sha256": "940cfd39a61d458b1e0a278c24e695dead64c8f093e2381e5cde6f3d8abbb28a",
+    "inspection": "text read",
+    "lines": 288,
+    "headings": [
+      "Make search_evals importable + load credentials from repo-root txt files."
+    ],
+    "symbols": [
+      "_ensure_litellm_prefix",
+      "_strip_html_to_text",
+      "_build_oracle_prompt",
+      "main_async",
+      "main"
+    ]
+  },
+  {
+    "path": "K-BrowseComp-main/automated_data_gen/problem_generation/task_spec_template.md",
+    "bytes": 12679,
+    "compressed_bytes": 5227,
+    "directory": false,
+    "crc32": "0xb1ff41a2",
+    "sha256": "935817f47ddb0f4139495611227396429d353d6af29c183b3fb5e800c57a32d9",
+    "inspection": "text read",
+    "lines": 301,
+    "headings": [
+      "Adversarial K-BrowseComp problem generation",
+      "Seed",
+      "Load-bearing content already observed on the page",
+      "Failure mode glossary (which solver behaviors count as \"failed for the right reason\")",
+      "Pipeline you must drive",
+      "Step 0 — Open the page",
+      "Step 1 — Attempt N: draft a problem",
+      "Step 2 — Attempt N: run the 3-gate test",
+      "Gate 1 — Pre-flight Perplexity sanity check (cheap, ~5s)",
+      "Gate 2 — Oracle solver test (medium, ~30s)",
+      "Gate 3 — Adversarial solver test, MULTI-MODEL (~30s × N models)",
+      "Step 3 — Attempt N: analyze each model's adversarial trajectory",
+      "Step 4 — Attempts 2, 3, 4: evolve",
+      "Step 5 — Write final.json",
+      "Guardrails — read carefully"
+    ],
+    "symbols": []
+  },
+  {
+    "path": "K-BrowseComp-main/automated_data_gen/seed_expansion/",
+    "bytes": 0,
+    "compressed_bytes": 0,
+    "directory": true,
+    "crc32": "0x0"
+  },
+  {
+    "path": "K-BrowseComp-main/automated_data_gen/seed_expansion/README.md",
+    "bytes": 7770,
+    "compressed_bytes": 3376,
+    "directory": false,
+    "crc32": "0xf58149b2",
+    "sha256": "57651f4ae028c6484298e25278cbf9cce02284bab267b6e8543908a0c7e973eb",
+    "inspection": "text read",
+    "lines": 170,
+    "headings": [
+      "seed_expansion",
+      "The two axes",
+      "Inputs (read from `../seed_material/`)",
+      "Outputs",
+      "What Stage 3 (problem_generation) needs from here",
+      "Usage",
+      "Run all classes sequentially (default targets: 15 intra + 15 inter per class)",
+      "Only a couple of classes",
+      "Higher per-class targets",
+      "Concurrent (up to 4 agents at a time; output lines will interleave)",
+      "Resume — skip classes that already have at least one valid prior run",
+      "Reuse a run_id across multiple invocations (e.g. across tiers)",
+      "Aggregate only — useful after manually editing work/<class>/<run_id>/{intra,inter}.json",
+      "Dry-run — render briefs into work/<class>/<run_id>/task_spec.md without launching claude",
+      "Agent behavior",
+      "Aggregator behavior",
+      "Cost note",
+      "Out of scope here"
+    ],
+    "symbols": []
+  },
+  {
+    "path": "K-BrowseComp-main/automated_data_gen/seed_expansion/run.py",
+    "bytes": 31884,
+    "compressed_bytes": 10377,
+    "directory": false,
+    "crc32": "0x7791f3f4",
+    "sha256": "37fa8b42d6858784f57b8d62b940ab135308c4e06781b00681cce08a7f8c7817",
+    "inspection": "text read",
+    "lines": 764,
+    "headings": [
+      "Allow `--dangerously-skip-permissions` inside containers running as root.",
+      "---------------------------------------------------------------------------",
+      "Environment / preflight.",
+      "---------------------------------------------------------------------------",
+      "---------------------------------------------------------------------------",
+      "Subprocess plumbing (lifted from the original runner).",
+      "---------------------------------------------------------------------------",
+      "---------------------------------------------------------------------------",
+      "Class workspace setup.",
+      "---------------------------------------------------------------------------",
+      "---------------------------------------------------------------------------",
+      "Per-class runner.",
+      "---------------------------------------------------------------------------",
+      "---------------------------------------------------------------------------",
+      "Aggregation.",
+      "---------------------------------------------------------------------------",
+      "---------------------------------------------------------------------------",
+      "Entry point.",
+      "---------------------------------------------------------------------------"
+    ],
+    "symbols": [
+      "check_auth",
+      "check_claude_version",
+      "_kill_process_group",
+      "_short",
+      "_tool_summary",
+      "_format_event",
+      "run_claude",
+      "load_seed_bank",
+      "_build_url_class_lookup",
+      "_archetype_to_klass",
+      "select_classes",
+      "_compute_fm_quotas",
+      "_final_url_hosts",
+      "_render_intra_host_rule",
+      "_render_fm_quota_block",
+      "render_brief",
+      "setup_class_workspace",
+      "class_has_prior_run",
+      "run_one_class",
+      "_load_json_safe",
+      "aggregate",
+      "parse_csv",
+      "main"
+    ]
+  },
+  {
+    "path": "K-BrowseComp-main/automated_data_gen/seed_expansion/run_all.sh",
+    "bytes": 4505,
+    "compressed_bytes": 1696,
+    "directory": false,
+    "crc32": "0x6f86ef22",
+    "sha256": "94749a194f843645584d766530ec4a3e98c1199b3ebdff65b1335da6e5782f3c",
+    "inspection": "text read",
+    "lines": 94,
+    "headings": [
+      "# run_all.sh — Three-tier seed-bank expansion to size the seed pool for ~700",
+      "downstream K-BrowseComp problems.",
+      "# Rationale:",
+      "- Target 700 generated problems in Stage 3 (problem_generation/).",
+      "- Assuming ~1.3 problems per accepted seed and ~70% defeat-loop acceptance,",
+      "we need ~800-900 candidate seed URLs from Stage 2.",
+      "- Tier 1 = sparse but high-strategic-value classes (F4/F6/F8): boost a lot.",
+      "- Tier 2 = already well-covered classes (the core of the existing 300):",
+      "moderate expansion, mostly intra-domain since they have many seed hosts.",
+      "- Tier 3 = niche / limited-utility classes (F10/F9-dominant): light coverage.",
+      "- Skip: SERP-only and shortlink classes; too few seeds in 2 others.",
+      "# Cost note:",
+      "claude-opus-4-7 at max effort over ~30 classes with aggressive WebSearch +",
+      "WebFetch is expensive. Run the warm-up first (commented below), inspect a",
+      "handful of outputs in work/, then uncomment the three tier invocations.",
+      "# Usage:",
+      "bash automated_data_gen/seed_expansion/run_all.sh",
+      "# Override knobs:",
+      "PARALLEL=4   bash run_all.sh           # higher concurrency (interleaved logs)",
+      "RESUME=1     bash run_all.sh           # skip classes whose intra+inter exist",
+      "set -euo pipefail",
+      "-----------------------------------------------------------------------------",
+      "Warm-up (uncomment to sanity-check the brief and agent quality on 2 classes",
+      "before committing to the full run).",
+      "-----------------------------------------------------------------------------",
+      "echo \"=== WARM-UP (2 sparse classes) ===\"",
+      "python3 run.py \\",
+      "--classes species_inventory,encyclopedia_korean_culture \\",
+      "--target-intra 10 --target-inter 10 \\",
+      "--parallel \"$PARALLEL\" \"${EXTRA_FLAGS[@]}\"",
+      "echo",
+      "echo \"Inspect work/species_inventory/{intra,inter}.json and\"",
+      "echo \"work/encyclopedia_korean_culture/{intra,inter}.json before continuing.\"",
+      "exit 0",
+      "-----------------------------------------------------------------------------",
+      "Tier 1 — sparse but strategically valuable. Heavy inter-domain expansion to",
+      "build out under-represented archetypes (F4 / F6 / F8 dominant).",
+      "Budget per class: intra=20, inter=25  (8 classes × 45 = 360 candidates)",
+      "-----------------------------------------------------------------------------",
+      "-----------------------------------------------------------------------------",
+      "Tier 2 — already well-covered, moderate expansion. Mostly intra-domain since",
+      "these have many seed hosts to walk from.",
+      "Budget per class: intra=20, inter=15  (8 classes × 35 = 280 candidates)",
+      "-----------------------------------------------------------------------------",
+      "-----------------------------------------------------------------------------",
+      "Tier 3 — niche / limited utility. Light coverage to keep mode diversity.",
+      "Budget per class: intra=10, inter=10  (14 classes × 20 = 280 candidates)",
+      "-----------------------------------------------------------------------------",
+      "-----------------------------------------------------------------------------",
+      "Final aggregation (re-runs even if Tier 3 succeeded, since run.py only",
+      "aggregates per-invocation — this guarantees a fresh aggregate from all work/).",
+      "-----------------------------------------------------------------------------"
+    ],
+    "symbols": []
+  },
+  {
+    "path": "K-BrowseComp-main/automated_data_gen/seed_expansion/task_spec_template.md",
+    "bytes": 17644,
+    "compressed_bytes": 7813,
+    "directory": false,
+    "crc32": "0x6cf14763",
+    "sha256": "ae4ef04c8e256d24588c0ff806184530905aa435d6efd5828653698434d2375e",
+    "inspection": "text read",
+    "lines": 366,
+    "headings": [
+      "Seed-bank expansion — source class: `{class_name}`",
+      "Class context",
+      "Hosts already in the seed bank (with counts)",
+      "Question categories where this class appears",
+      "Top failure modes observed empirically for this class",
+      "Per-FM quotas for THIS run (you must honor these)",
+      "Eight reference seed URLs (read these to ground your sense of the class)",
+      "What you are looking for",
+      "Two discovery axes",
+      "A. Intra-archetype expansion (target: **{target_intra}** entries)",
+      "B. Inter-archetype expansion (target: **{target_inter}** entries)",
+      "Diversity requirements (HARD RULES — apply to BOTH intra and inter)",
+      "Verification protocol (MANDATORY)",
+      "Step 1 — Probe with `WebFetch`",
+      "Step 2 — Reject anything that fails",
+      "Step 3 — `curl` probe (use for bot-blocked hosts)",
+      "Step 4 — `WebSearch` fallback (last resort)",
+      "Step 5 — Do not pattern-guess IDs",
+      "Output schema (strict — validator will enforce)",
+      "Rules for the `source` field",
+      "Rules for `why_this_is_promising`",
+      "Example of a well-formed entry (intra — same archetype, different host)",
+      "Example of a well-formed entry (inter — same pathology, different topic)",
+      "Useful files in this workspace",
+      "Style and budget guidance"
+    ],
+    "symbols": []
+  },
+  {
+    "path": "K-BrowseComp-main/docs/",
+    "bytes": 0,
+    "compressed_bytes": 0,
+    "directory": true,
+    "crc32": "0x0"
+  },
+  {
+    "path": "K-BrowseComp-main/docs/DEVELOPMENT.md",
+    "bytes": 2066,
+    "compressed_bytes": 887,
+    "directory": false,
+    "crc32": "0xc374d22d",
+    "sha256": "40d851afa5596685e69db05206443dca3dd8ce007df26a1243d8e82547ae924c",
+    "inspection": "text read",
+    "lines": 95,
+    "headings": [
+      "Search evaluations: developer guidance",
+      "Architecture",
+      "Development",
+      "Setup",
+      "Install development dependencies",
+      "Install pre-commit hooks",
+      "Running Tests",
+      "Install test dependencies",
+      "Run all tests",
+      "Code Quality",
+      "Install development dependencies",
+      "Run pre-commit hooks",
+      "Common workflows",
+      "Adding new search engines",
+      "Adding new benchmark suites"
+    ],
+    "symbols": [
+      "MySearchEngine",
+      "MySuite"
+    ]
+  },
+  {
+    "path": "K-BrowseComp-main/examples/",
+    "bytes": 0,
+    "compressed_bytes": 0,
+    "directory": true,
+    "crc32": "0x0"
+  },
+  {
+    "path": "K-BrowseComp-main/examples/k_browsecomp_colab.ipynb",
+    "bytes": 5957,
+    "compressed_bytes": 1897,
+    "directory": false,
+    "crc32": "0x5f58b786",
+    "sha256": "d8fbeb6eb40ec22988b0af33453868b85f3b6c9e5e2a6678c604306df465a313",
+    "inspection": "text read",
+    "lines": 175,
+    "headings": [],
+    "symbols": []
+  },
+  {
+    "path": "K-BrowseComp-main/misc/",
+    "bytes": 0,
+    "compressed_bytes": 0,
+    "directory": true,
+    "crc32": "0x0"
+  },
+  {
+    "path": "K-BrowseComp-main/misc/error_example.png",
+    "bytes": 3516117,
+    "compressed_bytes": 3199107,
+    "directory": false,
+    "crc32": "0xf09efcc7",
+    "sha256": "ee34be5700fd96703a01b3a6dd091d48049b7fd648fb6bd4c9bde47280ad7775",
+    "inspection": "binary: metadata only"
+  },
+  {
+    "path": "K-BrowseComp-main/pyproject.toml",
+    "bytes": 3430,
+    "compressed_bytes": 1469,
+    "directory": false,
+    "crc32": "0xb5f95bc7",
+    "sha256": "159c7d169ae9220921ab2601334c88783e3132c8d66ebce61cb151fa1965f013",
+    "inspection": "text read",
+    "lines": 162,
+    "headings": [
+      "Portions adapted from https://github.com/perplexityai/search_evals/blob/main/pyproject.toml",
+      "Original license: MIT.",
+      "type hints or stubs do not exist for these libraries",
+      "test files use pytest fixtures which create untyped decorators"
+    ],
+    "symbols": []
+  },
+  {
+    "path": "K-BrowseComp-main/search_evals/",
+    "bytes": 0,
+    "compressed_bytes": 0,
+    "directory": true,
+    "crc32": "0x0"
+  },
+  {
+    "path": "K-BrowseComp-main/search_evals/agents/",
+    "bytes": 0,
+    "compressed_bytes": 0,
+    "directory": true,
+    "crc32": "0x0"
+  },
+  {
+    "path": "K-BrowseComp-main/search_evals/agents/__init__.py",
+    "bytes": 988,
+    "compressed_bytes": 365,
+    "directory": false,
+    "crc32": "0x3864d246",
+    "sha256": "fd6400e6dfe7679f6ba9beaa5cad664bb8d6ecf76ca62f8f08a2664f820c0d5f",
+    "inspection": "text read",
+    "lines": 44,
+    "headings": [
+      "Portions adapted from https://github.com/perplexityai/search_evals/blob/main/search_evals/agents/__init__.py",
+      "Original license: MIT."
+    ],
+    "symbols": []
+  },
+  {
+    "path": "K-BrowseComp-main/search_evals/agents/deep_research.py",
+    "bytes": 5833,
+    "compressed_bytes": 2123,
+    "directory": false,
+    "crc32": "0xa3a998f5",
+    "sha256": "3735137e2615a54ad341d11a1bfc7cf59a879d50c76ff65094db83118aa4bd30",
+    "inspection": "text read",
+    "lines": 135,
+    "headings": [
+      "Portions adapted from https://github.com/perplexityai/search_evals/blob/main/search_evals/agents/deep_research.py",
+      "Original license: MIT.",
+      "Tool",
+      "Query Format",
+      "Solution strategy",
+      "General web search recommendations",
+      "Final-answer requirements",
+      "Response Format"
+    ],
+    "symbols": [
+      "_filter_tool_calls",
+      "DeepResearchAgent"
+    ]
+  },
+  {
+    "path": "K-BrowseComp-main/search_evals/agents/llms/",
+    "bytes": 0,
+    "compressed_bytes": 0,
+    "directory": true,
+    "crc32": "0x0"
+  },
+  {
+    "path": "K-BrowseComp-main/search_evals/agents/llms/__init__.py",
+    "bytes": 3413,
+    "compressed_bytes": 1027,
+    "directory": false,
+    "crc32": "0x9757d5bd",
+    "sha256": "33696ace6e7dbfcad60fb30597e598010798f99d05e738d855e75e04ff81af93",
+    "inspection": "text read",
+    "lines": 100,
+    "headings": [
+      "Portions adapted from https://github.com/perplexityai/search_evals/blob/main/search_evals/agents/llms/__init__.py",
+      "Original license: MIT.",
+      "search_evals/agents/llms/__init__.py"
+    ],
+    "symbols": [
+      "make_llm"
+    ]
+  },
+  {
+    "path": "K-BrowseComp-main/search_evals/agents/llms/anthropic.py",
+    "bytes": 8261,
+    "compressed_bytes": 2434,
+    "directory": false,
+    "crc32": "0xa52b5bd1",
+    "sha256": "9303c16026331820ef05d8eb9986ced00d46d680792d407796af8ffd3b3c152b",
+    "inspection": "text read",
+    "lines": 204,
+    "headings": [
+      "Portions adapted from https://github.com/perplexityai/search_evals/blob/main/search_evals/agents/llms/anthropic.py",
+      "Original license: MIT."
+    ],
+    "symbols": [
+      "_is_empty_message_error",
+      "_is_content_filtered_error",
+      "_is_thinking_block_required_error",
+      "_is_retryable_error",
+      "AnthropicMessage",
+      "AnthropicConversation",
+      "AnthropicLLM"
+    ]
+  },
+  {
+    "path": "K-BrowseComp-main/search_evals/agents/llms/base.py",
+    "bytes": 5846,
+    "compressed_bytes": 1708,
+    "directory": false,
+    "crc32": "0x778a20b2",
+    "sha256": "9539f1d6db01181a4801a1a2087c969937f96c2988fd0b27579fb65895572ace",
+    "inspection": "text read",
+    "lines": 161,
+    "headings": [
+      "Portions adapted from https://github.com/perplexityai/search_evals/blob/main/search_evals/agents/llms/base.py",
+      "Original license: MIT."
+    ],
+    "symbols": [
+      "LLMOutput",
+      "ContextSnapshot",
+      "BaseConversation",
+      "BaseLLM"
+    ]
+  },
+  {
+    "path": "K-BrowseComp-main/search_evals/agents/llms/gemini.py",
+    "bytes": 8867,
+    "compressed_bytes": 2626,
+    "directory": false,
+    "crc32": "0x7a04ca88",
+    "sha256": "f7a13a6c1e75a796166899784275abe336cb1ddd1e574797d34bcb006d31d060",
+    "inspection": "text read",
+    "lines": 239,
+    "headings": [],
+    "symbols": [
+      "_clean_schema_for_gemini",
+      "_to_jsonable",
+      "GeminiMessage",
+      "GeminiConversation",
+      "GeminiLLM"
+    ]
+  },
+  {
+    "path": "K-BrowseComp-main/search_evals/agents/llms/openai.py",
+    "bytes": 6027,
+    "compressed_bytes": 1806,
+    "directory": false,
+    "crc32": "0xda695701",
+    "sha256": "316471ef52c1e26eb1fd9cf9b994056e41e86aafd8cc474bf0d84561355747bb",
+    "inspection": "text read",
+    "lines": 156,
+    "headings": [
+      "Portions adapted from https://github.com/perplexityai/search_evals/blob/main/search_evals/agents/llms/openai.py",
+      "Original license: MIT."
+    ],
+    "symbols": [
+      "_get_usage_value",
+      "_get_int_usage_value",
+      "_get_reasoning_tokens",
+      "OpenAIMessage",
+      "OpenAIConversation",
+      "OpenAILLM"
+    ]
+  },
+  {
+    "path": "K-BrowseComp-main/search_evals/agents/llms/openai_chat.py",
+    "bytes": 6019,
+    "compressed_bytes": 1908,
+    "directory": false,
+    "crc32": "0xb4f2c768",
+    "sha256": "ca648ca462b09fcb7d2922ad22aedb4a382db52f8a50cd69ffa4b9456fe815e6",
+    "inspection": "text read",
+    "lines": 174,
+    "headings": [],
+    "symbols": [
+      "_responses_tools_to_chat_tools",
+      "OpenAIChatConversation",
+      "OpenAIChatLLM"
+    ]
+  },
+  {
+    "path": "K-BrowseComp-main/search_evals/agents/llms/openrouter.py",
+    "bytes": 15541,
+    "compressed_bytes": 4163,
+    "directory": false,
+    "crc32": "0xdd5c4ddc",
+    "sha256": "3fa434c863b1d70790c4e77ee7bfa4f807960c1c7b4a8d6c970abec746eb8ac3",
+    "inspection": "text read",
+    "lines": 411,
+    "headings": [],
+    "symbols": [
+      "OpenRouterModelInfo",
+      "_responses_tools_to_chat_tools",
+      "_looks_like_tool_call_text",
+      "_parse_positive_int_env",
+      "_parse_bool_env",
+      "_get_reasoning_effort",
+      "_get_max_tokens",
+      "_get_max_context_tokens",
+      "_get_usage_value",
+      "_get_int_usage_value",
+      "_get_reasoning_tokens",
+      "OpenRouterConversation",
+      "OpenRouterLLM",
+      "make_openrouter_llm"
+    ]
+  },
+  {
+    "path": "K-BrowseComp-main/search_evals/agents/llms/tool_helper.py",
+    "bytes": 4349,
+    "compressed_bytes": 1150,
+    "directory": false,
+    "crc32": "0x96398f1a",
+    "sha256": "c80ce8d2daa26f7240951fc4de3037bd45192f5652a3e537e855273517e5a5a3",
+    "inspection": "text read",
+    "lines": 145,
+    "headings": [],
+    "symbols": [
+      "safe_json_loads",
+      "normalize_content",
+      "_clean_query",
+      "_make_tool_call",
+      "recover_search_web_tool_call"
+    ]
+  },
+  {
+    "path": "K-BrowseComp-main/search_evals/agents/single_step_search.py",
+    "bytes": 2464,
+    "compressed_bytes": 1018,
+    "directory": false,
+    "crc32": "0xd1b5481",
+    "sha256": "99aade96b5b6270c1c4e552cd9067af788d0dbce6166c68e9c18bbb58e3d726c",
+    "inspection": "text read",
+    "lines": 71,
+    "headings": [
+      "Portions adapted from https://github.com/perplexityai/search_evals/blob/main/search_evals/agents/single_step_search.py",
+      "Original license: MIT.",
+      "Tool",
+      "Strategy",
+      "CRITICAL: Response Format"
+    ],
+    "symbols": [
+      "SingleStepSearchAgent"
+    ]
+  },
+  {
+    "path": "K-BrowseComp-main/search_evals/agents/tools/",
+    "bytes": 0,
+    "compressed_bytes": 0,
+    "directory": true,
+    "crc32": "0x0"
+  },
+  {
+    "path": "K-BrowseComp-main/search_evals/agents/tools/__init__.py",
+    "bytes": 968,
+    "compressed_bytes": 332,
+    "directory": false,
+    "crc32": "0xbe3f9721",
+    "sha256": "3c95f012d22b43c0cb9324684cf4aa2eed1863dfd7ea32aa20fb4354be3174ac",
+    "inspection": "text read",
+    "lines": 44,
+    "headings": [
+      "Portions adapted from https://github.com/perplexityai/search_evals/blob/main/search_evals/agents/tools/__init__.py",
+      "Original license: MIT."
+    ],
+    "symbols": []
+  },
+  {
+    "path": "K-BrowseComp-main/search_evals/agents/tools/base.py",
+    "bytes": 2097,
+    "compressed_bytes": 689,
+    "directory": false,
+    "crc32": "0xac885ba7",
+    "sha256": "ec59f550ecc0a6641d80eb91fe9e87d2b36ece3e3ed971f511e9628b8916dd07",
+    "inspection": "text read",
+    "lines": 69,
+    "headings": [
+      "Portions adapted from https://github.com/perplexityai/search_evals/blob/main/search_evals/agents/tools/base.py",
+      "Original license: MIT."
+    ],
+    "symbols": [
+      "ToolSchema",
+      "ToolDef",
+      "OpenAIToolSchema",
+      "AnthropicToolSchema",
+      "Tool"
+    ]
+  },
+  {
+    "path": "K-BrowseComp-main/search_evals/agents/tools/open_url.py",
+    "bytes": 4533,
+    "compressed_bytes": 1528,
+    "directory": false,
+    "crc32": "0x49a42290",
+    "sha256": "edb070818dfe12ffade05046ad9bf3999a6b52a2a9632b1e16b60304d9842267",
+    "inspection": "text read",
+    "lines": 131,
+    "headings": [],
+    "symbols": [
+      "OpenURLInput",
+      "OpenURLOutput",
+      "OpenURLToolDef",
+      "_HTMLTextExtractor",
+      "_is_allowed_url",
+      "_html_to_text",
+      "OpenURLTool"
+    ]
+  },
+  {
+    "path": "K-BrowseComp-main/search_evals/agents/tools/search_web.py",
+    "bytes": 1858,
+    "compressed_bytes": 687,
+    "directory": false,
+    "crc32": "0x58b6ca29",
+    "sha256": "10c1527f1ccbfe59f239f8423539673d458235d098f3a1984ea2f8515633793b",
+    "inspection": "text read",
+    "lines": 59,
+    "headings": [
+      "Portions adapted from https://github.com/perplexityai/search_evals/blob/main/search_evals/agents/tools/search_web.py",
+      "Original license: MIT."
+    ],
+    "symbols": [
+      "SearchWebInput",
+      "SearchWebResult",
+      "SearchWebOutput",
+      "SearchWebToolDef",
+      "SearchWebTool"
+    ]
+  },
+  {
+    "path": "K-BrowseComp-main/search_evals/agents/tools/toolset.py",
+    "bytes": 2234,
+    "compressed_bytes": 775,
+    "directory": false,
+    "crc32": "0xbbe7942",
+    "sha256": "d6d8ec66b2533d51598628d2fe136837282f76e3b741efd425882f93d9def60f",
+    "inspection": "text read",
+    "lines": 58,
+    "headings": [
+      "Portions adapted from https://github.com/perplexityai/search_evals/blob/main/search_evals/agents/tools/toolset.py",
+      "Original license: MIT."
+    ],
+    "symbols": [
+      "ToolSet"
+    ]
+  },
+  {
+    "path": "K-BrowseComp-main/search_evals/agents/types.py",
+    "bytes": 1144,
+    "compressed_bytes": 548,
+    "directory": false,
+    "crc32": "0x874388ed",
+    "sha256": "9cf005e9d7b800e26b8c3b17cac86cab17ca41bed19738e60c49b6381b8e7b7c",
+    "inspection": "text read",
+    "lines": 55,
+    "headings": [
+      "Portions adapted from https://github.com/perplexityai/search_evals/blob/main/search_evals/agents/types.py",
+      "Original license: MIT.",
+      "Content blocks from LLM response",
+      "Tool execution result"
+    ],
+    "symbols": [
+      "LLMProvider",
+      "ToolChoice",
+      "TextBlock",
+      "ToolCallBlock",
+      "ThinkingBlock",
+      "ToolResult",
+      "AsyncBaseAgent"
+    ]
+  },
+  {
+    "path": "K-BrowseComp-main/search_evals/datasets/",
+    "bytes": 0,
+    "compressed_bytes": 0,
+    "directory": true,
+    "crc32": "0x0"
+  },
+  {
+    "path": "K-BrowseComp-main/search_evals/datasets/__init__.py",
+    "bytes": 785,
+    "compressed_bytes": 343,
+    "directory": false,
+    "crc32": "0x6b0cbd16",
+    "sha256": "2f21a269f7de92bad673960c947e77bb8a96f6c1633e4f6674da071cf2d0a1d0",
+    "inspection": "text read",
+    "lines": 26,
+    "headings": [
+      "Portions adapted from https://github.com/perplexityai/search_evals/blob/main/search_evals/datasets/__init__.py",
+      "Original license: MIT."
+    ],
+    "symbols": []
+  },
+  {
+    "path": "K-BrowseComp-main/search_evals/datasets/dataset.py",
+    "bytes": 3225,
+    "compressed_bytes": 1207,
+    "directory": false,
+    "crc32": "0xea62f4ec",
+    "sha256": "91070f90884c549e7d08d22373df8c2ff926d3ad28d5b33299543001ae5ec68a",
+    "inspection": "text read",
+    "lines": 102,
+    "headings": [
+      "Portions adapted from https://github.com/perplexityai/search_evals/blob/main/search_evals/datasets/dataset.py",
+      "Original license: MIT."
+    ],
+    "symbols": [
+      "Datum",
+      "Dataset"
+    ]
+  },
+  {
+    "path": "K-BrowseComp-main/search_evals/datasets/ko_browsecomp.jsonl",
+    "bytes": 151449,
+    "compressed_bytes": 47885,
+    "directory": false,
+    "crc32": "0xf31053ef",
+    "sha256": "90349c25c32ba84053d8cf54b72b8e5f3117ab65489ce260cec33bb4a02fef33",
+    "inspection": "text read",
+    "lines": 300,
+    "headings": [],
+    "symbols": []
+  },
+  {
+    "path": "K-BrowseComp-main/search_evals/datasets/ko_browsecomp_synthetic.jsonl",
+    "bytes": 65463,
+    "compressed_bytes": 23811,
+    "directory": false,
+    "crc32": "0x6f6e00b2",
+    "sha256": "dde6339eb1c5fe91757a9a51a77e9d697ad7cc957d4cc4a8847f27ce69d15f7b",
+    "inspection": "text read",
+    "lines": 100,
+    "headings": [],
+    "symbols": []
+  },
+  {
+    "path": "K-BrowseComp-main/search_evals/debug_runs.py",
+    "bytes": 12433,
+    "compressed_bytes": 3507,
+    "directory": false,
+    "crc32": "0xf860f628",
+    "sha256": "06c78ccd8f8319dc5f8fb3b63a878e084c002b2b6d582798f8566ada0e9157af",
+    "inspection": "text read",
+    "lines": 376,
+    "headings": [
+      "Portions adapted from https://github.com/perplexityai/search_evals/blob/main/search_evals/debug_runs.py",
+      "Original license: MIT."
+    ],
+    "symbols": [
+      "load_run_results",
+      "find_common_ids",
+      "parse_results_json",
+      "ContextSnapshotInfo",
+      "SearchStep",
+      "extract_search_info",
+      "truncate",
+      "display_comparison",
+      "display_summary",
+      "interactive_loop",
+      "main"
+    ]
+  },
+  {
+    "path": "K-BrowseComp-main/search_evals/io_utils.py",
+    "bytes": 2223,
+    "compressed_bytes": 963,
+    "directory": false,
+    "crc32": "0x8d4eec30",
+    "sha256": "22b1bd29d93b85d45f724c9d4eb1bf22530e637add323493f3e3548bff2b0c6a",
+    "inspection": "text read",
+    "lines": 61,
+    "headings": [
+      "Portions adapted from https://github.com/perplexityai/search_evals/blob/main/search_evals/io_utils.py",
+      "Original license: MIT."
+    ],
+    "symbols": [
+      "derive_key",
+      "decrypt",
+      "hash_key",
+      "load_jsonl_file",
+      "decrypt_dataset"
+    ]
+  },
+  {
+    "path": "K-BrowseComp-main/search_evals/logging_utils.py",
+    "bytes": 493,
+    "compressed_bytes": 302,
+    "directory": false,
+    "crc32": "0x916d05f3",
+    "sha256": "897904b9ba3a275d92fd0ec590269bb6ac4674245b899c249e008636e0585e3a",
+    "inspection": "text read",
+    "lines": 20,
+    "headings": [
+      "Portions adapted from https://github.com/perplexityai/search_evals/blob/main/search_evals/logging_utils.py",
+      "Original license: MIT."
+    ],
+    "symbols": [
+      "setup_logging"
+    ]
+  },
+  {
+    "path": "K-BrowseComp-main/search_evals/run_eval.py",
+    "bytes": 4624,
+    "compressed_bytes": 1604,
+    "directory": false,
+    "crc32": "0xd61c0eac",
+    "sha256": "6be49334eb4b7dd3c668167a647d618d43c60121d84c6f7ebfc0bea29b78ead3",
+    "inspection": "text read",
+    "lines": 153,
+    "headings": [
+      "Portions adapted from https://github.com/perplexityai/search_evals/blob/main/search_evals/run_eval.py",
+      "Original license: MIT."
+    ],
+    "symbols": [
+      "_coerce_cli_value",
+      "_parse_fallback_cli",
+      "run_suite",
+      "main"
+    ]
+  },
+  {
+    "path": "K-BrowseComp-main/search_evals/search_engines/",
+    "bytes": 0,
+    "compressed_bytes": 0,
+    "directory": true,
+    "crc32": "0x0"
+  },
+  {
+    "path": "K-BrowseComp-main/search_evals/search_engines/__init__.py",
+    "bytes": 382,
+    "compressed_bytes": 213,
+    "directory": false,
+    "crc32": "0x64fb5f0e",
+    "sha256": "4d84de3a1d6b34be6a3acf1e752f3664879042428ad67927b73cf3c83382d0ee",
+    "inspection": "text read",
+    "lines": 7,
+    "headings": [
+      "Portions adapted from https://github.com/perplexityai/search_evals/blob/main/search_evals/search_engines/__init__.py",
+      "Original license: MIT."
+    ],
+    "symbols": []
+  },
+  {
+    "path": "K-BrowseComp-main/search_evals/search_engines/brave.py",
+    "bytes": 2908,
+    "compressed_bytes": 1015,
+    "directory": false,
+    "crc32": "0xc877c6d4",
+    "sha256": "ebbc0c1ce55254b537fff4281ad612ea06512cd5aa013ab20c282e3666b621af",
+    "inspection": "text read",
+    "lines": 78,
+    "headings": [
+      "Portions adapted from https://github.com/perplexityai/search_evals/blob/main/search_evals/search_engines/brave.py",
+      "Original license: MIT."
+    ],
+    "symbols": [
+      "BraveSearchEngine"
+    ]
+  },
+  {
+    "path": "K-BrowseComp-main/search_evals/search_engines/exa.py",
+    "bytes": 2767,
+    "compressed_bytes": 914,
+    "directory": false,
+    "crc32": "0x464d50d6",
+    "sha256": "810ed29bf65e9a04f2f42869f98d5270f663531afccaa5ac674d3d600c596a3c",
+    "inspection": "text read",
+    "lines": 74,
+    "headings": [
+      "Portions adapted from https://github.com/perplexityai/search_evals/blob/main/search_evals/search_engines/exa.py",
+      "Original license: MIT."
+    ],
+    "symbols": [
+      "ExaType",
+      "ExaSnippetMode",
+      "ExaSearchEngine",
+      "ExaFastSearchEngine"
+    ]
+  },
+  {
+    "path": "K-BrowseComp-main/search_evals/search_engines/perplexity.py",
+    "bytes": 1189,
+    "compressed_bytes": 449,
+    "directory": false,
+    "crc32": "0xb77c7990",
+    "sha256": "292a433b13c38ecdbcf506ab4993dc05b02f3ab1a1717e626b85ee0ecf2ddb7b",
+    "inspection": "text read",
+    "lines": 32,
+    "headings": [
+      "Portions adapted from https://github.com/perplexityai/search_evals/blob/main/search_evals/search_engines/perplexity.py",
+      "Original license: MIT."
+    ],
+    "symbols": [
+      "PerplexitySearchEngine"
+    ]
+  },
+  {
+    "path": "K-BrowseComp-main/search_evals/search_engines/registry.py",
+    "bytes": 2291,
+    "compressed_bytes": 785,
+    "directory": false,
+    "crc32": "0xd17994bb",
+    "sha256": "20f2755b9aa1bbe07581723d29e392ff37d45fbb8f89062d961f88359335395b",
+    "inspection": "text read",
+    "lines": 50,
+    "headings": [
+      "Portions adapted from https://github.com/perplexityai/search_evals/blob/main/search_evals/search_engines/registry.py",
+      "Original license: MIT."
+    ],
+    "symbols": [
+      "make_search_engine",
+      "make_uncontaminated_search_engine"
+    ]
+  },
+  {
+    "path": "K-BrowseComp-main/search_evals/search_engines/tavily.py",
+    "bytes": 1583,
+    "compressed_bytes": 676,
+    "directory": false,
+    "crc32": "0x841e05f8",
+    "sha256": "247e7135e912e948eabd4d23e6a141cebfb7cdf290a5205e7488c42eadb4f9b1",
+    "inspection": "text read",
+    "lines": 37,
+    "headings": [
+      "Portions adapted from https://github.com/perplexityai/search_evals/blob/main/search_evals/search_engines/tavily.py",
+      "Original license: MIT."
+    ],
+    "symbols": [
+      "TavilySearchEngine"
+    ]
+  },
+  {
+    "path": "K-BrowseComp-main/search_evals/search_engines/types.py",
+    "bytes": 1064,
+    "compressed_bytes": 482,
+    "directory": false,
+    "crc32": "0x1d954971",
+    "sha256": "fcee15fb3407d8af54b3df0defadee2c52e8797921960dbf2859a0d5c612b0db",
+    "inspection": "text read",
+    "lines": 38,
+    "headings": [
+      "Portions adapted from https://github.com/perplexityai/search_evals/blob/main/search_evals/search_engines/types.py",
+      "Original license: MIT."
+    ],
+    "symbols": [
+      "SearchResult",
+      "AsyncSearchEngine",
+      "ContaminationFilter"
+    ]
+  },
+  {
+    "path": "K-BrowseComp-main/search_evals/show_results.py",
+    "bytes": 4831,
+    "compressed_bytes": 1766,
+    "directory": false,
+    "crc32": "0x27fb4f77",
+    "sha256": "995f10105c7067e1b9a3e6d19e650208630674cf1ebaa4d4c07f3506ee01fc3b",
+    "inspection": "text read",
+    "lines": 131,
+    "headings": [
+      "Portions adapted from https://github.com/perplexityai/search_evals/blob/main/search_evals/show_results.py",
+      "Original license: MIT."
+    ],
+    "symbols": [
+      "parse_engine_model",
+      "main"
+    ]
+  },
+  {
+    "path": "K-BrowseComp-main/search_evals/suites/",
+    "bytes": 0,
+    "compressed_bytes": 0,
+    "directory": true,
+    "crc32": "0x0"
+  },
+  {
+    "path": "K-BrowseComp-main/search_evals/suites/__init__.py",
+    "bytes": 441,
+    "compressed_bytes": 243,
+    "directory": false,
+    "crc32": "0xfe99347b",
+    "sha256": "debcdcdb1b12be450bb98a261993f997b206535bdc799f033a1b2d63c4e16d7d",
+    "inspection": "text read",
+    "lines": 15,
+    "headings": [
+      "Portions adapted from https://github.com/perplexityai/search_evals/blob/main/search_evals/suites/__init__.py",
+      "Original license: MIT."
+    ],
+    "symbols": []
+  },
+  {
+    "path": "K-BrowseComp-main/search_evals/suites/graders.py",
+    "bytes": 4945,
+    "compressed_bytes": 2002,
+    "directory": false,
+    "crc32": "0x1a59cd3b",
+    "sha256": "3e7d9984d868ec243cf7422a7915a5f4956a190e661ac649a97f043025576370",
+    "inspection": "text read",
+    "lines": 99,
+    "headings": [
+      "Portions adapted from https://github.com/perplexityai/search_evals/blob/main/search_evals/suites/graders.py",
+      "Original license: MIT."
+    ],
+    "symbols": [
+      "DeepResearchGrader"
+    ]
+  },
+  {
+    "path": "K-BrowseComp-main/search_evals/suites/ko_browsecomp.py",
+    "bytes": 2026,
+    "compressed_bytes": 699,
+    "directory": false,
+    "crc32": "0x26b24b4",
+    "sha256": "f9b2f8af6fbe6d94ee49f070640e7f610a521f3ef17ae682e28f07fbfda4278b",
+    "inspection": "text read",
+    "lines": 50,
+    "headings": [],
+    "symbols": [
+      "KoBrowseCompSuite"
+    ]
+  },
+  {
+    "path": "K-BrowseComp-main/search_evals/suites/registry.py",
+    "bytes": 1964,
+    "compressed_bytes": 695,
+    "directory": false,
+    "crc32": "0xee22d9eb",
+    "sha256": "e5985d50f5dc692c9cca298b37d230b422b11de3287ec451e2988641667d52d2",
+    "inspection": "text read",
+    "lines": 61,
+    "headings": [
+      "Portions adapted from https://github.com/perplexityai/search_evals/blob/main/search_evals/suites/registry.py",
+      "Original license: MIT."
+    ],
+    "symbols": [
+      "make_suite"
+    ]
+  },
+  {
+    "path": "K-BrowseComp-main/search_evals/suites/types.py",
+    "bytes": 4344,
+    "compressed_bytes": 1436,
+    "directory": false,
+    "crc32": "0xafb5f5e4",
+    "sha256": "3282f19500a527978f4f89465839c936a7e1c0b265c291b633394dc62f8293c7",
+    "inspection": "text read",
+    "lines": 140,
+    "headings": [
+      "Portions adapted from https://github.com/perplexityai/search_evals/blob/main/search_evals/suites/types.py",
+      "Original license: MIT."
+    ],
+    "symbols": [
+      "GradeType",
+      "SuiteResult",
+      "GraderResult",
+      "TaskResult",
+      "AsyncBaseGrader",
+      "AsyncBaseSuite"
+    ]
+  },
+  {
+    "path": "K-BrowseComp-main/tests/",
+    "bytes": 0,
+    "compressed_bytes": 0,
+    "directory": true,
+    "crc32": "0x0"
+  },
+  {
+    "path": "K-BrowseComp-main/tests/__init__.py",
+    "bytes": 148,
+    "compressed_bytes": 120,
+    "directory": false,
+    "crc32": "0x80698da1",
+    "sha256": "189f851fdbc6afbdb420a9efe3509d461d7b4b2f649e695c942eece3b98bce6c",
+    "inspection": "text read",
+    "lines": 4,
+    "headings": [
+      "Portions adapted from https://github.com/perplexityai/search_evals/blob/main/tests/__init__.py",
+      "Original license: MIT.",
+      "Tests for search_evals"
+    ],
+    "symbols": []
+  },
+  {
+    "path": "K-BrowseComp-main/tests/agents/",
+    "bytes": 0,
+    "compressed_bytes": 0,
+    "directory": true,
+    "crc32": "0x0"
+  },
+  {
+    "path": "K-BrowseComp-main/tests/agents/__init__.py",
+    "bytes": 129,
+    "compressed_bytes": 111,
+    "directory": false,
+    "crc32": "0xc0637c67",
+    "sha256": "e12203450f87d4a5cedfbbf50d722a418c93161e1802863fe1471bb2513c3b1b",
+    "inspection": "text read",
+    "lines": 2,
+    "headings": [
+      "Portions adapted from https://github.com/perplexityai/search_evals/blob/main/tests/agents/__init__.py",
+      "Original license: MIT."
+    ],
+    "symbols": []
+  },
+  {
+    "path": "K-BrowseComp-main/tests/agents/test_openai_llms.py",
+    "bytes": 1296,
+    "compressed_bytes": 396,
+    "directory": false,
+    "crc32": "0xb758d764",
+    "sha256": "bff829482f4b174542827c977be0b4ab3eaed4f607e7a5f642b313f6d7370555",
+    "inspection": "text read",
+    "lines": 46,
+    "headings": [],
+    "symbols": [
+      "test_openai_records_reasoning_tokens_from_output_details",
+      "test_openai_records_reasoning_tokens_from_completion_details"
+    ]
+  },
+  {
+    "path": "K-BrowseComp-main/tests/agents/test_openrouter_llms.py",
+    "bytes": 7335,
+    "compressed_bytes": 1902,
+    "directory": false,
+    "crc32": "0x20647d19",
+    "sha256": "9249e6fe477f47dca9c0a09a77c0e4b8821f064c6fe1827074e562ba411d60f0",
+    "inspection": "text read",
+    "lines": 203,
+    "headings": [],
+    "symbols": [
+      "FakeCompletions",
+      "FakeOpenAIClient",
+      "make_chat_response",
+      "test_glm_51_openrouter_defaults_are_token_conservative",
+      "test_glm_51_openrouter_env_overrides",
+      "test_deepseek_v4_pro_openrouter_defaults",
+      "test_deepseek_v4_pro_rejects_unsupported_reasoning_effort",
+      "test_openrouter_reasoning_effort_validation",
+      "test_openrouter_conversation_uses_native_tool_messages",
+      "test_openrouter_retries_empty_final_response",
+      "test_openrouter_records_reasoning_tokens",
+      "test_openrouter_snapshots_tool_choice_before_await"
+    ]
+  },
+  {
+    "path": "K-BrowseComp-main/tests/agents/test_single_step_search.py",
+    "bytes": 2260,
+    "compressed_bytes": 812,
+    "directory": false,
+    "crc32": "0x41c99a0f",
+    "sha256": "9f840c84bd2dbedb3a9b74a2399427f37dd17eabee24ba06d574eac54072015a",
+    "inspection": "text read",
+    "lines": 53,
+    "headings": [
+      "Portions adapted from https://github.com/perplexityai/search_evals/blob/main/tests/agents/test_single_step_search.py",
+      "Original license: MIT."
+    ],
+    "symbols": [
+      "TestSingleStepSearchAgent"
+    ]
+  },
+  {
+    "path": "K-BrowseComp-main/tests/agents/test_types.py",
+    "bytes": 14238,
+    "compressed_bytes": 2386,
+    "directory": false,
+    "crc32": "0x7b9aa387",
+    "sha256": "94cbe525827fb261d9dbc67ee90205ff2d5eecaad304a369e8cbf22cc2575f3a",
+    "inspection": "text read",
+    "lines": 391,
+    "headings": [
+      "Portions adapted from https://github.com/perplexityai/search_evals/blob/main/tests/agents/test_types.py",
+      "Original license: MIT."
+    ],
+    "symbols": [
+      "TestOpenAIConversation",
+      "TestToolSchema",
+      "TestTextBlock",
+      "TestToolCallBlock",
+      "TestToolResult",
+      "TestToolChoice",
+      "TestAnthropicConversation",
+      "TestContextSnapshots",
+      "TestTruncatePrefix"
+    ]
+  },
+  {
+    "path": "K-BrowseComp-main/tests/conftest.py",
+    "bytes": 499,
+    "compressed_bytes": 281,
+    "directory": false,
+    "crc32": "0x87ad724c",
+    "sha256": "3eae9674bb1a0e9c79ba3e0326afa3c08079a8147870d02913cfd2b3f517a624",
+    "inspection": "text read",
+    "lines": 15,
+    "headings": [
+      "Portions adapted from https://github.com/perplexityai/search_evals/blob/main/tests/conftest.py",
+      "Original license: MIT."
+    ],
+    "symbols": [
+      "mock_api_key"
+    ]
+  },
+  {
+    "path": "K-BrowseComp-main/tests/datasets/",
+    "bytes": 0,
+    "compressed_bytes": 0,
+    "directory": true,
+    "crc32": "0x0"
+  },
+  {
+    "path": "K-BrowseComp-main/tests/datasets/__init__.py",
+    "bytes": 131,
+    "compressed_bytes": 112,
+    "directory": false,
+    "crc32": "0xbd849d50",
+    "sha256": "798cad38a4b7a18829ac9b7816eca1e0b7ba48cf89b784824b7b901077801fd5",
+    "inspection": "text read",
+    "lines": 2,
+    "headings": [
+      "Portions adapted from https://github.com/perplexityai/search_evals/blob/main/tests/datasets/__init__.py",
+      "Original license: MIT."
+    ],
+    "symbols": []
+  },
+  {
+    "path": "K-BrowseComp-main/tests/datasets/test_dataset.py",
+    "bytes": 4698,
+    "compressed_bytes": 1089,
+    "directory": false,
+    "crc32": "0x218bac98",
+    "sha256": "48d7ac3d315df57ce820e65ada47e6abbdfb8a427cb2379d759db952f306a7f9",
+    "inspection": "text read",
+    "lines": 147,
+    "headings": [
+      "Portions adapted from https://github.com/perplexityai/search_evals/blob/main/tests/datasets/test_dataset.py",
+      "Original license: MIT."
+    ],
+    "symbols": [
+      "TestDatum",
+      "TestDataset"
+    ]
+  },
+  {
+    "path": "K-BrowseComp-main/tests/search_engines/",
+    "bytes": 0,
+    "compressed_bytes": 0,
+    "directory": true,
+    "crc32": "0x0"
+  },
+  {
+    "path": "K-BrowseComp-main/tests/search_engines/__init__.py",
+    "bytes": 137,
+    "compressed_bytes": 113,
+    "directory": false,
+    "crc32": "0xf6484ebb",
+    "sha256": "9e1ad3bff08fc02278f66143c25dd70e6195e960ac6109b0201d2bde42eb7568",
+    "inspection": "text read",
+    "lines": 2,
+    "headings": [
+      "Portions adapted from https://github.com/perplexityai/search_evals/blob/main/tests/search_engines/__init__.py",
+      "Original license: MIT."
+    ],
+    "symbols": []
+  },
+  {
+    "path": "K-BrowseComp-main/tests/search_engines/test_registry.py",
+    "bytes": 397,
+    "compressed_bytes": 234,
+    "directory": false,
+    "crc32": "0x9ba1db63",
+    "sha256": "4531a69501b853267fb5fbe0e6ed8264122cef5a467c145c58b2ac5b53fe1f98",
+    "inspection": "text read",
+    "lines": 11,
+    "headings": [
+      "Portions adapted from https://github.com/perplexityai/search_evals/blob/main/tests/search_engines/test_registry.py",
+      "Original license: MIT."
+    ],
+    "symbols": [
+      "test_make_search_engine_invalid_name"
+    ]
+  },
+  {
+    "path": "K-BrowseComp-main/tests/search_engines/test_types.py",
+    "bytes": 5296,
+    "compressed_bytes": 1177,
+    "directory": false,
+    "crc32": "0xc458cd85",
+    "sha256": "760704ba7058c5dd317269efdb3661a720677fb5969a8bd69b62f4563abdd7a0",
+    "inspection": "text read",
+    "lines": 142,
+    "headings": [
+      "Portions adapted from https://github.com/perplexityai/search_evals/blob/main/tests/search_engines/test_types.py",
+      "Original license: MIT."
+    ],
+    "symbols": [
+      "TestSearchResult",
+      "TestContaminationFilter"
+    ]
+  },
+  {
+    "path": "K-BrowseComp-main/tests/suites/",
+    "bytes": 0,
+    "compressed_bytes": 0,
+    "directory": true,
+    "crc32": "0x0"
+  },
+  {
+    "path": "K-BrowseComp-main/tests/suites/__init__.py",
+    "bytes": 129,
+    "compressed_bytes": 111,
+    "directory": false,
+    "crc32": "0xb88728e2",
+    "sha256": "b0f6cb4a66daa739824e6e5dc3ad33dfc196e420abb3128c6b8b9f9b5a4da024",
+    "inspection": "text read",
+    "lines": 2,
+    "headings": [
+      "Portions adapted from https://github.com/perplexityai/search_evals/blob/main/tests/suites/__init__.py",
+      "Original license: MIT."
+    ],
+    "symbols": []
+  },
+  {
+    "path": "K-BrowseComp-main/tests/suites/test_registry.py",
+    "bytes": 3312,
+    "compressed_bytes": 911,
+    "directory": false,
+    "crc32": "0x9e986c58",
+    "sha256": "05e28930008104f58792d24a8cf6180a75e909ded76a2453c3e3929f7523fc14",
+    "inspection": "text read",
+    "lines": 84,
+    "headings": [
+      "Portions adapted from https://github.com/perplexityai/search_evals/blob/main/tests/suites/test_registry.py",
+      "Original license: MIT."
+    ],
+    "symbols": [
+      "TestMakeSuite"
+    ]
+  },
+  {
+    "path": "K-BrowseComp-main/tests/suites/test_types.py",
+    "bytes": 7254,
+    "compressed_bytes": 1447,
+    "directory": false,
+    "crc32": "0xc677e417",
+    "sha256": "85937a25c179d6a257716a7424500971b20c132a516cf2fa4baccf4ad1769d54",
+    "inspection": "text read",
+    "lines": 208,
+    "headings": [
+      "Portions adapted from https://github.com/perplexityai/search_evals/blob/main/tests/suites/test_types.py",
+      "Original license: MIT."
+    ],
+    "symbols": [
+      "TestGradeType",
+      "TestGraderResult",
+      "TestSuiteResult",
+      "TestTaskResult"
+    ]
+  },
+  {
+    "path": "K-BrowseComp-main/uv.lock",
+    "bytes": 475123,
+    "compressed_bytes": 147931,
+    "directory": false,
+    "crc32": "0x1ca37304",
+    "sha256": "33636474515480a38a36c5e644196b5d3220a416253964f8a10fc8304b99291c",
+    "inspection": "text read",
+    "lines": 3323,
+    "headings": [],
+    "symbols": []
+  }
+]

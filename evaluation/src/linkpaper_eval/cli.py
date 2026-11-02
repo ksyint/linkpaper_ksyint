@@ -76,6 +76,9 @@ def build_parser() -> argparse.ArgumentParser:
     from linkpaper_eval.research_bench.cli import register as register_research
 
     register_research(subparsers)
+    subparsers.add_parser('agent', help='한국어 근거 탐색 agent 실행·검증 (agent --help)')
+    subparsers.add_parser('lineage-metric', help='GLRS 결과 계보 반응 지표 (lineage-metric --help)')
+    subparsers.add_parser('agent-lineage', help='검증한 agent trace를 GLRS에 연결 (agent-lineage --help)')
 
     # 벤치마크와 평가셋 생성 명령은 별도 패키지에서 등록한다. 위 세 명령의
     # 동작에는 영향이 없고, 등록이 실패해도 기존 명령은 그대로 쓸 수 있다.
@@ -90,7 +93,17 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def main(argv: list[str] | None = None) -> int:
-    args = build_parser().parse_args(argv)
+    arguments = list(sys.argv[1:] if argv is None else argv)
+    if arguments and arguments[0] == 'agent':
+        from linkpaper_eval.agent_bench.cli import main as agent_main
+        return agent_main(arguments[1:])
+    if arguments and arguments[0] == 'lineage-metric':
+        from linkpaper_eval.lineage_metric import main as lineage_main
+        return lineage_main(arguments[1:])
+    if arguments and arguments[0] == 'agent-lineage':
+        from linkpaper_eval.agent_lineage import main as bridge_main
+        return bridge_main(arguments[1:])
+    args = build_parser().parse_args(arguments)
 
     # 부가 명령은 서브파서가 handler를 직접 지정한다.
     handler = getattr(args, "handler", None)

@@ -276,7 +276,8 @@ def test_text_only_config_is_accepted():
     check_text_config({"architectures": ["Qwen3ForCausalLM"], "model_type": "qwen3"})
 
 
-def test_physical_gpu_6_uuid_is_pinned_before_cuda_import(monkeypatch):
+@pytest.mark.parametrize('selected_index', [0, 3, 7])
+def test_selected_physical_gpu_uuid_is_pinned_before_cuda_import(monkeypatch, selected_index):
     monkeypatch.setenv("CUDA_VISIBLE_DEVICES", "0,1,2,3,4,5,6,7")
     monkeypatch.setattr("linkpaper_eval.research_bench.local._PINNED_UUID", None)
     monkeypatch.setitem(
@@ -288,18 +289,43 @@ def test_physical_gpu_6_uuid_is_pinned_before_cuda_import(monkeypatch):
 
     def query(argv, **kwargs):
         calls.append(argv)
-        return "GPU-authorized-six\n"
+        return f"GPU-allocated-{selected_index}\n"
 
     monkeypatch.setattr(
         "linkpaper_eval.research_bench.local.subprocess.check_output", query
     )
-    assert pin_gpu() == "GPU-authorized-six"
+    assert pin_gpu(selected_index) == f"GPU-allocated-{selected_index}"
     import os
 
-    assert os.environ["CUDA_VISIBLE_DEVICES"] == "GPU-authorized-six"
-    assert calls[0][calls[0].index("-i") + 1] == "6"
-    with pytest.raises(ValueError, match="Only physical GPU 6"):
-        pin_gpu(5)
+    assert os.environ["CUDA_VISIBLE_DEVICES"] == f"GPU-allocated-{selected_index}"
+    assert calls[0][calls[0].index("-i") + 1] == str(selected_index)
+
+
+@pytest.mark.parametrize('invalid', [-1, True, False, 1.0, '3', None])
+def test_gpu_selection_rejects_invalid_indices_before_hardware_query(monkeypatch, invalid):
+    def must_not_query(*args, **kwargs):
+        raise AssertionError('Invalid indices must not query hardware')
+    monkeypatch.setattr('linkpaper_eval.research_bench.local.subprocess.check_output', must_not_query)
+    with pytest.raises(ValueError, match='nonnegative integer'):
+        pin_gpu(invalid)
+
+
+@pytest.mark.parametrize('allocation', ['', '0,1', 'GPU-another-device', '-1', '0,-1,3', 'MIG-GPU-instance'])
+def test_gpu_selection_does_not_expand_inherited_allocation(monkeypatch, allocation):
+    monkeypatch.setenv('CUDA_VISIBLE_DEVICES', allocation)
+    monkeypatch.setattr('linkpaper_eval.research_bench.local._PINNED_UUID', None)
+    monkeypatch.setitem(sys.modules, 'torch', SimpleNamespace(cuda=SimpleNamespace(is_initialized=lambda: False)))
+    monkeypatch.setattr('linkpaper_eval.research_bench.local.subprocess.check_output', lambda *a, **k: 'GPU-selected-three')
+    with pytest.raises(RuntimeError, match='outside inherited'):
+        pin_gpu(3)
+
+
+def test_assigned_uuid_mask_is_respected(monkeypatch):
+    monkeypatch.setenv('CUDA_VISIBLE_DEVICES', 'GPU-assigned-device')
+    monkeypatch.setattr('linkpaper_eval.research_bench.local._PINNED_UUID', None)
+    monkeypatch.setitem(sys.modules, 'torch', SimpleNamespace(cuda=SimpleNamespace(is_initialized=lambda: False)))
+    monkeypatch.setattr('linkpaper_eval.research_bench.local.subprocess.check_output', lambda *a, **k: 'GPU-assigned-device')
+    assert pin_gpu(2) == 'GPU-assigned-device'
 
 
 def test_preinitialized_cuda_cannot_be_reassigned_to_another_gpu(monkeypatch):
@@ -311,13 +337,14 @@ def test_preinitialized_cuda_cannot_be_reassigned_to_another_gpu(monkeypatch):
     )
     monkeypatch.setattr(
         "linkpaper_eval.research_bench.local.subprocess.check_output",
-        lambda *a, **k: "GPU-six",
+        lambda *a, **k: "GPU-three",
     )
     with pytest.raises(RuntimeError, match="fresh process"):
         pin_gpu()
 
 
-def test_local_model_weights_load_automatically_on_only_the_pinned_device(monkeypatch):
+@pytest.mark.parametrize('selected_index', [0, 3, 5])
+def test_local_model_weights_load_automatically_on_only_the_pinned_device(monkeypatch, selected_index):
     from linkpaper_eval.research_bench.local import TransformersBackend
 
     calls = []
@@ -332,7 +359,9 @@ def test_local_model_weights_load_automatically_on_only_the_pinned_device(monkey
             is_available=lambda: True,
             device_count=lambda: 1,
             empty_cache=lambda: None,
+            get_device_properties=lambda index: SimpleNamespace(total_memory=16 * 2**30),
         ),
+        __version__='fake-torch-version',
         manual_seed=lambda seed: None,
         bfloat16="bf16",
     )
@@ -353,6 +382,7 @@ def test_local_model_weights_load_automatically_on_only_the_pinned_device(monkey
         sys.modules,
         "transformers",
         SimpleNamespace(
+            __version__='fake-transformers-version',
             AutoConfig=SimpleNamespace(from_pretrained=lambda *a, **k: fake_config),
             AutoTokenizer=SimpleNamespace(
                 from_pretrained=lambda *a, **k: SimpleNamespace(
@@ -365,18 +395,22 @@ def test_local_model_weights_load_automatically_on_only_the_pinned_device(monkey
     monkeypatch.setattr("linkpaper_eval.research_bench.local._PINNED_UUID", None)
     monkeypatch.setattr(
         "linkpaper_eval.research_bench.local.subprocess.check_output",
-        lambda *a, **k: "GPU-six",
+        lambda *a, **k: f"GPU-allocated-{selected_index}",
     )
-    monkeypatch.setenv("CUDA_VISIBLE_DEVICES", "unused")
+    monkeypatch.setenv("CUDA_VISIBLE_DEVICES", f"GPU-allocated-{selected_index}")
     backend = TransformersBackend(
-        ModelSpec(provider="transformers", model="text-checkpoint", revision="pinned")
+        ModelSpec(provider="transformers", model="text-checkpoint", revision="pinned", gpu_index=selected_index)
     )
     assert calls[0][0] == "text-checkpoint"
     assert calls[0][1]["device_map"] == {"": 0}
     assert calls[0][1]["trust_remote_code"] is False
     assert calls[0][1]["revision"] == "fixed-revision"
     assert backend.metadata["resolved_revision"] == "fixed-revision"
-    assert backend.metadata["physical_gpu_index"] == 6
-    assert backend.metadata["cuda_visible_devices"] == "GPU-six"
+    assert backend.metadata["physical_gpu_index"] == selected_index
+    assert backend.metadata["cuda_visible_devices"] == f"GPU-allocated-{selected_index}"
+    assert backend.metadata['tensor_parallel_size'] == 1
+    assert backend.metadata['gpu_memory_total_bytes'] == 16 * 2**30
+    assert backend.metadata['torch_version'] == 'fake-torch-version'
+    assert backend.metadata['transformers_version'] == 'fake-transformers-version'
     backend.close()
     assert backend.model is None

@@ -1,0 +1,222 @@
+[
+  {
+    "triplet_id": "synthetic-perfect-ko-r1",
+    "group_id": "synthetic-group-a",
+    "family_id": "synthetic-family-a",
+    "B": {
+      "question": "가상 조건 T에서 서로 다른 보고 결과 단위의 수를 근거별로 분류하라.",
+      "language": "ko",
+      "conditions": {
+        "condition": "synthetic-T",
+        "metric": "invented-example-only"
+      },
+      "gold_units": {
+        "synthetic-a1": "unit-a",
+        "synthetic-a2": "unit-a",
+        "synthetic-b1": "unit-b",
+        "synthetic-b2": "unit-b"
+      },
+      "eligible_ids": [
+        "synthetic-a1",
+        "synthetic-a2",
+        "synthetic-b1",
+        "synthetic-b2"
+      ],
+      "study_groups": {
+        "synthetic-a1": "opaque-unit-a",
+        "synthetic-a2": "opaque-unit-a",
+        "synthetic-b1": "opaque-unit-b",
+        "synthetic-b2": "opaque-unit-b"
+      },
+      "opened_ids": [
+        "synthetic-a1",
+        "synthetic-a2",
+        "synthetic-b1",
+        "synthetic-b2"
+      ],
+      "cited_ids": [
+        "synthetic-a1",
+        "synthetic-a2",
+        "synthetic-b1",
+        "synthetic-b2"
+      ]
+    },
+    "R": {
+      "question": "가상 조건 T에서 서로 다른 보고 결과 단위의 수를 근거별로 분류하라.",
+      "language": "ko",
+      "conditions": {
+        "condition": "synthetic-T",
+        "metric": "invented-example-only"
+      },
+      "gold_units": {
+        "synthetic-a1": "unit-a",
+        "synthetic-a2": "unit-a",
+        "synthetic-a3": "unit-a",
+        "synthetic-b1": "unit-b"
+      },
+      "eligible_ids": [
+        "synthetic-a1",
+        "synthetic-a2",
+        "synthetic-a3",
+        "synthetic-b1"
+      ],
+      "study_groups": {
+        "synthetic-a1": "opaque-unit-a",
+        "synthetic-a2": "opaque-unit-a",
+        "synthetic-a3": "opaque-unit-a",
+        "synthetic-b1": "opaque-unit-b"
+      },
+      "opened_ids": [
+        "synthetic-a1",
+        "synthetic-a2",
+        "synthetic-a3",
+        "synthetic-b1"
+      ],
+      "cited_ids": [
+        "synthetic-a1",
+        "synthetic-a2",
+        "synthetic-a3",
+        "synthetic-b1"
+      ]
+    },
+    "N": {
+      "question": "가상 조건 T에서 서로 다른 보고 결과 단위의 수를 근거별로 분류하라.",
+      "language": "ko",
+      "conditions": {
+        "condition": "synthetic-T",
+        "metric": "invented-example-only"
+      },
+      "gold_units": {
+        "synthetic-a1": "unit-a",
+        "synthetic-a2": "unit-a",
+        "synthetic-b1": "unit-b",
+        "synthetic-c1": "unit-c"
+      },
+      "eligible_ids": [
+        "synthetic-a1",
+        "synthetic-a2",
+        "synthetic-b1",
+        "synthetic-c1"
+      ],
+      "study_groups": {
+        "synthetic-a1": "opaque-unit-a",
+        "synthetic-a2": "opaque-unit-a",
+        "synthetic-b1": "opaque-unit-b",
+        "synthetic-c1": "opaque-unit-c"
+      },
+      "opened_ids": [
+        "synthetic-a1",
+        "synthetic-a2",
+        "synthetic-b1",
+        "synthetic-c1"
+      ],
+      "cited_ids": [
+        "synthetic-a1",
+        "synthetic-a2",
+        "synthetic-b1",
+        "synthetic-c1"
+      ]
+    }
+  },
+  {
+    "triplet_id": "synthetic-missing-ko-r1",
+    "group_id": "synthetic-group-b",
+    "family_id": "synthetic-family-b",
+    "B": {
+      "question": "가상 조건 T에서 서로 다른 보고 결과 단위의 수를 근거별로 분류하라.",
+      "language": "ko",
+      "conditions": {
+        "condition": "synthetic-T",
+        "metric": "invented-example-only"
+      },
+      "gold_units": {
+        "synthetic-a1": "unit-a",
+        "synthetic-a2": "unit-a",
+        "synthetic-b1": "unit-b",
+        "synthetic-b2": "unit-b"
+      },
+      "eligible_ids": [
+        "synthetic-a1",
+        "synthetic-a2",
+        "synthetic-b1",
+        "synthetic-b2"
+      ],
+      "study_groups": {
+        "synthetic-a1": "opaque-unit-a",
+        "synthetic-a2": "opaque-unit-a",
+        "synthetic-b1": "opaque-unit-b",
+        "synthetic-b2": "opaque-unit-b"
+      },
+      "opened_ids": [
+        "synthetic-a1",
+        "synthetic-a2",
+        "synthetic-b1",
+        "synthetic-b2"
+      ],
+      "cited_ids": [
+        "synthetic-a1",
+        "synthetic-a2",
+        "synthetic-b1",
+        "synthetic-b2"
+      ]
+    },
+    "R": {
+      "question": "가상 조건 T에서 서로 다른 보고 결과 단위의 수를 근거별로 분류하라.",
+      "language": "ko",
+      "conditions": {
+        "condition": "synthetic-T",
+        "metric": "invented-example-only"
+      },
+      "gold_units": {
+        "synthetic-a1": "unit-a",
+        "synthetic-a2": "unit-a",
+        "synthetic-a3": "unit-a",
+        "synthetic-b1": "unit-b"
+      },
+      "eligible_ids": [
+        "synthetic-a1",
+        "synthetic-a2",
+        "synthetic-a3",
+        "synthetic-b1"
+      ]
+    },
+    "N": {
+      "question": "가상 조건 T에서 서로 다른 보고 결과 단위의 수를 근거별로 분류하라.",
+      "language": "ko",
+      "conditions": {
+        "condition": "synthetic-T",
+        "metric": "invented-example-only"
+      },
+      "gold_units": {
+        "synthetic-a1": "unit-a",
+        "synthetic-a2": "unit-a",
+        "synthetic-b1": "unit-b",
+        "synthetic-c1": "unit-c"
+      },
+      "eligible_ids": [
+        "synthetic-a1",
+        "synthetic-a2",
+        "synthetic-b1",
+        "synthetic-c1"
+      ],
+      "study_groups": {
+        "synthetic-a1": "opaque-unit-a",
+        "synthetic-a2": "opaque-unit-a",
+        "synthetic-b1": "opaque-unit-b",
+        "synthetic-c1": "opaque-unit-c"
+      },
+      "opened_ids": [
+        "synthetic-a1",
+        "synthetic-a2",
+        "synthetic-b1",
+        "synthetic-c1"
+      ],
+      "cited_ids": [
+        "synthetic-a1",
+        "synthetic-a2",
+        "synthetic-b1",
+        "synthetic-c1"
+      ]
+    }
+  }
+]

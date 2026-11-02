@@ -29,7 +29,7 @@ class ModelSpec(StrictModel):
     timeout_s: float = Field(default=120, gt=0)
     retries: int = Field(default=2, ge=0, le=5)
     # Physical ordinal only. Local execution never uses device_map='auto'.
-    gpu_index: Literal[6] = 6
+    gpu_index: int = Field(default=0, ge=0, strict=True)
     revision: str | None = None
     local_files_only: bool = False
     dtype: Literal["bfloat16", "float16", "float32"] = "bfloat16"

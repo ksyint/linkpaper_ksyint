@@ -1,0 +1,17 @@
+{
+  "kotau_refs": 42,
+  "kotau_unique_commits": 21,
+  "kotau_branch_file_entries": 81082,
+  "kotau_unique_blobs": 13130,
+  "kotau_text_blobs": 1388,
+  "kotau_filesystem_files": 743,
+  "zip_entries": 101,
+  "zip_files": 80,
+  "zip_bytes": 4656574,
+  "zip_sha256": "8ea97dda12bb4ebdcb901b1d5447e61558f2c826e4bec229b34df3745379df53",
+  "source_repo": "https://github.com/HAE-RAE/KoTAU",
+  "kotau_main_sha": "f88a6a462cc27cec5d18c160ff932a8a145681e6",
+  "zip_archive_bytes": 3584242,
+  "zip_uncompressed_bytes": 4656574,
+  "zip_bytes_note": "Legacy zip_bytes is the sum of uncompressed file payload bytes."
+}

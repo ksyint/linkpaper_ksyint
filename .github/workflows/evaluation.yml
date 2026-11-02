@@ -11,12 +11,18 @@ on:
       - ".github/workflows/evaluation.yml"
       - "scripts/run_research*.sh"
       - "scripts/setup_research_env.sh"
+      - "scripts/run_korean_agent_demo.sh"
+      - "scripts/hf_agent_worker.py"
+      - "scripts/run_hf_agent_smoke.py"
   pull_request:
     paths:
       - "evaluation/**"
       - ".github/workflows/evaluation.yml"
       - "scripts/run_research*.sh"
       - "scripts/setup_research_env.sh"
+      - "scripts/run_korean_agent_demo.sh"
+      - "scripts/hf_agent_worker.py"
+      - "scripts/run_hf_agent_smoke.py"
   workflow_dispatch:
 
 defaults:
@@ -110,6 +116,30 @@ jobs:
         with:
           name: research-smoke-${{ github.run_number }}
           path: evaluation/runs/research-smoke/
+          retention-days: 14
+
+  korean-agent-smoke:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install CPU harness
+        run: pip install -e .
+      - name: Validate tools, controls and integrated GLRS on original fixtures
+        env:
+          LINKPAPER_EVAL_PYTHON: python
+          CUDA_VISIBLE_DEVICES: ""
+        run: |
+          python ../scripts/hf_agent_worker.py --help
+          python ../scripts/run_hf_agent_smoke.py --help
+          LINKPAPER_EVAL_PYTHON="$(command -v python)" bash ../scripts/run_korean_agent_demo.sh "${GITHUB_WORKSPACE}/evaluation/runs/korean-agent-smoke"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: korean-agent-fixture-${{ github.run_number }}
+          path: evaluation/runs/korean-agent-smoke/
           retention-days: 14
 
   ragas-contract:

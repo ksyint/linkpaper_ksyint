@@ -1,0 +1,280 @@
+{
+  "metric": "GLRS-v0.1-research-candidate",
+  "triplet_macro_GLRS": 0.5,
+  "group_macro_GLRS": 0.5,
+  "family_macro_GLRS": 0.5,
+  "family_bootstrap_95": [
+    0.0,
+    1.0
+  ],
+  "family_bootstrap_unavailable_reason": null,
+  "bootstrap_samples": 1000,
+  "bootstrap_seed": 0,
+  "coverage": {
+    "total_triplets": 2,
+    "eligible_triplets": 2,
+    "eligible_fraction": 1.0,
+    "total_groups": 2,
+    "eligible_groups": 2,
+    "total_families": 2,
+    "eligible_families": 2,
+    "failed_agent_episodes": 0,
+    "missing_agent_episodes": 1,
+    "eligible_triplets_with_agent_failure": 0,
+    "eligible_triplets_with_missing_prediction": 1,
+    "exclusion_reasons": {}
+  },
+  "per_group": {
+    "synthetic-group-a": {
+      "family_id": "synthetic-family-a",
+      "GLRS": 1.0,
+      "total_triplets": 1,
+      "eligible_triplets": 1
+    },
+    "synthetic-group-b": {
+      "family_id": "synthetic-family-b",
+      "GLRS": 0.0,
+      "total_triplets": 1,
+      "eligible_triplets": 1
+    }
+  },
+  "per_family": {
+    "synthetic-family-a": {
+      "GLRS": 1.0,
+      "eligible_groups": 1
+    },
+    "synthetic-family-b": {
+      "GLRS": 0.0,
+      "eligible_groups": 1
+    }
+  },
+  "triplets": [
+    {
+      "triplet_id": "synthetic-perfect-ko-r1",
+      "group_id": "synthetic-group-a",
+      "family_id": "synthetic-family-a",
+      "eligible": true,
+      "exclusion_reasons": [],
+      "episodes": {
+        "B": {
+          "G": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "gold_k": 2,
+          "predicted_k": 2,
+          "matched_units": 2,
+          "matched_unit_ids": [
+            "unit-a",
+            "unit-b"
+          ],
+          "agent_error": null,
+          "missing_prediction": false,
+          "exclusion_reasons": [],
+          "eligible_gold_documents": 4,
+          "cited_documents": 4,
+          "opened_documents": 4,
+          "background_citations": 0,
+          "unopened_citations": 0,
+          "invalid_claimed_clusters": 0,
+          "invalid_cluster_reasons": {},
+          "supported_clusters": 2,
+          "duplicate_supported_clusters": 0,
+          "missing_gold_units": 0,
+          "document_bcubed_diagnostic": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "F1": 1.0
+          }
+        },
+        "R": {
+          "G": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "gold_k": 2,
+          "predicted_k": 2,
+          "matched_units": 2,
+          "matched_unit_ids": [
+            "unit-a",
+            "unit-b"
+          ],
+          "agent_error": null,
+          "missing_prediction": false,
+          "exclusion_reasons": [],
+          "eligible_gold_documents": 4,
+          "cited_documents": 4,
+          "opened_documents": 4,
+          "background_citations": 0,
+          "unopened_citations": 0,
+          "invalid_claimed_clusters": 0,
+          "invalid_cluster_reasons": {},
+          "supported_clusters": 2,
+          "duplicate_supported_clusters": 0,
+          "missing_gold_units": 0,
+          "document_bcubed_diagnostic": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "F1": 1.0
+          }
+        },
+        "N": {
+          "G": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "gold_k": 3,
+          "predicted_k": 3,
+          "matched_units": 3,
+          "matched_unit_ids": [
+            "unit-a",
+            "unit-b",
+            "unit-c"
+          ],
+          "agent_error": null,
+          "missing_prediction": false,
+          "exclusion_reasons": [],
+          "eligible_gold_documents": 4,
+          "cited_documents": 4,
+          "opened_documents": 4,
+          "background_citations": 0,
+          "unopened_citations": 0,
+          "invalid_claimed_clusters": 0,
+          "invalid_cluster_reasons": {},
+          "supported_clusters": 3,
+          "duplicate_supported_clusters": 0,
+          "missing_gold_units": 0,
+          "document_bcubed_diagnostic": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "F1": 1.0
+          }
+        }
+      },
+      "GLRS": 1.0,
+      "I": 1.0,
+      "S": 1.0,
+      "C": 1.0,
+      "A": 1.0,
+      "minimum_grounding": 1.0,
+      "certificate_failure_reasons": [],
+      "failed_agent_episodes": 0,
+      "missing_agent_episodes": 0,
+      "acquired_new_units": 1,
+      "required_new_units": 1,
+      "gold_repeat_delta": 0,
+      "gold_new_delta": 1,
+      "predicted_repeat_delta": 0,
+      "predicted_new_delta": 1
+    },
+    {
+      "triplet_id": "synthetic-missing-ko-r1",
+      "group_id": "synthetic-group-b",
+      "family_id": "synthetic-family-b",
+      "eligible": true,
+      "exclusion_reasons": [],
+      "episodes": {
+        "B": {
+          "G": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "gold_k": 2,
+          "predicted_k": 2,
+          "matched_units": 2,
+          "matched_unit_ids": [
+            "unit-a",
+            "unit-b"
+          ],
+          "agent_error": null,
+          "missing_prediction": false,
+          "exclusion_reasons": [],
+          "eligible_gold_documents": 4,
+          "cited_documents": 4,
+          "opened_documents": 4,
+          "background_citations": 0,
+          "unopened_citations": 0,
+          "invalid_claimed_clusters": 0,
+          "invalid_cluster_reasons": {},
+          "supported_clusters": 2,
+          "duplicate_supported_clusters": 0,
+          "missing_gold_units": 0,
+          "document_bcubed_diagnostic": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "F1": 1.0
+          }
+        },
+        "R": {
+          "G": 0.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "gold_k": 2,
+          "predicted_k": 0,
+          "matched_units": 0,
+          "matched_unit_ids": [],
+          "agent_error": null,
+          "missing_prediction": true,
+          "exclusion_reasons": [],
+          "eligible_gold_documents": 4,
+          "cited_documents": 0,
+          "opened_documents": 0,
+          "background_citations": 0,
+          "unopened_citations": 0,
+          "invalid_claimed_clusters": 0,
+          "invalid_cluster_reasons": {},
+          "supported_clusters": 0,
+          "duplicate_supported_clusters": 0,
+          "missing_gold_units": 2,
+          "document_bcubed_diagnostic": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "N": {
+          "G": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "gold_k": 3,
+          "predicted_k": 3,
+          "matched_units": 3,
+          "matched_unit_ids": [
+            "unit-a",
+            "unit-b",
+            "unit-c"
+          ],
+          "agent_error": null,
+          "missing_prediction": false,
+          "exclusion_reasons": [],
+          "eligible_gold_documents": 4,
+          "cited_documents": 4,
+          "opened_documents": 4,
+          "background_citations": 0,
+          "unopened_citations": 0,
+          "invalid_claimed_clusters": 0,
+          "invalid_cluster_reasons": {},
+          "supported_clusters": 3,
+          "duplicate_supported_clusters": 0,
+          "missing_gold_units": 0,
+          "document_bcubed_diagnostic": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "F1": 1.0
+          }
+        }
+      },
+      "GLRS": 0.0,
+      "I": 0.0,
+      "S": 1.0,
+      "C": 1.0,
+      "A": 1.0,
+      "minimum_grounding": 0.0,
+      "certificate_failure_reasons": [],
+      "failed_agent_episodes": 0,
+      "missing_agent_episodes": 1,
+      "acquired_new_units": 1,
+      "required_new_units": 1,
+      "gold_repeat_delta": 0,
+      "gold_new_delta": 1,
+      "predicted_repeat_delta": -2,
+      "predicted_new_delta": 1
+    }
+  ]
+}

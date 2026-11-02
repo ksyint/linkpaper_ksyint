@@ -1,0 +1,1 @@
+run_id,dataset_sha256,code_sha,policy_sha256,model_id,model_revision,prompt_sha256,embedding_revision,reranker_revision,seed,repeat,language,budget_calls,budget_chars,input_tokens,output_tokens,elapsed_seconds,cost_amount,cost_currency,physical_gpu_uuid,error_status

@@ -1,0 +1,3717 @@
+[
+  {
+    "path": ".gitignore",
+    "bytes": 5325,
+    "symlink": false
+  },
+  {
+    "path": "data.lock.json",
+    "bytes": 192,
+    "symlink": false
+  },
+  {
+    "path": "CLAUDE.md",
+    "bytes": 11,
+    "symlink": false
+  },
+  {
+    "path": "AGENTS.md",
+    "bytes": 4057,
+    "symlink": false
+  },
+  {
+    "path": "pyproject.toml",
+    "bytes": 879,
+    "symlink": false
+  },
+  {
+    "path": "README.md",
+    "bytes": 3019,
+    "symlink": false
+  },
+  {
+    "path": "uv.lock",
+    "bytes": 520350,
+    "symlink": false
+  },
+  {
+    "path": "package-lock.json",
+    "bytes": 12030,
+    "symlink": false
+  },
+  {
+    "path": "keys_seen.json",
+    "bytes": 4884,
+    "symlink": false
+  },
+  {
+    "path": "package.json",
+    "bytes": 172,
+    "symlink": false
+  },
+  {
+    "path": ".git/config",
+    "bytes": 2277,
+    "symlink": false
+  },
+  {
+    "path": ".git/ORIG_HEAD",
+    "bytes": 41,
+    "symlink": false
+  },
+  {
+    "path": ".git/description",
+    "bytes": 73,
+    "symlink": false
+  },
+  {
+    "path": ".git/FETCH_HEAD",
+    "bytes": 2588,
+    "symlink": false
+  },
+  {
+    "path": ".git/HEAD",
+    "bytes": 21,
+    "symlink": false
+  },
+  {
+    "path": ".git/packed-refs",
+    "bytes": 1828,
+    "symlink": false
+  },
+  {
+    "path": ".git/index",
+    "bytes": 80607,
+    "symlink": false
+  },
+  {
+    "path": ".git/objects/pack/pack-cfca7055a606408a20d0fa1982d583d00ed93826.idx",
+    "bytes": 403992,
+    "symlink": false
+  },
+  {
+    "path": ".git/objects/pack/pack-cfca7055a606408a20d0fa1982d583d00ed93826.rev",
+    "bytes": 57612,
+    "symlink": false
+  },
+  {
+    "path": ".git/objects/pack/pack-cfca7055a606408a20d0fa1982d583d00ed93826.pack",
+    "bytes": 513294265,
+    "symlink": false
+  },
+  {
+    "path": ".git/refs/heads/booking-screen-tools",
+    "bytes": 41,
+    "symlink": false
+  },
+  {
+    "path": ".git/refs/heads/main",
+    "bytes": 41,
+    "symlink": false
+  },
+  {
+    "path": ".git/refs/heads/lodging-collector-consolidation",
+    "bytes": 41,
+    "symlink": false
+  },
+  {
+    "path": ".git/refs/heads/booking-engine-snapshots-oct",
+    "bytes": 41,
+    "symlink": false
+  },
+  {
+    "path": ".git/refs/heads/travel-benchmark-research",
+    "bytes": 41,
+    "symlink": false
+  },
+  {
+    "path": ".git/refs/heads/chore/tasks-hide-labels",
+    "bytes": 41,
+    "symlink": false
+  },
+  {
+    "path": ".git/refs/heads/proposal/task-labels",
+    "bytes": 41,
+    "symlink": false
+  },
+  {
+    "path": ".git/refs/heads/refactor/tasks-validation-only",
+    "bytes": 41,
+    "symlink": false
+  },
+  {
+    "path": ".git/refs/heads/docs/new-domain-guide",
+    "bytes": 41,
+    "symlink": false
+  },
+  {
+    "path": ".git/refs/heads/docs/readme-agents",
+    "bytes": 41,
+    "symlink": false
+  },
+  {
+    "path": ".git/refs/heads/feat/bus-attraction-data",
+    "bytes": 41,
+    "symlink": false
+  },
+  {
+    "path": ".git/refs/heads/feat/data-window-sept-dec",
+    "bytes": 41,
+    "symlink": false
+  },
+  {
+    "path": ".git/refs/heads/feat/graphhopper-route-draft",
+    "bytes": 41,
+    "symlink": false
+  },
+  {
+    "path": ".git/refs/heads/feat/bus-observation-query-api",
+    "bytes": 41,
+    "symlink": false
+  },
+  {
+    "path": ".git/refs/heads/feat/pce-collect-form",
+    "bytes": 41,
+    "symlink": false
+  },
+  {
+    "path": ".git/refs/heads/feat/lodging-nights-until",
+    "bytes": 41,
+    "symlink": false
+  },
+  {
+    "path": ".git/refs/heads/feat/platform-redesign",
+    "bytes": 41,
+    "symlink": false
+  },
+  {
+    "path": ".git/refs/heads/feat/public-business-data",
+    "bytes": 41,
+    "symlink": false
+  },
+  {
+    "path": ".git/refs/heads/feat/rail-lodging-booking-env",
+    "bytes": 41,
+    "symlink": false
+  },
+  {
+    "path": ".git/refs/heads/feat/subway-data",
+    "bytes": 41,
+    "symlink": false
+  },
+  {
+    "path": ".git/refs/heads/fix/seeds-to-hf",
+    "bytes": 41,
+    "symlink": false
+  },
+  {
+    "path": ".git/refs/remotes/origin/HEAD",
+    "bytes": 30,
+    "symlink": false
+  },
+  {
+    "path": ".git/hooks/applypatch-msg.sample",
+    "bytes": 478,
+    "symlink": false
+  },
+  {
+    "path": ".git/hooks/commit-msg.sample",
+    "bytes": 896,
+    "symlink": false
+  },
+  {
+    "path": ".git/hooks/fsmonitor-watchman.sample",
+    "bytes": 4726,
+    "symlink": false
+  },
+  {
+    "path": ".git/hooks/post-update.sample",
+    "bytes": 189,
+    "symlink": false
+  },
+  {
+    "path": ".git/hooks/pre-applypatch.sample",
+    "bytes": 424,
+    "symlink": false
+  },
+  {
+    "path": ".git/hooks/pre-rebase.sample",
+    "bytes": 4898,
+    "symlink": false
+  },
+  {
+    "path": ".git/hooks/pre-receive.sample",
+    "bytes": 544,
+    "symlink": false
+  },
+  {
+    "path": ".git/hooks/pre-commit.sample",
+    "bytes": 1643,
+    "symlink": false
+  },
+  {
+    "path": ".git/hooks/pre-merge-commit.sample",
+    "bytes": 416,
+    "symlink": false
+  },
+  {
+    "path": ".git/hooks/pre-push.sample",
+    "bytes": 1374,
+    "symlink": false
+  },
+  {
+    "path": ".git/hooks/prepare-commit-msg.sample",
+    "bytes": 1492,
+    "symlink": false
+  },
+  {
+    "path": ".git/hooks/push-to-checkout.sample",
+    "bytes": 2783,
+    "symlink": false
+  },
+  {
+    "path": ".git/hooks/sendemail-validate.sample",
+    "bytes": 2308,
+    "symlink": false
+  },
+  {
+    "path": ".git/hooks/update.sample",
+    "bytes": 3650,
+    "symlink": false
+  },
+  {
+    "path": ".git/info/exclude",
+    "bytes": 240,
+    "symlink": false
+  },
+  {
+    "path": ".git/logs/HEAD",
+    "bytes": 491,
+    "symlink": false
+  },
+  {
+    "path": ".git/logs/refs/heads/booking-screen-tools",
+    "bytes": 128,
+    "symlink": false
+  },
+  {
+    "path": ".git/logs/refs/heads/booking-engine-snapshots-oct",
+    "bytes": 128,
+    "symlink": false
+  },
+  {
+    "path": ".git/logs/refs/heads/main",
+    "bytes": 177,
+    "symlink": false
+  },
+  {
+    "path": ".git/logs/refs/heads/travel-benchmark-research",
+    "bytes": 128,
+    "symlink": false
+  },
+  {
+    "path": ".git/logs/refs/heads/lodging-collector-consolidation",
+    "bytes": 128,
+    "symlink": false
+  },
+  {
+    "path": ".git/logs/refs/heads/chore/tasks-hide-labels",
+    "bytes": 128,
+    "symlink": false
+  },
+  {
+    "path": ".git/logs/refs/heads/docs/new-domain-guide",
+    "bytes": 128,
+    "symlink": false
+  },
+  {
+    "path": ".git/logs/refs/heads/docs/readme-agents",
+    "bytes": 128,
+    "symlink": false
+  },
+  {
+    "path": ".git/logs/refs/heads/feat/bus-attraction-data",
+    "bytes": 128,
+    "symlink": false
+  },
+  {
+    "path": ".git/logs/refs/heads/feat/graphhopper-route-draft",
+    "bytes": 128,
+    "symlink": false
+  },
+  {
+    "path": ".git/logs/refs/heads/feat/bus-observation-query-api",
+    "bytes": 128,
+    "symlink": false
+  },
+  {
+    "path": ".git/logs/refs/heads/feat/data-window-sept-dec",
+    "bytes": 128,
+    "symlink": false
+  },
+  {
+    "path": ".git/logs/refs/heads/feat/lodging-nights-until",
+    "bytes": 128,
+    "symlink": false
+  },
+  {
+    "path": ".git/logs/refs/heads/feat/pce-collect-form",
+    "bytes": 128,
+    "symlink": false
+  },
+  {
+    "path": ".git/logs/refs/heads/feat/platform-redesign",
+    "bytes": 128,
+    "symlink": false
+  },
+  {
+    "path": ".git/logs/refs/heads/feat/public-business-data",
+    "bytes": 128,
+    "symlink": false
+  },
+  {
+    "path": ".git/logs/refs/heads/feat/rail-lodging-booking-env",
+    "bytes": 128,
+    "symlink": false
+  },
+  {
+    "path": ".git/logs/refs/heads/feat/subway-data",
+    "bytes": 128,
+    "symlink": false
+  },
+  {
+    "path": ".git/logs/refs/heads/fix/seeds-to-hf",
+    "bytes": 128,
+    "symlink": false
+  },
+  {
+    "path": ".git/logs/refs/heads/proposal/task-labels",
+    "bytes": 128,
+    "symlink": false
+  },
+  {
+    "path": ".git/logs/refs/heads/refactor/tasks-validation-only",
+    "bytes": 128,
+    "symlink": false
+  },
+  {
+    "path": ".git/logs/refs/remotes/origin/HEAD",
+    "bytes": 177,
+    "symlink": false
+  },
+  {
+    "path": "assets/mcp-inspector-1.png",
+    "bytes": 419180,
+    "symlink": false
+  },
+  {
+    "path": "assets/mcp-inspector-2.png",
+    "bytes": 554757,
+    "symlink": false
+  },
+  {
+    "path": "assets/figures/overview.dark.svg",
+    "bytes": 32068,
+    "symlink": false
+  },
+  {
+    "path": "assets/figures/overview.light.svg",
+    "bytes": 32068,
+    "symlink": false
+  },
+  {
+    "path": "assets/figures/overview.src.svg",
+    "bytes": 5360,
+    "symlink": false
+  },
+  {
+    "path": "dataset/personal/README.md",
+    "bytes": 5287,
+    "symlink": false
+  },
+  {
+    "path": "dataset/personal/processed/retrieval_report.json",
+    "bytes": 7873,
+    "symlink": false
+  },
+  {
+    "path": "dataset/personal/users/user_001/calendar.json",
+    "bytes": 3587,
+    "symlink": false
+  },
+  {
+    "path": "dataset/personal/users/user_001/conversations.json",
+    "bytes": 3953,
+    "symlink": false
+  },
+  {
+    "path": "dataset/personal/users/user_001/canonical.json",
+    "bytes": 6205,
+    "symlink": false
+  },
+  {
+    "path": "dataset/personal/users/user_001/memory.json",
+    "bytes": 4112,
+    "symlink": false
+  },
+  {
+    "path": "dataset/personal/users/user_001/profile.json",
+    "bytes": 1072,
+    "symlink": false
+  },
+  {
+    "path": "dataset/personal/users/user_001/tasks.json",
+    "bytes": 10701,
+    "symlink": false
+  },
+  {
+    "path": "dataset/personal/users/user_001/reservations.json",
+    "bytes": 3711,
+    "symlink": false
+  },
+  {
+    "path": "dataset/lodging/README.md",
+    "bytes": 8693,
+    "symlink": false
+  },
+  {
+    "path": "dataset/lodging/scripts/yanolja_followup.sh",
+    "bytes": 1078,
+    "symlink": false
+  },
+  {
+    "path": "dataset/rail/README.md",
+    "bytes": 8596,
+    "symlink": false
+  },
+  {
+    "path": "dataset/seeds/README.md",
+    "bytes": 5860,
+    "symlink": false
+  },
+  {
+    "path": "dataset/tasks/README.md",
+    "bytes": 9091,
+    "symlink": false
+  },
+  {
+    "path": "output/pdf/travel-benchmarks-ko.txt",
+    "bytes": 4359,
+    "symlink": false
+  },
+  {
+    "path": "output/pdf/travel-benchmarks-ko.pdf",
+    "bytes": 104468,
+    "symlink": false
+  },
+  {
+    "path": "output/data-guide/source-types.png",
+    "bytes": 104284,
+    "symlink": false
+  },
+  {
+    "path": "docs/catalog.md",
+    "bytes": 23103,
+    "symlink": false
+  },
+  {
+    "path": "docs/crawling-list.md",
+    "bytes": 18397,
+    "symlink": false
+  },
+  {
+    "path": "docs/data.md",
+    "bytes": 5718,
+    "symlink": false
+  },
+  {
+    "path": "docs/personal-context-environment.md",
+    "bytes": 12153,
+    "symlink": false
+  },
+  {
+    "path": "docs/huggingface-card.md",
+    "bytes": 10489,
+    "symlink": false
+  },
+  {
+    "path": "docs/rail-lodging-tool-spec.md",
+    "bytes": 27020,
+    "symlink": false
+  },
+  {
+    "path": "docs/synthetic-data.md",
+    "bytes": 11136,
+    "symlink": false
+  },
+  {
+    "path": "docs/claude-docs-export/guide.md",
+    "bytes": 4122,
+    "symlink": false
+  },
+  {
+    "path": "docs/claude-docs-export/lodging-tool-spec.md",
+    "bytes": 12267,
+    "symlink": false
+  },
+  {
+    "path": "docs/claude-docs-export/train-tool-spec.md",
+    "bytes": 11232,
+    "symlink": false
+  },
+  {
+    "path": "docs/claude-docs-export/README.md",
+    "bytes": 718,
+    "symlink": false
+  },
+  {
+    "path": "docs/crawling/lodging-booking-engines.md",
+    "bytes": 8129,
+    "symlink": false
+  },
+  {
+    "path": "docs/crawling/lodging-homepage-discovery.md",
+    "bytes": 5995,
+    "symlink": false
+  },
+  {
+    "path": "docs/crawling/lodging-tourapi.md",
+    "bytes": 4957,
+    "symlink": false
+  },
+  {
+    "path": "docs/crawling/lodging-tripcom-sample.md",
+    "bytes": 2745,
+    "symlink": false
+  },
+  {
+    "path": "docs/crawling/lodging-yanolja.md",
+    "bytes": 3818,
+    "symlink": false
+  },
+  {
+    "path": "docs/crawling/map-public-sources.md",
+    "bytes": 9732,
+    "symlink": false
+  },
+  {
+    "path": "docs/crawling/rail-korail.md",
+    "bytes": 15360,
+    "symlink": false
+  },
+  {
+    "path": "docs/crawling/robots-terms.md",
+    "bytes": 4888,
+    "symlink": false
+  },
+  {
+    "path": "docs/crawling/lodging-direct-sites.md",
+    "bytes": 5984,
+    "symlink": false
+  },
+  {
+    "path": "docs/crawling/lodging-naver-booking.md",
+    "bytes": 3889,
+    "symlink": false
+  },
+  {
+    "path": "docs/crawling/lodging-public-data.md",
+    "bytes": 3885,
+    "symlink": false
+  },
+  {
+    "path": "docs/guides/new-domain-and-tool.md",
+    "bytes": 6943,
+    "symlink": false
+  },
+  {
+    "path": "docs/research/2026-09-27-travel-benchmark-queries/index.md",
+    "bytes": 2553,
+    "symlink": false
+  },
+  {
+    "path": "docs/research/2026-09-27-travel-benchmark-queries/REPORT.md",
+    "bytes": 14503,
+    "symlink": false
+  },
+  {
+    "path": "docs/research/2026-09-27-travel-benchmark-queries/ChinaTravel/source.md",
+    "bytes": 1757,
+    "symlink": false
+  },
+  {
+    "path": "docs/research/2026-09-27-travel-benchmark-queries/GroupTravelBench/source.md",
+    "bytes": 1946,
+    "symlink": false
+  },
+  {
+    "path": "docs/research/2026-09-27-travel-benchmark-queries/MobilityBench/source.md",
+    "bytes": 1733,
+    "symlink": false
+  },
+  {
+    "path": "docs/research/2026-09-27-travel-benchmark-queries/FlexTravelBench/source.md",
+    "bytes": 1867,
+    "symlink": false
+  },
+  {
+    "path": "docs/research/2026-09-27-travel-benchmark-queries/NaturalPlan/source.md",
+    "bytes": 1660,
+    "symlink": false
+  },
+  {
+    "path": "docs/research/2026-09-27-travel-benchmark-queries/TravelBench/source.md",
+    "bytes": 1901,
+    "symlink": false
+  },
+  {
+    "path": "docs/research/2026-09-27-travel-benchmark-queries/TauBench/source.md",
+    "bytes": 1906,
+    "symlink": false
+  },
+  {
+    "path": "docs/research/2026-09-27-travel-benchmark-queries/TravelPlanner/source.md",
+    "bytes": 1982,
+    "symlink": false
+  },
+  {
+    "path": "docs/research/2026-09-27-travel-benchmark-queries/TripCraft/source.md",
+    "bytes": 1743,
+    "symlink": false
+  },
+  {
+    "path": "docs/research/2026-09-27-travel-benchmark-queries/TripTailor/source.md",
+    "bytes": 1889,
+    "symlink": false
+  },
+  {
+    "path": "docs/research/2026-10-20-platform-redesign/kr-statistics.md",
+    "bytes": 37521,
+    "symlink": false
+  },
+  {
+    "path": "docs/research/2026-10-20-platform-redesign/location.md",
+    "bytes": 34450,
+    "symlink": false
+  },
+  {
+    "path": "docs/research/2026-10-20-platform-redesign/env-design-literature.md",
+    "bytes": 48455,
+    "symlink": false
+  },
+  {
+    "path": "docs/research/2026-10-20-platform-redesign/rail-service.md",
+    "bytes": 39379,
+    "symlink": false
+  },
+  {
+    "path": "docs/research/2026-10-20-platform-redesign/lodging-service.md",
+    "bytes": 42320,
+    "symlink": false
+  },
+  {
+    "path": "docs/research/2026-10-20-platform-redesign/README.md",
+    "bytes": 1274,
+    "symlink": false
+  },
+  {
+    "path": "docs/research/2026-10-20-platform-redesign/scripts/crs_by_region.py",
+    "bytes": 615,
+    "symlink": false
+  },
+  {
+    "path": "docs/research/2026-10-20-platform-redesign/scripts/crs_check.py",
+    "bytes": 5850,
+    "symlink": false
+  },
+  {
+    "path": "docs/schemas/README.md",
+    "bytes": 27151,
+    "symlink": false
+  },
+  {
+    "path": "docs/schemas/lodging/mcp-tools.json",
+    "bytes": 90025,
+    "symlink": false
+  },
+  {
+    "path": "docs/schemas/lodging/openai-functions.json",
+    "bytes": 12748,
+    "symlink": false
+  },
+  {
+    "path": "docs/schemas/lodging/openapi.json",
+    "bytes": 86835,
+    "symlink": false
+  },
+  {
+    "path": "docs/schemas/map/mcp-tools.json",
+    "bytes": 22825,
+    "symlink": false
+  },
+  {
+    "path": "docs/schemas/map/openapi.json",
+    "bytes": 30927,
+    "symlink": false
+  },
+  {
+    "path": "docs/schemas/map/openai-functions.json",
+    "bytes": 5205,
+    "symlink": false
+  },
+  {
+    "path": "docs/schemas/personal/mcp-tools.json",
+    "bytes": 9409,
+    "symlink": false
+  },
+  {
+    "path": "docs/schemas/personal/openai-functions.json",
+    "bytes": 7179,
+    "symlink": false
+  },
+  {
+    "path": "docs/schemas/personal/openapi.json",
+    "bytes": 24498,
+    "symlink": false
+  },
+  {
+    "path": "docs/schemas/rail/mcp-tools.json",
+    "bytes": 78320,
+    "symlink": false
+  },
+  {
+    "path": "docs/schemas/rail/openai-functions.json",
+    "bytes": 15498,
+    "symlink": false
+  },
+  {
+    "path": "docs/schemas/rail/openapi.json",
+    "bytes": 97039,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/paths.py",
+    "bytes": 307,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/__init__.py",
+    "bytes": 283,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/__init__.py",
+    "bytes": 404,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/README.md",
+    "bytes": 2523,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/__init__.py",
+    "bytes": 155,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/checks/report.py",
+    "bytes": 770,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/checks/__init__.py",
+    "bytes": 130,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/checks/scenario/bookings.py",
+    "bytes": 2507,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/checks/scenario/cancellations.py",
+    "bytes": 4321,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/checks/scenario/listing.py",
+    "bytes": 2286,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/checks/scenario/expected.py",
+    "bytes": 1178,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/checks/scenario/payment.py",
+    "bytes": 3685,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/checks/scenario/probes.py",
+    "bytes": 2283,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/checks/scenario/searches.py",
+    "bytes": 3824,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/checks/scenario/__init__.py",
+    "bytes": 1036,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/checks/scenario/__main__.py",
+    "bytes": 1511,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/checks/demo/booking.py",
+    "bytes": 4671,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/checks/demo/expected.py",
+    "bytes": 1036,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/checks/demo/prices.py",
+    "bytes": 4779,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/checks/demo/probes.py",
+    "bytes": 1785,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/checks/demo/refusals.py",
+    "bytes": 4711,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/checks/demo/reset.py",
+    "bytes": 819,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/checks/demo/search.py",
+    "bytes": 1538,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/checks/demo/__main__.py",
+    "bytes": 1679,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/checks/demo/__init__.py",
+    "bytes": 915,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/bundle.py",
+    "bytes": 1543,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/paths.py",
+    "bytes": 1170,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/http.py",
+    "bytes": 1956,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/stay_window.py",
+    "bytes": 1898,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/__init__.py",
+    "bytes": 685,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/booking_engines/discovery.py",
+    "bytes": 1676,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/booking_engines/links.py",
+    "bytes": 1743,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/booking_engines/__init__.py",
+    "bytes": 186,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/booking_engines/daily/log.py",
+    "bytes": 344,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/booking_engines/daily/checksums.py",
+    "bytes": 2440,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/booking_engines/daily/__init__.py",
+    "bytes": 212,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/booking_engines/daily/__main__.py",
+    "bytes": 2049,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/booking_engines/ddnayo/accommodation.py",
+    "bytes": 2781,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/booking_engines/ddnayo/calendar_api.py",
+    "bytes": 1225,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/booking_engines/ddnayo/__init__.py",
+    "bytes": 306,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/booking_engines/ddnayo/targets.py",
+    "bytes": 955,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/booking_engines/ddnayo/__main__.py",
+    "bytes": 2685,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/booking_engines/extended/engine_requests.py",
+    "bytes": 1640,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/booking_engines/extended/hotelstory.py",
+    "bytes": 4122,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/booking_engines/extended/onda.py",
+    "bytes": 4929,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/booking_engines/extended/targets.py",
+    "bytes": 1572,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/booking_engines/extended/yapen.py",
+    "bytes": 6775,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/booking_engines/extended/__init__.py",
+    "bytes": 1080,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/booking_engines/extended/numbers.py",
+    "bytes": 551,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/booking_engines/extended/pensionnara.py",
+    "bytes": 8478,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/booking_engines/extended/stayfolio.py",
+    "bytes": 6727,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/booking_engines/extended/__main__.py",
+    "bytes": 4664,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/booking_engines/onda_pension/convert.py",
+    "bytes": 6110,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/booking_engines/onda_pension/__init__.py",
+    "bytes": 300,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/booking_engines/onda_pension/__main__.py",
+    "bytes": 1826,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/booking_engines/wings/client.py",
+    "bytes": 1495,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/booking_engines/wings/targets.py",
+    "bytes": 997,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/booking_engines/wings/hotel.py",
+    "bytes": 4331,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/booking_engines/wings/__init__.py",
+    "bytes": 341,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/booking_engines/wings/__main__.py",
+    "bytes": 2388,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/direct_sites/fee_links.py",
+    "bytes": 1191,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/direct_sites/fetching.py",
+    "bytes": 524,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/direct_sites/robots.py",
+    "bytes": 1547,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/direct_sites/sites.py",
+    "bytes": 4385,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/direct_sites/__init__.py",
+    "bytes": 652,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/direct_sites/__main__.py",
+    "bytes": 3402,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/yanolja/client.py",
+    "bytes": 743,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/yanolja/extract.py",
+    "bytes": 2705,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/yanolja/sitemap.py",
+    "bytes": 1077,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/yanolja/__main__.py",
+    "bytes": 4431,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/yanolja/__init__.py",
+    "bytes": 276,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/homepage_discovery/body_rules.py",
+    "bytes": 733,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/homepage_discovery/__init__.py",
+    "bytes": 211,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/homepage_discovery/fee_pages/links.py",
+    "bytes": 1850,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/homepage_discovery/fee_pages/stays.py",
+    "bytes": 833,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/homepage_discovery/fee_pages/__main__.py",
+    "bytes": 5248,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/homepage_discovery/fee_pages/__init__.py",
+    "bytes": 405,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/homepage_discovery/pipeline/naver_script.py",
+    "bytes": 7416,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/homepage_discovery/pipeline/onda_script.py",
+    "bytes": 2750,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/homepage_discovery/pipeline/runner.py",
+    "bytes": 1339,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/homepage_discovery/pipeline/targets_output.py",
+    "bytes": 1291,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/homepage_discovery/pipeline/__main__.py",
+    "bytes": 6202,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/homepage_discovery/pipeline/__init__.py",
+    "bytes": 326,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/homepage_discovery/targets/known.py",
+    "bytes": 1552,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/homepage_discovery/targets/__init__.py",
+    "bytes": 303,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/homepage_discovery/targets/scan.py",
+    "bytes": 3349,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/homepage_discovery/targets/__main__.py",
+    "bytes": 3389,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/homepage_discovery/validate/candidates.py",
+    "bytes": 1820,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/homepage_discovery/validate/__init__.py",
+    "bytes": 338,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/homepage_discovery/validate/__main__.py",
+    "bytes": 3895,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/tourapi/client.py",
+    "bytes": 3080,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/tourapi/details.py",
+    "bytes": 1650,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/tourapi/listing.py",
+    "bytes": 1931,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/tourapi/extras.py",
+    "bytes": 1843,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/tourapi/rooms.py",
+    "bytes": 2210,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/tourapi/store.py",
+    "bytes": 1098,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/tourapi/__init__.py",
+    "bytes": 296,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/tourapi/__main__.py",
+    "bytes": 1708,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/public_data/__init__.py",
+    "bytes": 358,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/public_data/__main__.py",
+    "bytes": 4467,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/crawl/public_data/sources.py",
+    "bytes": 1901,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/mcp/handlers.py",
+    "bytes": 3817,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/mcp/server.py",
+    "bytes": 6352,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/mcp/__main__.py",
+    "bytes": 188,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/mcp/__init__.py",
+    "bytes": 88,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/__init__.py",
+    "bytes": 118,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/catalog/locations.py",
+    "bytes": 1373,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/catalog/errors.py",
+    "bytes": 205,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/catalog/schema.py",
+    "bytes": 6804,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/catalog/__init__.py",
+    "bytes": 488,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/catalog/README.md",
+    "bytes": 1653,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/catalog/regions.py",
+    "bytes": 949,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/catalog/text.py",
+    "bytes": 1618,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/catalog/build/meta.py",
+    "bytes": 3288,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/catalog/build/naver.py",
+    "bytes": 3172,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/catalog/build/parsed.py",
+    "bytes": 3361,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/catalog/build/policy_text.py",
+    "bytes": 1570,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/catalog/build/report.py",
+    "bytes": 1898,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/catalog/build/__init__.py",
+    "bytes": 1056,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/catalog/build/run.py",
+    "bytes": 1337,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/catalog/build/values.py",
+    "bytes": 791,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/catalog/build/write.py",
+    "bytes": 2848,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/catalog/build/__main__.py",
+    "bytes": 160,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/catalog/build/direct/policy.py",
+    "bytes": 1264,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/catalog/build/direct/__init__.py",
+    "bytes": 512,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/catalog/build/direct/sites.py",
+    "bytes": 2600,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/catalog/build/engine/rows.py",
+    "bytes": 5526,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/catalog/build/engine/__init__.py",
+    "bytes": 505,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/catalog/build/tourapi/files.py",
+    "bytes": 724,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/catalog/build/tourapi/listing.py",
+    "bytes": 3790,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/catalog/build/tourapi/details.py",
+    "bytes": 4570,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/catalog/build/tourapi/__init__.py",
+    "bytes": 1509,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/catalog/build/checks/direct.py",
+    "bytes": 472,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/catalog/build/checks/engine.py",
+    "bytes": 3793,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/catalog/build/checks/standard.py",
+    "bytes": 1184,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/catalog/build/checks/naver.py",
+    "bytes": 866,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/catalog/build/checks/stay_homepages.py",
+    "bytes": 1307,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/catalog/build/checks/tourapi.py",
+    "bytes": 1740,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/catalog/build/checks/yanolja.py",
+    "bytes": 797,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/catalog/build/checks/__init__.py",
+    "bytes": 1527,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/catalog/build/standard/hotels.py",
+    "bytes": 1197,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/catalog/build/standard/region.py",
+    "bytes": 1168,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/catalog/build/standard/stays.py",
+    "bytes": 2521,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/catalog/build/standard/__init__.py",
+    "bytes": 859,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/catalog/build/stay_homepages/policy.py",
+    "bytes": 984,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/catalog/build/stay_homepages/fee_pages.py",
+    "bytes": 1606,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/catalog/build/stay_homepages/registry.py",
+    "bytes": 1899,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/catalog/build/stay_homepages/__init__.py",
+    "bytes": 679,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/catalog/build/yanolja/places.py",
+    "bytes": 1510,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/catalog/build/yanolja/matching.py",
+    "bytes": 3284,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/catalog/build/yanolja/__init__.py",
+    "bytes": 486,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/catalog/demo/engines.py",
+    "bytes": 6664,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/catalog/demo/examples.py",
+    "bytes": 614,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/catalog/demo/homepages.py",
+    "bytes": 1703,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/catalog/demo/ratings.py",
+    "bytes": 789,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/catalog/demo/__init__.py",
+    "bytes": 328,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/catalog/demo/__main__.py",
+    "bytes": 154,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/catalog/demo/run.py",
+    "bytes": 1272,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/catalog/demo/stays.py",
+    "bytes": 2806,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/catalog/demo/tourapi.py",
+    "bytes": 3120,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/catalog/service/engine_detail.py",
+    "bytes": 6799,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/catalog/service/reader.py",
+    "bytes": 2426,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/catalog/service/engine_search.py",
+    "bytes": 7190,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/catalog/service/homepages.py",
+    "bytes": 4976,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/catalog/service/stays.py",
+    "bytes": 5388,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/catalog/service/summaries.py",
+    "bytes": 947,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/catalog/service/tourapi_rooms.py",
+    "bytes": 4617,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/catalog/service/tourapi_stays.py",
+    "bytes": 5154,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/catalog/service/__init__.py",
+    "bytes": 1819,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/env/coord_check.py",
+    "bytes": 2391,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/env/checks.py",
+    "bytes": 5879,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/env/properties.py",
+    "bytes": 3781,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/env/schema.py",
+    "bytes": 4888,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/env/window.py",
+    "bytes": 437,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/env/summary.py",
+    "bytes": 6767,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/env/__init__.py",
+    "bytes": 554,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/env/__main__.py",
+    "bytes": 4144,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/env/database.py",
+    "bytes": 4392,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/env/locations.py",
+    "bytes": 355,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/env/README.md",
+    "bytes": 7299,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/env/calibration/occupancy.py",
+    "bytes": 2995,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/env/calibration/__init__.py",
+    "bytes": 391,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/env/calibration/report.py",
+    "bytes": 2572,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/env/calibration/__main__.py",
+    "bytes": 1665,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/env/fit/weights.py",
+    "bytes": 4753,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/env/fit/__init__.py",
+    "bytes": 681,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/env/fit/occupancy.py",
+    "bytes": 3637,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/env/params/calendar.py",
+    "bytes": 1292,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/env/params/availability.py",
+    "bytes": 2306,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/env/params/cancel.py",
+    "bytes": 4307,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/env/params/price.py",
+    "bytes": 2596,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/env/params/coordinate.py",
+    "bytes": 1342,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/env/params/records.py",
+    "bytes": 893,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/env/params/__init__.py",
+    "bytes": 1234,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/env/provenance/inventory_init.py",
+    "bytes": 1666,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/env/provenance/nightly_rates.py",
+    "bytes": 1645,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/env/provenance/properties.py",
+    "bytes": 5055,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/env/provenance/rate_plans.py",
+    "bytes": 2907,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/env/provenance/records.py",
+    "bytes": 761,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/env/provenance/room_types.py",
+    "bytes": 2132,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/env/provenance/state.py",
+    "bytes": 1945,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/env/provenance/__init__.py",
+    "bytes": 1214,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/env/rows/constants.py",
+    "bytes": 965,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/env/rows/engine.py",
+    "bytes": 3955,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/env/rows/nightly.py",
+    "bytes": 1958,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/env/rows/inventory.py",
+    "bytes": 3692,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/env/rows/plans.py",
+    "bytes": 2246,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/env/rows/pricing.py",
+    "bytes": 4258,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/env/rows/records.py",
+    "bytes": 2738,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/env/rows/rooms.py",
+    "bytes": 3749,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/env/rows/tour.py",
+    "bytes": 2257,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/env/rows/__init__.py",
+    "bytes": 1164,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/env/source/constants.py",
+    "bytes": 2079,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/env/source/engine.py",
+    "bytes": 2322,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/env/source/coords.py",
+    "bytes": 5486,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/env/source/observations.py",
+    "bytes": 3226,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/env/source/ratings.py",
+    "bytes": 3573,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/env/source/stays.py",
+    "bytes": 5879,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/env/source/records.py",
+    "bytes": 2254,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/env/source/text.py",
+    "bytes": 3966,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/env/source/tourapi.py",
+    "bytes": 6240,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/db/env/source/__init__.py",
+    "bytes": 1163,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/tools/cancel.py",
+    "bytes": 10879,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/tools/errors.py",
+    "bytes": 474,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/tools/db_path.py",
+    "bytes": 285,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/tools/external.py",
+    "bytes": 2522,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/tools/plans.py",
+    "bytes": 973,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/tools/offers.py",
+    "bytes": 4915,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/tools/refund_text.py",
+    "bytes": 9448,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/tools/README.md",
+    "bytes": 16754,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/tools/search.py",
+    "bytes": 2487,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/tools/rules.py",
+    "bytes": 6010,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/tools/__init__.py",
+    "bytes": 626,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/tools/views.py",
+    "bytes": 8058,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/tools/env/cancellation.py",
+    "bytes": 3353,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/tools/env/harness.py",
+    "bytes": 4945,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/tools/env/lodging_env.py",
+    "bytes": 1598,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/tools/env/inputs.py",
+    "bytes": 3216,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/tools/env/my_reservations.py",
+    "bytes": 2505,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/tools/env/offer_search.py",
+    "bytes": 9576,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/tools/env/reserve.py",
+    "bytes": 6951,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/tools/env/state.py",
+    "bytes": 2875,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/tools/env/__init__.py",
+    "bytes": 172,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/tools/models/cancel_breakdown.py",
+    "bytes": 1416,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/tools/models/cancel_lodging_reservation_preview.py",
+    "bytes": 690,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/tools/models/cancel_lodging_reservation.py",
+    "bytes": 751,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/tools/models/get_lodging.py",
+    "bytes": 3838,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/tools/models/cancel_policy.py",
+    "bytes": 2026,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/tools/models/create_lodging_reservation.py",
+    "bytes": 1126,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/tools/models/fields.py",
+    "bytes": 1887,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/tools/models/get_lodging_reservation.py",
+    "bytes": 515,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/tools/models/reservation_detail.py",
+    "bytes": 2663,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/tools/models/get_room_offers.py",
+    "bytes": 2940,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/tools/models/nightly.py",
+    "bytes": 698,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/tools/models/list_my_reservations.py",
+    "bytes": 2080,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/tools/models/search_lodgings.py",
+    "bytes": 4022,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/lodging/tools/models/__init__.py",
+    "bytes": 133,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/_shared/account.py",
+    "bytes": 1960,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/_shared/geo.py",
+    "bytes": 567,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/_shared/server_args.py",
+    "bytes": 809,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/_shared/mcp_tool.py",
+    "bytes": 2338,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/_shared/tool_output.py",
+    "bytes": 1454,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/_shared/world_db.py",
+    "bytes": 1701,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/_shared/__init__.py",
+    "bytes": 87,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/map/README.md",
+    "bytes": 6573,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/map/__init__.py",
+    "bytes": 743,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/map/crawl/bus_stops.py",
+    "bytes": 1184,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/map/crawl/heritage.py",
+    "bytes": 1652,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/map/crawl/_http.py",
+    "bytes": 1312,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/map/crawl/standard.py",
+    "bytes": 2118,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/map/crawl/__init__.py",
+    "bytes": 687,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/map/crawl/__main__.py",
+    "bytes": 2500,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/map/checks/__init__.py",
+    "bytes": 92,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/map/checks/demo/sections.py",
+    "bytes": 7647,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/map/checks/demo/__main__.py",
+    "bytes": 1369,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/map/checks/demo/_support.py",
+    "bytes": 2875,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/map/checks/demo/__init__.py",
+    "bytes": 89,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/map/mcp/handlers.py",
+    "bytes": 1689,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/map/mcp/__init__.py",
+    "bytes": 84,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/map/mcp/server.py",
+    "bytes": 2562,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/map/mcp/__main__.py",
+    "bytes": 171,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/map/db/city_tag.py",
+    "bytes": 3789,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/map/db/meta.py",
+    "bytes": 1555,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/map/db/landmarks.py",
+    "bytes": 5395,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/map/db/pipeline.py",
+    "bytes": 3470,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/map/db/place_rows.py",
+    "bytes": 1084,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/map/db/provenance.py",
+    "bytes": 3580,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/map/db/schema.py",
+    "bytes": 2420,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/map/db/summary.py",
+    "bytes": 1154,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/map/db/validate.py",
+    "bytes": 2662,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/map/db/__init__.py",
+    "bytes": 344,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/map/db/__main__.py",
+    "bytes": 152,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/map/db/fit/model.py",
+    "bytes": 1106,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/map/db/fit/regression.py",
+    "bytes": 3054,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/map/db/fit/samples.py",
+    "bytes": 1728,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/map/db/fit/__init__.py",
+    "bytes": 584,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/map/db/fit/calibrate/osrm.py",
+    "bytes": 3337,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/map/db/fit/calibrate/pairs.py",
+    "bytes": 2403,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/map/db/fit/calibrate/__main__.py",
+    "bytes": 2953,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/map/db/fit/calibrate/__init__.py",
+    "bytes": 130,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/map/db/fit/report/_tables.py",
+    "bytes": 1300,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/map/db/fit/report/__main__.py",
+    "bytes": 2576,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/map/db/fit/report/__init__.py",
+    "bytes": 85,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/map/db/sources/databases.py",
+    "bytes": 3218,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/map/db/sources/normalize.py",
+    "bytes": 897,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/map/db/sources/records.py",
+    "bytes": 895,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/map/db/sources/public.py",
+    "bytes": 3319,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/map/db/sources/__init__.py",
+    "bytes": 792,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/map/tools/errors.py",
+    "bytes": 441,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/map/tools/locations.py",
+    "bytes": 677,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/map/tools/places.py",
+    "bytes": 5459,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/map/tools/rules.py",
+    "bytes": 5914,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/map/tools/__init__.py",
+    "bytes": 140,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/map/tools/models/fields.py",
+    "bytes": 397,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/map/tools/models/get_travel_time.py",
+    "bytes": 4274,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/map/tools/models/get_place.py",
+    "bytes": 907,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/map/tools/models/list_nearby.py",
+    "bytes": 2041,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/map/tools/models/search_places.py",
+    "bytes": 1626,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/map/tools/models/__init__.py",
+    "bytes": 136,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/map/tools/params/read.py",
+    "bytes": 3606,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/map/tools/params/rows.py",
+    "bytes": 7832,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/map/tools/params/__init__.py",
+    "bytes": 392,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/map/tools/travel/clock.py",
+    "bytes": 1810,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/map/tools/travel/estimation.py",
+    "bytes": 3479,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/map/tools/travel/queries.py",
+    "bytes": 6489,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/map/tools/travel/taxi_fare.py",
+    "bytes": 3076,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/map/tools/travel/__init__.py",
+    "bytes": 670,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/README.md",
+    "bytes": 30126,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/__init__.py",
+    "bytes": 853,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/api/app.py",
+    "bytes": 1053,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/api/errors.py",
+    "bytes": 508,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/api/harness.py",
+    "bytes": 1015,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/api/state.py",
+    "bytes": 230,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/api/models.py",
+    "bytes": 2755,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/api/reservations.py",
+    "bytes": 2407,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/api/queries.py",
+    "bytes": 2266,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/api/__init__.py",
+    "bytes": 145,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/checks/demo.py",
+    "bytes": 11624,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/checks/__init__.py",
+    "bytes": 133,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/checks/scenario/changes.py",
+    "bytes": 2276,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/checks/scenario/booking.py",
+    "bytes": 6685,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/checks/scenario/context.py",
+    "bytes": 1709,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/checks/scenario/invariants.py",
+    "bytes": 2214,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/checks/scenario/path_fares.py",
+    "bytes": 4548,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/checks/scenario/__init__.py",
+    "bytes": 3145,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/checks/scenario/refunds.py",
+    "bytes": 5917,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/checks/scenario/__main__.py",
+    "bytes": 1127,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/crawl/paths.py",
+    "bytes": 293,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/crawl/__init__.py",
+    "bytes": 480,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/crawl/rail_sources/catalog.py",
+    "bytes": 5347,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/crawl/rail_sources/manifest.py",
+    "bytes": 1363,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/crawl/rail_sources/download.py",
+    "bytes": 1664,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/crawl/rail_sources/__init__.py",
+    "bytes": 226,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/crawl/rail_sources/__main__.py",
+    "bytes": 1325,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/crawl/timetable_archive/download.py",
+    "bytes": 1215,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/crawl/timetable_archive/integrity.py",
+    "bytes": 556,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/crawl/timetable_archive/__init__.py",
+    "bytes": 287,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/crawl/timetable_archive/__main__.py",
+    "bytes": 2119,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/db/collect.py",
+    "bytes": 3078,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/db/data.py",
+    "bytes": 1044,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/db/errors.py",
+    "bytes": 229,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/db/inputs.py",
+    "bytes": 2720,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/db/__init__.py",
+    "bytes": 439,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/db/__main__.py",
+    "bytes": 1798,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/db/database.py",
+    "bytes": 2333,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/db/schema.py",
+    "bytes": 4120,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/db/meta.py",
+    "bytes": 5310,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/db/checks/calibration.py",
+    "bytes": 1663,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/db/checks/fares.py",
+    "bytes": 3650,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/db/checks/press_counts.py",
+    "bytes": 1863,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/db/checks/result.py",
+    "bytes": 263,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/db/checks/routes.py",
+    "bytes": 1775,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/db/checks/provenance.py",
+    "bytes": 2598,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/db/checks/run.py",
+    "bytes": 1373,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/db/checks/table_sizes.py",
+    "bytes": 1000,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/db/checks/__init__.py",
+    "bytes": 232,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/db/fares/ktx.py",
+    "bytes": 2272,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/db/fares/records.py",
+    "bytes": 924,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/db/fares/simple.py",
+    "bytes": 3135,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/db/fares/stations.py",
+    "bytes": 721,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/db/fares/__init__.py",
+    "bytes": 783,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/db/inventory/calibration.py",
+    "bytes": 2328,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/db/inventory/load_params.py",
+    "bytes": 2091,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/db/inventory/rows.py",
+    "bytes": 1436,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/db/inventory/seat_capacity.py",
+    "bytes": 3904,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/db/inventory/sr_load.py",
+    "bytes": 2242,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/db/inventory/slots.py",
+    "bytes": 3102,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/db/inventory/targets.py",
+    "bytes": 2816,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/db/inventory/__init__.py",
+    "bytes": 2709,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/db/provenance/booking_columns.py",
+    "bytes": 6258,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/db/provenance/build_columns.py",
+    "bytes": 971,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/db/provenance/inventory_columns.py",
+    "bytes": 1697,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/db/provenance/fare_columns.py",
+    "bytes": 3129,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/db/provenance/timetable_columns.py",
+    "bytes": 3035,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/db/provenance/__init__.py",
+    "bytes": 971,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/db/provenance/types.py",
+    "bytes": 1583,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/db/timetable/cells.py",
+    "bytes": 1005,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/db/timetable/categories.py",
+    "bytes": 610,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/db/timetable/general.py",
+    "bytes": 6646,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/db/timetable/ktx.py",
+    "bytes": 4529,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/db/timetable/names.py",
+    "bytes": 606,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/db/timetable/rows.py",
+    "bytes": 1558,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/db/timetable/records.py",
+    "bytes": 505,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/db/timetable/run_rules.py",
+    "bytes": 1742,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/db/timetable/versions.py",
+    "bytes": 2028,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/db/timetable/tourist.py",
+    "bytes": 4096,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/db/timetable/__init__.py",
+    "bytes": 1229,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/mcp/handlers.py",
+    "bytes": 5656,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/mcp/server.py",
+    "bytes": 7079,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/mcp/__init__.py",
+    "bytes": 164,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/mcp/__main__.py",
+    "bytes": 147,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/tools/accounts.py",
+    "bytes": 967,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/tools/defaults.py",
+    "bytes": 585,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/tools/errors.py",
+    "bytes": 524,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/tools/__init__.py",
+    "bytes": 135,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/tools/booking/deadlines.py",
+    "bytes": 2079,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/tools/booking/holidays.py",
+    "bytes": 1305,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/tools/booking/preset.py",
+    "bytes": 753,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/tools/booking/status.py",
+    "bytes": 682,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/tools/booking/refund.py",
+    "bytes": 8656,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/tools/booking/store.py",
+    "bytes": 2280,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/tools/booking/__init__.py",
+    "bytes": 1518,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/tools/booking/tickets.py",
+    "bytes": 2460,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/tools/booking/views.py",
+    "bytes": 4554,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/tools/fares/book.py",
+    "bytes": 6036,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/tools/fares/report.py",
+    "bytes": 2407,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/tools/fares/paths.py",
+    "bytes": 3802,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/tools/fares/__init__.py",
+    "bytes": 540,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/tools/schedule/labels.py",
+    "bytes": 944,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/tools/schedule/segments.py",
+    "bytes": 1269,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/tools/schedule/times.py",
+    "bytes": 1541,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/tools/schedule/timetable.py",
+    "bytes": 5081,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/tools/schedule/__init__.py",
+    "bytes": 661,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/tools/service/cancel.py",
+    "bytes": 4054,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/tools/service/harness.py",
+    "bytes": 3153,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/tools/service/change.py",
+    "bytes": 4837,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/tools/service/korail.py",
+    "bytes": 14535,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/tools/service/listing.py",
+    "bytes": 1499,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/tools/service/reserve.py",
+    "bytes": 6501,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/tools/service/world.py",
+    "bytes": 1209,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/tools/service/search.py",
+    "bytes": 5821,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/tools/service/__init__.py",
+    "bytes": 450,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/tools/models/cancel_reservation.py",
+    "bytes": 1106,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/tools/models/cancel_reservation_preview.py",
+    "bytes": 1450,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/tools/models/create_reservation.py",
+    "bytes": 1277,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/tools/models/change_reservation.py",
+    "bytes": 1357,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/tools/models/fields.py",
+    "bytes": 1327,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/tools/models/get_fare.py",
+    "bytes": 2302,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/tools/models/get_reservation.py",
+    "bytes": 499,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/tools/models/pay_reservation.py",
+    "bytes": 680,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/tools/models/get_seat_availability.py",
+    "bytes": 1004,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/tools/models/get_train_schedule.py",
+    "bytes": 1536,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/tools/models/list_my_reservations.py",
+    "bytes": 1822,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/tools/models/reservation.py",
+    "bytes": 3750,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/tools/models/search_trains.py",
+    "bytes": 2753,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/tools/models/__init__.py",
+    "bytes": 89,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/tools/seats/arguments.py",
+    "bytes": 942,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/tools/seats/inventory.py",
+    "bytes": 4569,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/tools/seats/layout.py",
+    "bytes": 3961,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/domains/rail/tools/seats/__init__.py",
+    "bytes": 833,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/schemas/aliases.py",
+    "bytes": 133,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/schemas/documents.py",
+    "bytes": 1406,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/schemas/cli.py",
+    "bytes": 3317,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/schemas/components.py",
+    "bytes": 3720,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/schemas/errors.py",
+    "bytes": 174,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/schemas/locations.py",
+    "bytes": 244,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/schemas/openapi.py",
+    "bytes": 2749,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/schemas/serialize.py",
+    "bytes": 1840,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/schemas/__init__.py",
+    "bytes": 1257,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/schemas/__main__.py",
+    "bytes": 109,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/schemas/checks/documents.py",
+    "bytes": 2444,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/schemas/checks/result.py",
+    "bytes": 259,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/schemas/checks/__init__.py",
+    "bytes": 244,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/schemas/readme/render.py",
+    "bytes": 3299,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/schemas/readme/writer.py",
+    "bytes": 1407,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/schemas/readme/__init__.py",
+    "bytes": 138,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/schemas/servers/export.py",
+    "bytes": 429,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/schemas/servers/loader.py",
+    "bytes": 3527,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/schemas/servers/__init__.py",
+    "bytes": 327,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/schemas/servers/registry.py",
+    "bytes": 1058,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/scripts/__init__.py",
+    "bytes": 114,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/scripts/pce_seeds/dates.py",
+    "bytes": 2742,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/scripts/pce_seeds/files.py",
+    "bytes": 676,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/scripts/pce_seeds/locations.py",
+    "bytes": 606,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/scripts/pce_seeds/records.py",
+    "bytes": 579,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/scripts/pce_seeds/sandbox.py",
+    "bytes": 1302,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/scripts/pce_seeds/__init__.py",
+    "bytes": 540,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/scripts/pce_seeds/build/calendar.py",
+    "bytes": 1482,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/scripts/pce_seeds/build/items.py",
+    "bytes": 2086,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/scripts/pce_seeds/build/__init__.py",
+    "bytes": 117,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/scripts/pce_seeds/build/reservations.py",
+    "bytes": 4676,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/scripts/pce_seeds/build/__main__.py",
+    "bytes": 5520,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/scripts/pce_seeds/matching/lodgings.py",
+    "bytes": 3092,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/scripts/pce_seeds/matching/places.py",
+    "bytes": 2712,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/scripts/pce_seeds/matching/trains.py",
+    "bytes": 2863,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/scripts/pce_seeds/matching/__init__.py",
+    "bytes": 564,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/scripts/pce_seeds/check/bookings.py",
+    "bytes": 3430,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/scripts/pce_seeds/check/coverage.py",
+    "bytes": 1812,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/scripts/pce_seeds/check/result.py",
+    "bytes": 303,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/scripts/pce_seeds/check/__init__.py",
+    "bytes": 284,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/scripts/pce_seeds/check/__main__.py",
+    "bytes": 1388,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/scripts/pce_seeds/check/dates.py",
+    "bytes": 3153,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/scripts/pce_seeds/check/places.py",
+    "bytes": 1015,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/scripts/pce_seeds/check/runner.py",
+    "bytes": 1511,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/scripts/pce_seeds/migration/strings.py",
+    "bytes": 1083,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/scripts/pce_seeds/migration/transforms.py",
+    "bytes": 1441,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/scripts/pce_seeds/migration/__init__.py",
+    "bytes": 461,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/scripts/pce_seeds/walk_task001/__init__.py",
+    "bytes": 122,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/scripts/pce_seeds/walk_task001/schedule.py",
+    "bytes": 1189,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/scripts/pce_seeds/walk_task001/__main__.py",
+    "bytes": 4834,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/scripts/research/paths.py",
+    "bytes": 256,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/scripts/research/__init__.py",
+    "bytes": 160,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/scripts/research/acquire/download.py",
+    "bytes": 4036,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/scripts/research/acquire/works.py",
+    "bytes": 800,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/scripts/research/acquire/__main__.py",
+    "bytes": 748,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/scripts/research/acquire/__init__.py",
+    "bytes": 205,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/scripts/research/inspect_queries/records.py",
+    "bytes": 754,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/scripts/research/inspect_queries/sources.py",
+    "bytes": 4932,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/scripts/research/inspect_queries/__init__.py",
+    "bytes": 244,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/scripts/research/inspect_queries/__main__.py",
+    "bytes": 1513,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/scripts/research/travel_benchmarks/entries.py",
+    "bytes": 5281,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/scripts/research/travel_benchmarks/pdf.py",
+    "bytes": 2560,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/scripts/research/travel_benchmarks/__main__.py",
+    "bytes": 393,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/scripts/research/travel_benchmarks/__init__.py",
+    "bytes": 211,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/dataset/__init__.py",
+    "bytes": 135,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/dataset/provenance/report.py",
+    "bytes": 2847,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/dataset/provenance/__init__.py",
+    "bytes": 201,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/dataset/provenance/__main__.py",
+    "bytes": 774,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/dataset/parquet/cli.py",
+    "bytes": 2561,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/dataset/parquet/export.py",
+    "bytes": 2630,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/dataset/parquet/databases.py",
+    "bytes": 1285,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/dataset/parquet/result.py",
+    "bytes": 344,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/dataset/parquet/sqlite_schema.py",
+    "bytes": 1260,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/dataset/parquet/verify.py",
+    "bytes": 1177,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/dataset/parquet/__init__.py",
+    "bytes": 609,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/dataset/parquet/__main__.py",
+    "bytes": 103,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/dataset/snapshot/bundle.py",
+    "bytes": 3250,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/dataset/snapshot/cli.py",
+    "bytes": 2037,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/dataset/snapshot/components.py",
+    "bytes": 1282,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/dataset/snapshot/download.py",
+    "bytes": 6743,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/dataset/snapshot/hashing.py",
+    "bytes": 326,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/dataset/snapshot/inventory.py",
+    "bytes": 2878,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/dataset/snapshot/manifest.py",
+    "bytes": 783,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/dataset/snapshot/paths.py",
+    "bytes": 1441,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/dataset/snapshot/verify.py",
+    "bytes": 1031,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/dataset/snapshot/__init__.py",
+    "bytes": 1079,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/dataset/snapshot/__main__.py",
+    "bytes": 105,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/tasks/diff.py",
+    "bytes": 3187,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/tasks/model.py",
+    "bytes": 3128,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/tasks/validate.py",
+    "bytes": 4467,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/tasks/env.py",
+    "bytes": 5618,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/tasks/serve.py",
+    "bytes": 2188,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/tasks/start.py",
+    "bytes": 1645,
+    "symlink": false
+  },
+  {
+    "path": "src/kotau/tasks/__init__.py",
+    "bytes": 168,
+    "symlink": false
+  },
+  {
+    "path": "tools/browser/collect_city_homepages.js",
+    "bytes": 12538,
+    "symlink": false
+  },
+  {
+    "path": "tools/browser/collect_ddnayo_batch.js",
+    "bytes": 5130,
+    "symlink": false
+  },
+  {
+    "path": "tools/browser/collect_gangneung_homepages.js",
+    "bytes": 9910,
+    "symlink": false
+  },
+  {
+    "path": "tools/browser/collect_jeju_homepages.js",
+    "bytes": 135,
+    "symlink": false
+  },
+  {
+    "path": "tools/browser/collect_naver_batch_jeju14.js",
+    "bytes": 7701,
+    "symlink": false
+  },
+  {
+    "path": "tools/browser/collect_naver_batch_yeosu.js",
+    "bytes": 8208,
+    "symlink": false
+  },
+  {
+    "path": "tools/browser/collect_naver_batch.js",
+    "bytes": 8682,
+    "symlink": false
+  },
+  {
+    "path": "tools/browser/collect_naver_batch_2.js",
+    "bytes": 7989,
+    "symlink": false
+  },
+  {
+    "path": "tools/browser/collect_naver_batch_3.js",
+    "bytes": 7915,
+    "symlink": false
+  },
+  {
+    "path": "tools/browser/collect_onda.js",
+    "bytes": 3170,
+    "symlink": false
+  },
+  {
+    "path": "tools/browser/collect_trip_batch.js",
+    "bytes": 8589,
+    "symlink": false
+  },
+  {
+    "path": "tools/browser/collect_onda_20260926.js",
+    "bytes": 3189,
+    "symlink": false
+  },
+  {
+    "path": "tools/browser/collect_onda_20261003.js",
+    "bytes": 3780,
+    "symlink": false
+  },
+  {
+    "path": "tools/browser/collect_onda_candidates_20260926.js",
+    "bytes": 3736,
+    "symlink": false
+  },
+  {
+    "path": "tools/browser/collect_trip_batch_3.js",
+    "bytes": 6133,
+    "symlink": false
+  },
+  {
+    "path": "tools/browser/collect_trip_batch_2.js",
+    "bytes": 6653,
+    "symlink": false
+  },
+  {
+    "path": "tools/browser/collect_wings_skybay.js",
+    "bytes": 2010,
+    "symlink": false
+  },
+  {
+    "path": "tools/browser/collect_yeosu_homepages.js",
+    "bytes": 11019,
+    "symlink": false
+  },
+  {
+    "path": "tools/browser/ddnayo_inspect.js",
+    "bytes": 1187,
+    "symlink": false
+  },
+  {
+    "path": "tools/browser/jeju_followup_watcher.py",
+    "bytes": 1901,
+    "symlink": false
+  },
+  {
+    "path": "tools/browser/full_pipeline_chain_runner.py",
+    "bytes": 3237,
+    "symlink": false
+  },
+  {
+    "path": "tools/browser/korail_inspect.js",
+    "bytes": 1579,
+    "symlink": false
+  },
+  {
+    "path": "tools/browser/pilot_naver_ddnayo.js",
+    "bytes": 3284,
+    "symlink": false
+  },
+  {
+    "path": "tools/browser/README.md",
+    "bytes": 913,
+    "symlink": false
+  },
+  {
+    "path": "tools/browser/trip_inspect.js",
+    "bytes": 2064,
+    "symlink": false
+  },
+  {
+    "path": "tools/browser/seogwipo_chain_runner.py",
+    "bytes": 2712,
+    "symlink": false
+  },
+  {
+    "path": "tools/browser/yanolja_inspect.js",
+    "bytes": 3176,
+    "symlink": false
+  },
+  {
+    "path": "tools/personal/personal_context.py",
+    "bytes": 17417,
+    "symlink": false
+  },
+  {
+    "path": "tools/personal/personal_mcp.py",
+    "bytes": 3772,
+    "symlink": false
+  },
+  {
+    "path": "tools/personal/personal_demo.py",
+    "bytes": 7039,
+    "symlink": false
+  },
+  {
+    "path": "tools/personal/README.md",
+    "bytes": 4745,
+    "symlink": false
+  }
+]

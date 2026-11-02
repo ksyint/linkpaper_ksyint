@@ -1,0 +1,296 @@
+[
+  {
+    "ref": "refs/heads/booking-engine-snapshots-oct",
+    "sha": "997d27e95a14139eecaf10b79cdde5f4f47aa2d4",
+    "files": 12706,
+    "bytes": 644696003,
+    "last_commit": "2026-10-04T23:55:14+09:00 data: 예약 엔진 10-01~04 스냅샷과 온다 PMS 캡처, 야놀자 places3 표본 추가"
+  },
+  {
+    "ref": "refs/heads/booking-screen-tools",
+    "sha": "440ca4e420a04afb9aa944cb41da26f0b0d4f704",
+    "files": 3939,
+    "bytes": 351763009,
+    "last_commit": "2026-09-30T18:15:49+09:00 chore(tools): 코레일, 야놀자, 네이버 예약 화면 탐색용 puppeteer 스크립트"
+  },
+  {
+    "ref": "refs/heads/chore/tasks-hide-labels",
+    "sha": "eb7ba45b5b753594d7ac855807fad89495447345",
+    "files": 222,
+    "bytes": 3650555,
+    "last_commit": "2026-10-20T10:10:05+00:00 chore(tasks): 정답 label을 main과 HF main에서 빼고 task 입력만 남김"
+  },
+  {
+    "ref": "refs/heads/docs/new-domain-guide",
+    "sha": "1d8229cd2db184843f728c5b25c9c5013273d7ec",
+    "files": 670,
+    "bytes": 4231308,
+    "last_commit": "2026-10-25T22:30:45+09:00 docs: 새 domain과 tool 추가 가이드"
+  },
+  {
+    "ref": "refs/heads/docs/readme-agents",
+    "sha": "ff03dea4d6fae3ef9dffa7de9ff728d58fe64cf5",
+    "files": 669,
+    "bytes": 4224102,
+    "last_commit": "2026-10-25T22:17:49+09:00 refactor(schemas): OpenAPI 3.1 로 바꿔 변환기를 없애고 OpenAI strict 출력 삭제"
+  },
+  {
+    "ref": "refs/heads/feat/bus-attraction-data",
+    "sha": "338367a89f6cfe95f1ae3fe4e07d01e36f11cf35",
+    "files": 135,
+    "bytes": 2648588,
+    "last_commit": "2026-10-19T23:42:40+09:00 feat(data): 서울 버스와 관광지 데이터 등록과 HF 6735322 고정"
+  },
+  {
+    "ref": "refs/heads/feat/bus-observation-query-api",
+    "sha": "44230556e8d7aab9ccc22eb8f665873e9778b358",
+    "files": 724,
+    "bytes": 4408556,
+    "last_commit": "2026-11-01T20:55:22+09:00 feat(bus): add read-only express and intercity observation APIs"
+  },
+  {
+    "ref": "refs/heads/feat/data-window-sept-dec",
+    "sha": "b85dcf781f2f7bee8f83911335d93373fd81e78a",
+    "files": 673,
+    "bytes": 4319492,
+    "last_commit": "2026-11-01T22:52:55+09:00 feat(data): 기차와 숙소 DB 기간을 2026-09-01 ~ 12-26으로 늘리고 HF PR #9 고정"
+  },
+  {
+    "ref": "refs/heads/feat/graphhopper-route-draft",
+    "sha": "a8080d4566310c39f480b4726e9cbfb43bd5c7b6",
+    "files": 682,
+    "bytes": 4276361,
+    "last_commit": "2026-11-01T18:30:21+09:00 feat(map): add GraphHopper setup and pin OSM data on Hugging Face"
+  },
+  {
+    "ref": "refs/heads/feat/lodging-nights-until",
+    "sha": "2e1b201a3722f783b960773583a51bcf887f1650",
+    "files": 670,
+    "bytes": 4232363,
+    "last_commit": "2026-11-01T19:15:31+09:00 feat(lodging): 요금 조회 끝 날짜를 KOTAU_NIGHTS_UNTIL로 지정하고 HF 9622f70 고정"
+  },
+  {
+    "ref": "refs/heads/feat/pce-collect-form",
+    "sha": "ed78d3f61567702836c047914ba7c8989f168c1e",
+    "files": 672,
+    "bytes": 4317046,
+    "last_commit": "2026-10-30T15:28:52-07:00 feat(personal): 페르소나와 부탁 수집 HTML 폼과 JSON 형식 문서"
+  },
+  {
+    "ref": "refs/heads/feat/platform-redesign",
+    "sha": "57a9e3ae86237f06d75fc684c5f5c49d740b4636",
+    "files": 220,
+    "bytes": 3632557,
+    "last_commit": "2026-10-20T02:34:21+00:00 chore(data): map component 등록과 HF 470759a 고정"
+  },
+  {
+    "ref": "refs/heads/feat/public-business-data",
+    "sha": "4e8ff3d35fdb5917ae94245b179165c9327cec6b",
+    "files": 677,
+    "bytes": 4263866,
+    "last_commit": "2026-11-01T21:31:33+09:00 fix(data): verify published business snapshots without mutation"
+  },
+  {
+    "ref": "refs/heads/feat/rail-lodging-booking-env",
+    "sha": "a3c697f907e845e5f2edb87faba353f979088c73",
+    "files": 135,
+    "bytes": 2646655,
+    "last_commit": "2026-10-19T23:35:06+09:00 docs: 9월 기준 기간과 synthetic_ 열 규칙 반영"
+  },
+  {
+    "ref": "refs/heads/feat/subway-data",
+    "sha": "9c10003c89e1bf9fe8ef6619c07fe92a6b777fbc",
+    "files": 695,
+    "bytes": 4404791,
+    "last_commit": "2026-10-25T22:28:59+09:00 refactor(subway): 공용 구조에 맞추고 중복 수집 파일 정리"
+  },
+  {
+    "ref": "refs/heads/fix/seeds-to-hf",
+    "sha": "24a8a45b0e924d359a2a3c371f71c983ccab320e",
+    "files": 216,
+    "bytes": 3604422,
+    "last_commit": "2026-10-20T03:29:37+00:00 chore(data): seed 데이터를 HF로 옮기고 768c400 고정"
+  },
+  {
+    "ref": "refs/heads/lodging-collector-consolidation",
+    "sha": "efe9b0c40e0a5a54a48693f1a113b6467aac0c8d",
+    "files": 11688,
+    "bytes": 610411730,
+    "last_commit": "2026-09-29T20:19:59+09:00 feat: 전국 홈페이지 발굴 통합, lodging.db 슬림화, 야놀자 평점 반영 (C3/C8)"
+  },
+  {
+    "ref": "refs/heads/main",
+    "sha": "f88a6a462cc27cec5d18c160ff932a8a145681e6",
+    "files": 673,
+    "bytes": 4302376,
+    "last_commit": "2026-11-01T22:26:19+09:00 docs: README에 저장소 구조 그림 추가 (#28)"
+  },
+  {
+    "ref": "refs/heads/proposal/task-labels",
+    "sha": "66556653d706d8187d157a2e96cdc206f4557d21",
+    "files": 228,
+    "bytes": 3682036,
+    "last_commit": "2026-10-25T18:11:18+09:00 proposal(tasks): oracle_calls를 reference_calls로 바꾸고 HF PR fc8d459 고정 (merge 금지)"
+  },
+  {
+    "ref": "refs/heads/refactor/tasks-validation-only",
+    "sha": "6264ae6a2576929f006102414503b1e02e146b12",
+    "files": 223,
+    "bytes": 3666732,
+    "last_commit": "2026-10-20T07:31:12+00:00 refactor(tasks): 채점 코드를 빼고 task 문서 검증 도구로 축소"
+  },
+  {
+    "ref": "refs/heads/travel-benchmark-research",
+    "sha": "a8202ce381a3d5be0343211560a45849a9d46af2",
+    "files": 4024,
+    "bytes": 401975004,
+    "last_commit": "2026-09-30T18:15:44+09:00 docs(research): 여행 benchmark query 조사 자료와 요약 PDF"
+  },
+  {
+    "ref": "refs/remotes/origin/booking-engine-snapshots-oct",
+    "sha": "997d27e95a14139eecaf10b79cdde5f4f47aa2d4",
+    "files": 12706,
+    "bytes": 644696003,
+    "last_commit": "2026-10-04T23:55:14+09:00 data: 예약 엔진 10-01~04 스냅샷과 온다 PMS 캡처, 야놀자 places3 표본 추가"
+  },
+  {
+    "ref": "refs/remotes/origin/booking-screen-tools",
+    "sha": "440ca4e420a04afb9aa944cb41da26f0b0d4f704",
+    "files": 3939,
+    "bytes": 351763009,
+    "last_commit": "2026-09-30T18:15:49+09:00 chore(tools): 코레일, 야놀자, 네이버 예약 화면 탐색용 puppeteer 스크립트"
+  },
+  {
+    "ref": "refs/remotes/origin/chore/tasks-hide-labels",
+    "sha": "eb7ba45b5b753594d7ac855807fad89495447345",
+    "files": 222,
+    "bytes": 3650555,
+    "last_commit": "2026-10-20T10:10:05+00:00 chore(tasks): 정답 label을 main과 HF main에서 빼고 task 입력만 남김"
+  },
+  {
+    "ref": "refs/remotes/origin/docs/new-domain-guide",
+    "sha": "1d8229cd2db184843f728c5b25c9c5013273d7ec",
+    "files": 670,
+    "bytes": 4231308,
+    "last_commit": "2026-10-25T22:30:45+09:00 docs: 새 domain과 tool 추가 가이드"
+  },
+  {
+    "ref": "refs/remotes/origin/docs/readme-agents",
+    "sha": "ff03dea4d6fae3ef9dffa7de9ff728d58fe64cf5",
+    "files": 669,
+    "bytes": 4224102,
+    "last_commit": "2026-10-25T22:17:49+09:00 refactor(schemas): OpenAPI 3.1 로 바꿔 변환기를 없애고 OpenAI strict 출력 삭제"
+  },
+  {
+    "ref": "refs/remotes/origin/feat/bus-attraction-data",
+    "sha": "338367a89f6cfe95f1ae3fe4e07d01e36f11cf35",
+    "files": 135,
+    "bytes": 2648588,
+    "last_commit": "2026-10-19T23:42:40+09:00 feat(data): 서울 버스와 관광지 데이터 등록과 HF 6735322 고정"
+  },
+  {
+    "ref": "refs/remotes/origin/feat/bus-observation-query-api",
+    "sha": "44230556e8d7aab9ccc22eb8f665873e9778b358",
+    "files": 724,
+    "bytes": 4408556,
+    "last_commit": "2026-11-01T20:55:22+09:00 feat(bus): add read-only express and intercity observation APIs"
+  },
+  {
+    "ref": "refs/remotes/origin/feat/data-window-sept-dec",
+    "sha": "b85dcf781f2f7bee8f83911335d93373fd81e78a",
+    "files": 673,
+    "bytes": 4319492,
+    "last_commit": "2026-11-01T22:52:55+09:00 feat(data): 기차와 숙소 DB 기간을 2026-09-01 ~ 12-26으로 늘리고 HF PR #9 고정"
+  },
+  {
+    "ref": "refs/remotes/origin/feat/graphhopper-route-draft",
+    "sha": "a8080d4566310c39f480b4726e9cbfb43bd5c7b6",
+    "files": 682,
+    "bytes": 4276361,
+    "last_commit": "2026-11-01T18:30:21+09:00 feat(map): add GraphHopper setup and pin OSM data on Hugging Face"
+  },
+  {
+    "ref": "refs/remotes/origin/feat/lodging-nights-until",
+    "sha": "2e1b201a3722f783b960773583a51bcf887f1650",
+    "files": 670,
+    "bytes": 4232363,
+    "last_commit": "2026-11-01T19:15:31+09:00 feat(lodging): 요금 조회 끝 날짜를 KOTAU_NIGHTS_UNTIL로 지정하고 HF 9622f70 고정"
+  },
+  {
+    "ref": "refs/remotes/origin/feat/pce-collect-form",
+    "sha": "ed78d3f61567702836c047914ba7c8989f168c1e",
+    "files": 672,
+    "bytes": 4317046,
+    "last_commit": "2026-10-30T15:28:52-07:00 feat(personal): 페르소나와 부탁 수집 HTML 폼과 JSON 형식 문서"
+  },
+  {
+    "ref": "refs/remotes/origin/feat/platform-redesign",
+    "sha": "57a9e3ae86237f06d75fc684c5f5c49d740b4636",
+    "files": 220,
+    "bytes": 3632557,
+    "last_commit": "2026-10-20T02:34:21+00:00 chore(data): map component 등록과 HF 470759a 고정"
+  },
+  {
+    "ref": "refs/remotes/origin/feat/public-business-data",
+    "sha": "4e8ff3d35fdb5917ae94245b179165c9327cec6b",
+    "files": 677,
+    "bytes": 4263866,
+    "last_commit": "2026-11-01T21:31:33+09:00 fix(data): verify published business snapshots without mutation"
+  },
+  {
+    "ref": "refs/remotes/origin/feat/rail-lodging-booking-env",
+    "sha": "a3c697f907e845e5f2edb87faba353f979088c73",
+    "files": 135,
+    "bytes": 2646655,
+    "last_commit": "2026-10-19T23:35:06+09:00 docs: 9월 기준 기간과 synthetic_ 열 규칙 반영"
+  },
+  {
+    "ref": "refs/remotes/origin/feat/subway-data",
+    "sha": "9c10003c89e1bf9fe8ef6619c07fe92a6b777fbc",
+    "files": 695,
+    "bytes": 4404791,
+    "last_commit": "2026-10-25T22:28:59+09:00 refactor(subway): 공용 구조에 맞추고 중복 수집 파일 정리"
+  },
+  {
+    "ref": "refs/remotes/origin/fix/seeds-to-hf",
+    "sha": "24a8a45b0e924d359a2a3c371f71c983ccab320e",
+    "files": 216,
+    "bytes": 3604422,
+    "last_commit": "2026-10-20T03:29:37+00:00 chore(data): seed 데이터를 HF로 옮기고 768c400 고정"
+  },
+  {
+    "ref": "refs/remotes/origin/lodging-collector-consolidation",
+    "sha": "efe9b0c40e0a5a54a48693f1a113b6467aac0c8d",
+    "files": 11688,
+    "bytes": 610411730,
+    "last_commit": "2026-09-29T20:19:59+09:00 feat: 전국 홈페이지 발굴 통합, lodging.db 슬림화, 야놀자 평점 반영 (C3/C8)"
+  },
+  {
+    "ref": "refs/remotes/origin/main",
+    "sha": "f88a6a462cc27cec5d18c160ff932a8a145681e6",
+    "files": 673,
+    "bytes": 4302376,
+    "last_commit": "2026-11-01T22:26:19+09:00 docs: README에 저장소 구조 그림 추가 (#28)"
+  },
+  {
+    "ref": "refs/remotes/origin/proposal/task-labels",
+    "sha": "66556653d706d8187d157a2e96cdc206f4557d21",
+    "files": 228,
+    "bytes": 3682036,
+    "last_commit": "2026-10-25T18:11:18+09:00 proposal(tasks): oracle_calls를 reference_calls로 바꾸고 HF PR fc8d459 고정 (merge 금지)"
+  },
+  {
+    "ref": "refs/remotes/origin/refactor/tasks-validation-only",
+    "sha": "6264ae6a2576929f006102414503b1e02e146b12",
+    "files": 223,
+    "bytes": 3666732,
+    "last_commit": "2026-10-20T07:31:12+00:00 refactor(tasks): 채점 코드를 빼고 task 문서 검증 도구로 축소"
+  },
+  {
+    "ref": "refs/remotes/origin/travel-benchmark-research",
+    "sha": "a8202ce381a3d5be0343211560a45849a9d46af2",
+    "files": 4024,
+    "bytes": 401975004,
+    "last_commit": "2026-09-30T18:15:44+09:00 docs(research): 여행 benchmark query 조사 자료와 요약 PDF"
+  }
+]

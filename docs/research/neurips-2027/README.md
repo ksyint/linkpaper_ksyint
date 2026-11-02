@@ -1,12 +1,14 @@
 # LinkPaper → NeurIPS 2027 연구 구상
 
+> 2026-11-02: 이 디렉터리는 이전 LINK-DELTA 제안의 기록이다. 최신 한국어 에이전트 벤치마크 설계·저자·실험 계획은 [새 연구 문서](../korean-agent-20261102/README.md)를 따른다. GPU 배치와 단일·다중 실행은 [최신 매뉴얼](../korean-agent-20261102/GPU_EXECUTION_KO.md)을 따른다.
+
 작성 기준: **2026-10-22**, 원본 검토 커밋 [`beec4d7`](https://github.com/ksyint/linkpaper_ksyint/tree/beec4d7c6887f072d1f40b62c32e0db16895fe0d).
 
 추천은 **LINK-DELTA: Benchmarking Condition-Aware Evidence Revision in Scientific Literature QA**라는 가제의 벤치마크다. 논문 여러 편을 찾는 능력에서 한 걸음 더 나아가, **주장이 성립하는 실험 조건과 필요한 근거를 구별하고, 근거가 바뀌면 결론을 적절히 수정하는 능력**을 측정한다.
 
 현재 단계는 연구 제안이다. 실제 벤치마크 데이터, 전문가 라벨, 모델 성능 결과는 아직 없다. 아래 규모·예산·성공 기준은 실행을 위한 제안값이며, 독창성 및 채택 가능성이 검증됐다는 뜻이 아니다.
 
-후속 구현으로 **텍스트 전용 LLM 실험 코드**를 추가했다. GPT·Claude·Gemini API, 로컬 CausalLM 자동 로드, GPU 6 제한, 네 환경 생성·격리 실행·재개·묶음 진단·의미 검수 재채점을 지원한다. 실행 방법과 현재 구현 범위는 [evaluation/RESEARCH.md](../../../evaluation/RESEARCH.md)를 참조한다. 포함된 8개 가상 사례는 배관 검증용이며 과학적 성능 결과가 아니다.
+후속 구현으로 **텍스트 전용 LLM 실험 코드**를 추가했다. GPT·Claude·Gemini API, 로컬 CausalLM 자동 로드, 선택한 단일 GPU의 UUID 격리, 네 환경 생성·격리 실행·재개·묶음 진단·의미 검수 재채점을 지원한다. 실행 방법과 현재 구현 범위는 [evaluation/RESEARCH.md](../../../evaluation/RESEARCH.md)를 참조한다. 포함된 8개 가상 사례는 배관 검증용이며 과학적 성능 결과가 아니다.
 
 | 문서 | 내용 |
 |---|---|

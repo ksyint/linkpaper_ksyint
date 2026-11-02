@@ -1,0 +1,1 @@
+{"triplet_id": "bridge-triplet-01", "group_id": "bridge-group-01", "family_id": "bridge-family-01", "B": "bridge-case-B", "R": "bridge-case-R", "N": "bridge-case-N", "eligible_evidence_ids": {"B": ["bridge-source-01", "bridge-source-02"], "R": ["bridge-source-01", "bridge-source-02", "bridge-source-03"], "N": ["bridge-source-01", "bridge-source-02", "bridge-source-04"]}}

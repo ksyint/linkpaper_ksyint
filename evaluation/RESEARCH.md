@@ -24,7 +24,7 @@ scripts/setup_research_env.sh --local
 # API 키와 GPU 없이 전체 경로 확인
 scripts/run_research_demo.sh abstain
 
-# 모델 자동 로드 → GPU 6에서 8개 가상 사례 추론 → 저장·집계
+# 모델 자동 로드 → 설정한 단일 GPU에서 8개 가상 사례 추론 → 저장·집계
 scripts/run_research_demo.sh local-smoke
 ```
 
@@ -34,7 +34,7 @@ scripts/run_research_demo.sh local-smoke
 
 ### GPU 제한
 
-로컬 로더는 `nvidia-smi -i 6`으로 **물리 GPU 6의 UUID**를 찾고, torch/CUDA 초기화 전에 `CUDA_VISIBLE_DEVICES`를 그 UUID 하나로 고정한다. 그 후의 `cuda:0`은 물리 6을 뜻한다. 모델 전체는 `device_map={"": 0}`으로 배치하고, 다른 GPU로 자동 분산하지 않는다. `gpu_index`는 6만 허용한다.
+로컬 로더는 설정의 `gpu_index`로 선택한 물리 GPU를 `nvidia-smi`에서 UUID로 확인하고, torch/CUDA 초기화 전에 `CUDA_VISIBLE_DEVICES`를 그 UUID 하나로 고정한다. 모델은 `device_map={"": 0}`으로 해당 logical cuda:0에 배치한다. 공개 설정은 특정 번호에 고정되지 않으며 이미 할당된 장치를 넘어 자동 확장하지 않는다. 한 모델을 여러 GPU에 나누는 기능은 이 local backend에 구현되어 있지 않다. [단일·다중 GPU 매뉴얼](../docs/research/korean-agent-20261102/GPU_EXECUTION_KO.md)을 따른다.
 
 CUDA가 다른 범위로 이미 초기화된 프로세스에서는 실행을 거부한다. 새 CLI 프로세스를 사용한다. 이 로더는 다른 사용자의 프로세스나 GPU를 재설정·종료하지 않는다. 사용 가능 메모리가 부족하면 실패를 기록한다.
 
@@ -121,7 +121,7 @@ scripts/run_research_experiment.sh run \
 
 `local.model`에는 HF ID 또는 로컬 모델 디렉터리를 쓸 수 있다. 모델당 한 번 로드하고 모든 과제·반복을 순차 실행한 뒤 해제한다. 여러 로컬 모델은 config에 alias를 추가해 `--models model-a model-b`로 순서대로 실행한다. gated 모델은 본인 HF 접근권한이 필요하다. 모델이 지원하는 quantization 형식의 추가 의존성은 별도 설치가 필요할 수 있다.
 
-이미 실행 중인 텍스트 serving endpoint는 `served` alias의 `LINKPAPER_SERVED_URL`, `LINKPAPER_SERVED_MODEL`로 연결한다. 이 alias는 서버를 직접 시작하지 않으며, GPU 6 제한은 **이 저장소가 직접 로드하는 로컬 backend**에 적용된다. 외부 서버의 GPU 설정은 별도이므로 본 연구에서 쓰는 서버도 GPU 6으로 구성해야 한다.
+이미 실행 중인 텍스트 serving endpoint는 `served` alias의 `LINKPAPER_SERVED_URL`, `LINKPAPER_SERVED_MODEL`로 연결한다. 이 alias는 서버를 시작하거나 원격 GPU 배치를 강제하지 않는다. 외부 서버 운영자가 할당 UUID·tensor/data parallel 구성·모델 revision을 제공하고 확인한 설정으로 사용한다.
 
 ### 중단 후 재개
 
@@ -197,3 +197,6 @@ API wire contract는 모의 HTTP transport로 검사한다. 실 API 평가에는
 2026-10-22 검증 기록: 연구 코드 테스트 44개를 포함해 평가 패키지 **157개 통과, 2개 skip**. skip은 Ragas 미설치 상황 전용 검사와 opt-in Docker/Neo4j 통합 검사다. 기존 Ragas wrapper의 deprecation warning 2개가 있다. Qwen3-0.6B의 위 고정 revision을 **물리 GPU 6 하나에서 자동 로드하여 8개 추론 응답**을 저장했다. 그중 6개는 출력 JSON 스키마 오류로 집계됐으며, 이를 정상 정답이나 논문 성능으로 해석하지 않는다. 실 API 호출은 하지 않았고 네 provider의 요청·응답·재시도·비밀값 비기록 계약을 모의 transport로 검사했다.
 
 공식 구현 참고: [OpenAI text generation](https://developers.openai.com/api/docs/guides/text), [Claude Messages](https://platform.claude.com/docs/en/api/messages/create), [Gemini generateContent](https://ai.google.dev/api/generate-content), [HF chat templates](https://huggingface.co/docs/transformers/chat_templating), [Qwen3-0.6B 모델 카드](https://huggingface.co/Qwen/Qwen3-0.6B).
+
+
+2026-11-02 변경: 위 GPU6 실행 기록은 과거 브랜치의 실제 기록으로 남긴다. 현재 공개 로더·설정은 사용자가 할당받은 단일 GPU를 선택하며, 여러 worker와 외부 TP 서버는 최신 매뉴얼로 설명한다. 이 세션의 별도 실제 LLM smoke는 사용자에게 허용받은 물리3만 사용한다.

@@ -1,0 +1,6 @@
+author,authorship,candidate_target,pilot_base_target,reviewer_1,reviewer_2,adjudicator,independent_auditor
+김수용,first,32,8,정상헌,남두현,오창원,이상민
+정상헌,unordered,32,8,남두현,오창원,이상민,김수용
+남두현,unordered,32,8,오창원,이상민,김수용,정상헌
+오창원,unordered,32,8,이상민,김수용,정상헌,남두현
+이상민,unordered,32,8,김수용,정상헌,남두현,오창원

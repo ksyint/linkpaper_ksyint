@@ -1,4 +1,4 @@
-"""Automatically load one text-only HF model, restricted to physical GPU 6."""
+"""Load one text-only HF model on one explicitly selected allocated GPU."""
 
 from __future__ import annotations
 
@@ -17,15 +17,15 @@ from .prompts import SYSTEM, user_prompt
 _PINNED_UUID: str | None = None
 
 
-def pin_gpu(index: int = 6) -> str:
+def pin_gpu(index: int = 0) -> str:
     global _PINNED_UUID
-    if index != 6:
-        raise ValueError("Only physical GPU 6 is authorized")
+    if type(index) is not int or index < 0:
+        raise ValueError("GPU index must be a nonnegative integer")
     uuid = subprocess.check_output(
         [
             "nvidia-smi",
             "-i",
-            "6",
+            str(index),
             "--query-gpu=uuid",
             "--format=csv,noheader",
         ],
@@ -33,12 +33,25 @@ def pin_gpu(index: int = 6) -> str:
         timeout=10,
     ).strip()
     if not uuid.startswith("GPU-") or "\n" in uuid:
-        raise ValueError("Could not uniquely resolve physical GPU 6")
+        raise ValueError(f"Could not uniquely resolve physical GPU {index}")
     torch = sys.modules.get("torch")
     if torch is not None and torch.cuda.is_initialized() and _PINNED_UUID != uuid:
         raise RuntimeError(
             "CUDA was initialized before GPU isolation; start a fresh process"
         )
+    inherited = os.environ.get("CUDA_VISIBLE_DEVICES")
+    if inherited is not None:
+        permitted = False
+        for selector in inherited.split(','):
+            selector = selector.strip()
+            if selector.isdecimal():
+                permitted = permitted or int(selector) == index
+            elif selector.startswith('GPU-'):
+                permitted = permitted or uuid.startswith(selector)
+            else:
+                break  # Empty/invalid/-1/MIG masks do not authorize a full GPU.
+        if not permitted:
+            raise RuntimeError("Requested GPU is outside inherited CUDA_VISIBLE_DEVICES allocation")
     os.environ["CUDA_VISIBLE_DEVICES"] = uuid
     os.environ["TOKENIZERS_PARALLELISM"] = "false"
     _PINNED_UUID = uuid
@@ -79,7 +92,7 @@ class TransformersBackend:
                 "Install evaluation[local] in a CUDA-enabled environment"
             ) from exc
         if not torch.cuda.is_available() or torch.cuda.device_count() != 1:
-            raise RuntimeError("Physical GPU 6 must be the only visible CUDA device")
+            raise RuntimeError(f"Selected physical GPU {spec.gpu_index} must be the only visible CUDA device")
         torch.manual_seed(spec.seed)
         self.torch, self.spec = torch, spec
         resolved_revision = None
@@ -112,11 +125,18 @@ class TransformersBackend:
             "model": spec.model,
             "resolved_revision": resolved_revision,
             "config_sha256": digest(config.to_json_string()),
-            "physical_gpu_index": 6,
+            "physical_gpu_index": spec.gpu_index,
             "gpu_uuid": uuid,
             "logical_device": "cuda:0",
             "cuda_visible_devices": os.environ["CUDA_VISIBLE_DEVICES"],
             "dtype": spec.dtype,
+            "tensor_parallel_size": 1,
+            "torch_version": getattr(torch, "__version__", None),
+            "transformers_version": getattr(sys.modules.get("transformers"), "__version__", None),
+            "gpu_memory_total_bytes": (
+                torch.cuda.get_device_properties(0).total_memory
+                if hasattr(torch.cuda, "get_device_properties") else None
+            ),
             "load_seconds": time.perf_counter() - started,
             "chat_template_sha256": digest(
                 json.dumps(self.tokenizer.chat_template, sort_keys=True)
