@@ -32,6 +32,21 @@ GLRS 후보식은 `C × min(G_B, G_R, G_N) × I × S × A`다. B/R/N은 기준·
 
 오프라인은 저장된 문헌에서 시작하고, 온라인은 같은 에피소드 안에서 외부 논문을 찾아 확보한다. **현재 자동 온라인 제공자는 arXiv API/PDF**이며 일반 웹 전체를 검색하는 구현은 아니다. 질문·필요 문헌 수·정답 근거의 공개 범위와 실제 실행 절차는 [과제 정의](../docs/research/korean-agent-20261102/TASK_SUITE_KO.md)와 [접근 모드](../docs/research/korean-agent-20261102/ACQUISITION_TRACKS_KO.md)에 적었다.
 
+### 위 연구 질문을 실제로 풀면
+
+출제자는 원문을 확인해 질문과 모범 답, 답을 뒷받침하는 근거 위치·조건·허용 가능한 **대안 근거 조합**을 따로 적는다. 에이전트에게는 질문·언어·도구 설명·예산을 주고 필요한 논문 수나 정답 근거 목록은 알려주지 않는다. 문항에 따라 한 논문의 여러 부분을 읽거나 여러 논문을 연결한다. 방법·조건·수치·결과는 가능한 근거의 예시이며, 매 문항에서 네 종류를 전부 요구한다는 뜻은 아니다.
+
+예를 들어 [OFF-001](examples/offline/OFF-001/)은 69.3%와 81.15%의 우열을 묻는다. 두 숫자만 보면 81.15%가 커 보이지만, 원문에서는 평가 데이터셋·인코더·모델 선택 절차가 다르다. 따라서 각 숫자의 **측정 조건을 논문 사이에서 연결**해야 직접 승패를 말할 수 없다는 답에 도달한다. 예시의 근거 조합은 수작업 검수 전 교육용 초안이며, 가능한 모든 해결 경로의 절대 최소 논문 수를 증명하지 않는다.
+
+| 코드 위치 | 현재 구현된 역할 |
+|---|---|
+| [공개 질문·비공개 정답 계약](../evaluation/src/linkpaper_eval/agent_bench/contracts.py) | `PublicTask`는 질문·언어·ID만 담고, `Case.gold.sufficient_sets`와 과제 유형은 평가자 쪽에 둔다. |
+| [오프라인 도구](../evaluation/src/linkpaper_eval/agent_bench/environment.py) | 고정된 JSONL 근거 기록을 `search`·`open`·`citations`로 탐색한다. 검색 대상에는 관련 자료와 방해 자료가 함께 있을 수 있다. |
+| [온라인 수집](../evaluation/src/linkpaper_eval/paper_acquisition.py)·[온라인 실행](../evaluation/src/linkpaper_eval/live_paper_bench.py) | 현재 arXiv에서 `search_papers`→`fetch_paper` 후 `search_local`·`open`을 수행한다. 정책이 예산 내에서 검색·확보·열람을 반복할 수 있다. |
+| [종료 선택](../evaluation/src/linkpaper_eval/agent_bench/runner.py)·[채점](../evaluation/src/linkpaper_eval/agent_bench/scoring.py) | 정책이 다음 도구 호출 대신 `Answer`를 내면 종료한다. 실행 중 정답 근거 수를 알려주는 신호는 없고, 제출 후 실제 열람·인용과 비공개 충분근거 조합을 대조한다. |
+
+**현재 구현 범위:** 오프라인 통합 예제는 가상 JSONL이고 이 폴더의 실제 논문 CSV는 아직 독립 검수 전이며 평가 입력으로 자동 변환되지 않는다. 온라인 예시 3건은 실제 arXiv 검색·PDF 확보를 수행한 scripted 절차 확인으로, 여러 논문을 자율 선택해 정답을 낸 LLM 실험은 아니다. “충분한 시점에 멈추기”는 평가하려는 능력이다. 조기 종료는 근거 부족으로 드러날 수 있지만, “정확히 최적 시점에 멈췄는가”를 검증한 단일 점수는 아직 없다. 기존 서비스의 [논문 검색 API](../backend/src/linkpaper/api/routes/papers.py)도 현재 501 상태다.
+
 김수용·정상헌·남두현·오창원·이상민이 기존 서비스 직무와 별개로 아래 일을 분담한다.
 
 ## 1. 먼저 볼 모범 수집 예시
