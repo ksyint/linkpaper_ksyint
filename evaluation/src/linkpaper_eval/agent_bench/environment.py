@@ -26,6 +26,9 @@ def validate_study(corpus: list[Evidence], cases: list[Case], publication=False)
         visible = set(case.visible_evidence_ids)
         if len(visible) != len(case.visible_evidence_ids) or not visible <= lookup.keys():
             raise ValueError('Unknown/duplicate visible evidence')
+        available = case.visible_evidence_ids if case.available_evidence_ids is None else case.available_evidence_ids
+        if len(available) != len(set(available)) or not set(available) <= visible:
+            raise ValueError('Available evidence must be a unique subset of the reference candidate universe')
         if any(not set(s) <= visible for s in case.gold.sufficient_sets):
             raise ValueError('Gold requires inaccessible evidence')
         for paper in {lookup[e].paper_id for e in visible}:
@@ -51,8 +54,11 @@ def validate_study(corpus: list[Evidence], cases: list[Case], publication=False)
         pair_languages[case.pair_id].add(case.question_language)
         if case.pair_id in pair_records:
             previous = pair_records[case.pair_id]
-            if (previous.split, previous.family_id, set(previous.visible_evidence_ids), previous.gold) != (
-                case.split, case.family_id, visible, case.gold
+            previous_available = (previous.visible_evidence_ids if previous.available_evidence_ids is None
+                                  else previous.available_evidence_ids)
+            if (previous.split, previous.family_id, set(previous.visible_evidence_ids), previous.gold,
+                previous.task_type, set(previous_available)) != (
+                case.split, case.family_id, visible, case.gold, case.task_type, set(available)
             ):
                 raise ValueError('Language pair must share split/family/world/gold and differ in language')
         else:
@@ -67,8 +73,24 @@ def validate_study(corpus: list[Evidence], cases: list[Case], publication=False)
                            or not (e.source_locator and e.source_locator.strip())
                            for e in corpus):
         raise ValueError('Publication requires real, independently reviewed evidence')
+    support_profiles = {case.case_id: {
+        'known_alternative_paper_counts': sorted({len({lookup[e].paper_id for e in ids})
+                                                 for ids in case.gold.sufficient_sets}),
+        'known_alternative_evidence_counts': sorted({len(ids) for ids in case.gold.sufficient_sets}),
+        'global_minimum_certified': False,
+        'disclosed_to_agent': False,
+        'available_evidence_count': len(case.visible_evidence_ids if case.available_evidence_ids is None
+                                        else case.available_evidence_ids),
+        'known_sufficient_set_available': (any(set(ids) <= set(case.visible_evidence_ids if case.available_evidence_ids is None
+                                                             else case.available_evidence_ids)
+                                             for ids in case.gold.sufficient_sets)
+                                           if case.gold.sufficient_sets else None),
+        'interpretation': 'Counts describe known valid witness sets, not an exhaustive/global minimum.'
+    } for case in cases}
     return {'cases': len(cases), 'papers': len(paper_splits), 'evidence': len(corpus),
             'paired_groups': len(pair_records), 'publication_schema_validated': bool(publication),
+            'task_types': dict(Counter(case.task_type for case in cases)),
+            'private_support_profiles': support_profiles,
             'validation_scope': 'Metadata/format assertions only; not independent certification of source rights or review truth.'}
 
 
@@ -82,9 +104,13 @@ class Environment:
         self.task = PublicTask(task_id=digest(f'{seed}|{case.case_id}')[:24],
                                question=case.question, question_language=case.question_language)
         lookup = {e.evidence_id: e for e in corpus}
+        available = set(case.visible_evidence_ids if case.available_evidence_ids is None
+                        else case.available_evidence_ids)
+        # The complete alias map is evaluator-only and permits comparing the
+        # fixed gold against incomplete acquisition without rewriting labels.
         self._aliases = {eid: 'd-' + digest(f'{seed}|{self.task.task_id}|{eid}')[:16]
                          for eid in case.visible_evidence_ids}
-        self._documents = {self._aliases[eid]: lookup[eid] for eid in case.visible_evidence_ids}
+        self._documents = {self._aliases[eid]: lookup[eid] for eid in case.visible_evidence_ids if eid in available}
         self.opened: set[str] = set()
         self.trace: list[ToolEvent] = []
         self.calls = 0
@@ -136,7 +162,8 @@ class Environment:
                     if identifier not in self.opened:
                         raise ToolError('Open the source document before citation traversal')
                     result = {'results': [self._metadata(self._aliases[e], self._documents[self._aliases[e]])
-                                          for e in evidence.cites_ids if e in self._aliases]}
+                                          for e in evidence.cites_ids
+                                          if e in self._aliases and self._aliases[e] in self._documents]}
             else:
                 raise ToolError('Unknown tool')
             size = len(json.dumps(result, ensure_ascii=False, sort_keys=True))

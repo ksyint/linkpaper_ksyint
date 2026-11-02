@@ -3,12 +3,16 @@ from __future__ import annotations
 
 import hashlib
 import json
+from decimal import Decimal, InvalidOperation
 from typing import Literal
 
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 Verdict = Literal['supported', 'refuted', 'mixed', 'insufficient']
 Status = Literal['fixture', 'draft', 'reviewed']
+AnswerType = Literal['decision', 'short', 'numeric', 'explanation']
+TaskType = Literal['within_paper_composition', 'cross_paper_bridge', 'condition_comparison',
+                   'quantitative_reasoning', 'conflict_and_sufficiency', 'result_provenance']
 
 
 def digest(value: str) -> str:
@@ -31,7 +35,8 @@ class Evidence(StrictModel):
     license: str = Field(min_length=1)
     license_url: str = Field(pattern=r'^https?://\S+$')
     content_sha256: str = Field(pattern=r'^[0-9a-f]{64}$')
-    # One record is an atomic query-relevant result span, not a whole paper.
+    # One record is a query-relevant evidence passage, not a whole paper.
+    # In the provenance subtrack it contains at most one reported result unit.
     source_locator: str | None = None
     cites_ids: list[str] = Field(default_factory=list)
     # Curator-only identity of the actual experiment/study, NOT independence.
@@ -63,12 +68,33 @@ class Evidence(StrictModel):
 
 
 class Gold(StrictModel):
-    verdict: Verdict
+    # All fields here are curator/evaluator-only, including answer format.
+    answer_type: AnswerType = 'decision'
+    verdict: Verdict | None = None
+    reference_answers: list[str] = Field(default_factory=list)
+    numeric_tolerance: float = Field(default=0., ge=0, allow_inf_nan=False)
     sufficient_sets: list[list[str]] = Field(default_factory=list)
     expected_conditions: dict[str, str] = Field(default_factory=dict)
 
     @model_validator(mode='after')
     def validate_sets(self):
+        if self.answer_type == 'decision' and self.verdict is None:
+            raise ValueError('Decision gold requires a verdict')
+        if self.answer_type != 'decision' and self.verdict is not None:
+            raise ValueError('Open-answer gold must not force a decision verdict')
+        if any(not answer.strip() for answer in self.reference_answers):
+            raise ValueError('Blank reference answer')
+        if self.answer_type != 'decision' and not self.reference_answers:
+            raise ValueError('Open-answer gold requires a reference answer/rubric')
+        if self.answer_type != 'numeric' and self.numeric_tolerance:
+            raise ValueError('Numeric tolerance applies only to numeric references')
+        if self.answer_type == 'numeric':
+            try:
+                numbers = [Decimal(answer) for answer in self.reference_answers]
+            except InvalidOperation as exc:
+                raise ValueError('Numeric reference must be a finite number; put units in conditions') from exc
+            if any(not number.is_finite() for number in numbers):
+                raise ValueError('Numeric reference must be finite')
         if self.verdict != 'insufficient' and not self.sufficient_sets:
             raise ValueError('Decisive/mixed labels require sufficient evidence')
         if self.verdict == 'insufficient' and self.sufficient_sets:
@@ -85,8 +111,14 @@ class Case(StrictModel):
     split: Literal['dev', 'test', 'holdout']
     question: str = Field(min_length=5)
     question_language: Literal['ko', 'en']
+    # Reference candidate universe and gold remain fixed even if acquisition
+    # fails. None means all available; [] means acquisition yielded nothing.
     visible_evidence_ids: list[str] = Field(min_length=1)
+    available_evidence_ids: list[str] | None = None
     gold: Gold
+    # Hidden stratum, not an instruction or required number of source papers.
+    # Legacy fixtures are provenance tasks and retain their old diagnostics.
+    task_type: TaskType = 'result_provenance'
     # Descriptive curator tag; there is deliberately no tag->verdict rule.
     control_tag: str = Field(min_length=1)
     author: str = Field(min_length=1)
@@ -118,8 +150,10 @@ class Claim(StrictModel):
 
 
 class Answer(StrictModel):
-    verdict: Verdict
-    answer: str = Field(min_length=2)
+    # General scholarly answers need not be recast as supported/refuted.
+    # The evaluator checks decision verdicts only on decision questions.
+    verdict: Verdict | None = None
+    answer: str = Field(min_length=1)
     claims: list[Claim] = Field(min_length=1)
     conditions: dict[str, str] = Field(default_factory=dict)
     # Agent-inferred arbitrary group labels; unknown is null. No gold unit IDs.
@@ -127,7 +161,7 @@ class Answer(StrictModel):
 
     @model_validator(mode='after')
     def nonempty_answer(self):
-        if sum(character.isalnum() for character in self.answer) < 2:
+        if not any(character.isalnum() for character in self.answer):
             raise ValueError('Empty/substanceless answer')
         return self
 

@@ -6,7 +6,7 @@ import sys
 import pytest
 
 from linkpaper_eval.agent_bench.cli import read_rows
-from linkpaper_eval.agent_bench.contracts import Action, Answer, Budget, Case, Evidence, PublicTask
+from linkpaper_eval.agent_bench.contracts import Action, Answer, Budget, Case, Evidence, PublicTask, ToolEvent
 from linkpaper_eval.agent_bench.environment import Environment
 from linkpaper_eval.agent_bench.runner import execute, run_policy
 from linkpaper_eval.hf_agent_policy import HFPolicy, ModelPolicyError, WorkerClient, parse_decision
@@ -90,6 +90,22 @@ def test_real_public_tool_observations_pass_through_policy_without_gold():
     assert set(transport.requests[0]['task']) == {'task_id', 'question', 'question_language'}
     public_json = json.dumps(transport.requests)
     assert 'study_unit_id' not in public_json and 'sufficient_sets' not in public_json
+
+
+def test_harness_catalog_and_live_actions_cross_the_same_public_only_boundary():
+    # This tests transport/strict parsing, not whether a real LLM follows the
+    # catalog. The live environment owns tool authorization and replay checks.
+    catalog = ToolEvent(action=Action(tool='tool_catalog'), observation={
+        'tools': {'search_papers': {'arguments': {'query': 'string', 'limit': 'integer'}},
+                  'fetch_paper': {'arguments': {'paper_id': 'discovered identifier'}}}})
+    transport = FakeTransport(generation({'kind': 'action', 'tool': 'search_papers',
+                                          'arguments': {'query': 'evidence query', 'limit': 3}}))
+    result = HFPolicy(transport).step(task(), [catalog])
+    assert result == Action(tool='search_papers', arguments={'query': 'evidence query', 'limit': 3})
+    assert transport.requests[0]['history'][0] == catalog.model_dump(mode='json')
+    assert set(transport.requests[0]['task']) == {'task_id', 'question', 'question_language'}
+    assert 'required_paper_count' not in json.dumps(transport.requests)
+    assert 'sufficient_sets' not in json.dumps(transport.requests)
 
 
 def test_invalid_output_remains_in_all_scheduled_episode_denominators():

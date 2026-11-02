@@ -1,120 +1,114 @@
 # 평가할 에이전트·구성요소와 실험 계획
 
-이 문서의 목록은 본 데이터에서 평가할 대상이다. 현재 구현·실행한 것은 CPU 가상 fixture의 lexical/blind/oracle과 정책 plugin 계약이며, 아래의 본 데이터 LLM·multi-agent 성능을 측정했다고 주장하지 않는다. 별도의 소형 LLM smoke는 연결·출력 실패 계측이며 실제 corpus 성능과 구분한다.
-
-원문은 **영어 다수·한국어 포함**, 주 질문은 **한국어**, 영어 질문은 같은 원문을 이용하는 대조 조건이다. 주제는 AI에 한정하지 않으며 컴퓨터·자연과학·공학·환경·비임상 생명/농업 등에서 판정 가능한 영어·한국어 문헌을 탐색한다. 영어 다수는 언어의 비중이지 특정 분야의 비중을 뜻하지 않는다. 원문 언어와 질문 언어를 하나의 `language`로 합쳐 해석하지 않는다.
+본 과제는 **필요한 논문 수를 알려주지 않고 하나 또는 여러 논문의 여러 근거를 연결해 답하는 것**이다. 결과 원천·재보고 판별은 6종 하위 과제 중 하나다. 원문은 영어 다수·한국어 포함, 주 질문은 한국어, 영어 질문은 같은 원문을 쓰는 대조 조건이다. 주제는 AI에 한정하지 않는다. 실제 본 데이터 모델 성능과 소형 LLM 연결 smoke·합성 fixture를 구분한다.
 
 ## 1. 에이전트 종류
 
-| 종류 | agent가 하는 일 | 이번 연구에서의 역할/공정 비교 |
+| 종류 | 역할 | 공정 비교 조건 |
 |---|---|---|
-| closed-book LLM | 외부 근거 없이 질문에 답 | 사전지식·형식 prior 대조. 탐색 agent와 같은 능력이라고 보지 않음 |
-| 단발 flat RAG | 같은 검색기에서 상위 k개를 한 번 얻어 답 | 순차 탐색의 이득을 비교하는 필수 baseline |
-| 반복 search/read agent | 검색어 수정·원문 열기·다음 행동을 순차 결정 | 핵심 main 대상. ReAct식 여부와 prompt 버전 고정 |
-| citation-graph agent | 검색 + 원문 + CITES를 탐색 | 순차 탐색과 같은 LLM/코퍼스/예산으로 graph 접근 효과 분리 |
-| hybrid GraphRAG agent | lexical/dense 후보와 그래프를 결합·재랭킹 | 검색기 차이와 생성기 차이를 동시에 바꾸지 않음 |
-| provenance-aware agent | 결과 단위·버전·데이터 재사용을 working memory에 기록 | 연구 후보 baseline. 실제 계보 label을 제공하는 oracle과 구분 |
-| 검증/반론 agent | 최종 전 원문 귀속·조건·새 결과 여부를 재확인 | 기존 agent에 verifier만 추가한 ablation |
-| multi-agent researcher/checker | 탐색자와 검수자가 분업 | 두 모델 각각의 예산이 아닌 **합산 token/call/비용**으로 비교 |
-| 외부 deep-research 시스템 | 기존 상용/공개 agent framework 사용 | 같은 public 도구로 연결할 수 있으면 main 비교, 고유 웹/검색 권한을 강제하면 별도 ecological track |
-| 특권적 oracle | 충분 근거/계보를 evaluator가 제공 | reasoning upper control. agent 순위·SOTA 표에 합치지 않음 |
+| closed-book LLM | 외부 근거 없이 답하는 사전지식 대조 | 근거를 읽은 agent와 같은 측정으로 포장하지 않음 |
+| 단발 flat RAG | 같은 archive에서 상위 k개를 한 번 받아 답 | 필요 source 수는 제공하지 않고 검색 예산을 맞춤 |
+| 반복 search/read agent | 질의 수정·근거 열람·답변/계속 탐색을 순차 결정 | 주 대상. 실제 종료 조건·prompt·retry 기록 |
+| citation-graph agent | CITES를 따라 관련 논문·record 탐색 | 같은 LLM·검색 archive·총 budget |
+| hybrid GraphRAG | lexical/dense와 graph 후보를 결합·재랭킹 | 검색기·생성기 차이를 동시에 바꾸지 않음 |
+| 계획·근거표 memory agent | 질문을 분해하고 조건·읽은 근거·미해결 항목을 유지 | planner/memory만 추가한 대조 포함 |
+| provenance-aware agent | 원천·버전·재사용 관계를 추론·기록 | 원천 과제의 후보 시스템. 일반 과제 전체에서 우승을 전제하지 않음 |
+| verifier/반론 agent | 주장 지원·조건·계산·충분성을 재검토 | 같은 합산 budget에서 verifier 하나씩 추가 |
+| multi-agent researcher/checker | 탐색과 검수 분업 | 모든 모델의 token·call·비용 합계로 비교 |
+| 외부 deep-research 시스템 | 기존 framework 연결 | 같은 public 도구 권한이면 main, 독자 웹 권한이면 별도 track |
+| oracle control | 충분근거 또는 검수한 source 범위 정보를 특권 제공 | main 순위와 분리하고 제공 정보·불완전성 명시 |
 
-GUI browser agent는 같은 archive를 브라우저로 보여 주더라도 action cost와 접근 인터페이스가 다르므로 이번 API-tool main 순위에 섞지 않는다. coding/논문 재현/실험 수행 agent는 연구 질문이 달라 확장 과제다.
+GUI browser·coding·실험 재현 agent는 인터페이스·비용·연구 목표가 달라 별도 확장이다. 기존 offline lexical/blind/oracle fixture는 계약 확인용이며 실제 학술 agent 순위가 아니다.
 
-## 2. 에이전트 안의 중요한 파트
+## 2. 중요한 내부 파트
 
-| 파트 | 고정/기록할 것 | 하나씩 바꿀 ablation |
+| 파트 | 고정·기록 | ablation |
 |---|---|---|
-| LLM backbone | provider·정확 model ID/revision·날짜·tokenizer/chat template·출력 길이·temperature·seed | 같은 도구와 prompt에서 모델 계열/규모 변경 |
-| 질의 해석·계획 | 질문 분해, 조건 추출, 한국어 query rewriting | 계획 없음/있음, 한국어 query/영어 query |
-| retriever | BM25/keyword/dense, embedding revision, 색인 snapshot | 같은 k/budget의 lexical/dense/hybrid |
-| reranker | model/version·후보 수·최종 k | 동일 후보에서 reranker on/off |
-| parser/chunker | PDF parser·table 전사·chunk rule·overlap·locator | 실제 추출/사람 확인 oracle text. 본 main에는 검수된 텍스트만 |
-| graph | CITES와 version/result/data 관계를 구분한 edge schema | no-graph/CITES-only/주석 없는 추론 계보/oracle 계보 |
-| 도구 router | search/open/citations allowlist·입력 schema·오류 규칙 | citation traversal만 제거; 전체 corpus 접근권은 동일 |
-| working memory | 읽은 근거·조건·버전·출처 그룹과 갱신 규칙 | raw history/요약/DOI dedup/내용 dedup/결과 계보 memory |
-| verifier | 주장-근거, 조건, 원 실험 출처 확인 | verifier 없음/같은 budget 안의 self-check/독립 checker |
-| 답변·인용 구성 | structured Answer, claim별 source ID, unknown 처리 | 최종 점수와 분리한 형식 오류/인용 trace 분석 |
-| 예산·스케줄러 | call·observation chars·LLM token·시간·실비·재시도 | 6/12/24 calls 등 사전 등록 곡선. 실제 가능한 범위 사용 |
-| 계측·채점 | tool trace hash, 원문 열람 집합, 지표/검수 버전 | scorer가 알고 있는 gold는 policy에 전달하지 않음 |
+| LLM | exact ID/revision·provider·tokenizer·출력 길이·seed·generation | 같은 도구·prompt에서 계열/규모 변경 |
+| 질문 해석·계획 | 목표 답 형식·조건·하위 질문·중단 기준 | 계획 없음/있음; 고정 단계/적응적 단계 |
+| retriever/query rewriting | lexical/dense·embedding·index snapshot·query 언어 | 같은 budget의 lexical/dense/hybrid; KO/EN query |
+| reranker | 버전·후보 수·최종 k | 동일 후보에서 on/off |
+| parser/chunker | PDF·표 전사·chunk·locator·overlap | 실제 파서/사람 확인 oracle text |
+| graph | CITES·version·방법/조건 관계와 정답 graph 구분 | no-graph/CITES-only/추론 graph/oracle |
+| 근거 memory | 주장-근거 표·조건·단위·남은 질문·원천 | raw history/요약/구조 memory/원천 memory |
+| verifier | claim support·조건 정렬·계산·상충·충분성 | 없음/self-check/독립 checker |
+| 답변 구성 | 단답·수치·설명·판정에 맞는 출력·인용 | 답 정확성·근거 품질·형식 오류를 별도 집계 |
+| 종료·예산 제어 | stop 기준·검색/읽기/token/시간·retry | 적응적 종료/고정 depth; 사전 등록 budget curve |
+| 계측·채점 | 실제 관측·열린 근거·trace/응답 hash | gold·private task tag·known source count는 policy에 전달하지 않음 |
 
-현재 public document_id는 원문 locator를 가진 근거 record ID다. paper_id와 분리하고 같은 논문의 여러 결과를 서로 다른 record로 나타낸다. 통제 실험에서 source-paper 수와 record 수, record별 source_language 구성과 parent paper별 언어 profile 구성을 각각 기록하고 B/R/N에서 맞춘다.
+문헌 paper_id와 근거 record ID는 다르다. 같은 논문의 여러 record를 결합하는 과제를 포함한다. 결과 원천 과제에서만 원자적 record 하나에 unit 최대 하나를 연결한다. CITES와 사람 gold result-unit edge를 혼용하지 않는다. 후보 검색을 할 수 있다는 사실과 충분근거를 연결했다는 사실도 구분한다.
 
-일반 CITES와 인간 gold result-unit edge는 같은 정보가 아니다. 실제 LinkPaper graph를 연결할 때도 정답 chunk를 알려 주는 edge를 만들지 않고 원래 paper CITES와 중립적인 record 선택 절차를 고정한다. gold graph를 쓴 시스템은 oracle로 표시한다. `search`와 `open`을 하지 않은 최종 답변의 인용을 도구 성공으로 채점하지 않는다.
+### 2.1 offline·live interleaved·frozen replay와 staged 대조
 
-## 3. 최소 main 비교표
+저장 archive의 search/open/citations, **한 episode 안에서 발견·fetch·로컬 검색·읽기·답변을 교차하는 live interleaved**, 그리고 hash-bound artifact로 관측을 재구성하는 **frozen replay**를 구분한다. live는 같은 `Policy.step(PublicTask, history)`에 `search_papers/fetch_paper/search_local/open` 도구를 연결하며 agent가 행동을 선택한다. 최초 catalog의 search/fetch 한도는 자원 cap이며 필요한 논문 수가 아니다. public task는 질문·언어·opaque ID만 주고 gold/task tag/source 수는 숨긴다.
 
-파일럿 통과 후 backbone 두 계열(예: 정확한 hosted snapshot 하나와 할당받은 GPU 메모리에서 감당 가능한 open-weight snapshot 하나)을 고정한다. 특정 최신 모델명을 미리 만들어 쓰지 않고 freeze 시점의 공식 model card와 실행 가능한 ID를 기록한다.
+현재 기본 live provider는 arXiv이며 전체 인터넷·GUI·한국 발행처 전반을 지원한다고 하지 않는다. frozen replay는 저장한 action/관측을 검증하며 네트워크와 parser를 호출하지 않는다. 새 LLM 출력을 생성하는 run과 구분한다. 별도 획득 CLI의 **discover→fetch/parse→snapshot→offline QA**는 staged acquire-then-answer 통제 조건이다. 기존 production Neo4j/Qdrant API 완성을 주장하지 않는다.
 
-각 backbone에서 **단발 RAG / 반복 도구 / CITES-hybrid / provenance-aware** 네 설정을 같은 generator·색인·예산으로 비교한다. 핵심 8개 설정이다. 더 강한 third backbone과 multi-agent/checker는 공통 층화 subset 또는 전체에서 추가하고, 서로 다른 문제 집합의 평균을 직접 순위로 비교하지 않는다.
+live는 질의·후보·fetch/parse·원문 hash·coverage·cold/warm cache·오류·단계별 비용을 기록한다. 현재 live 점수는 구조 진단이며 과학적 의미 정확도는 항상 null이고, 응답 hash에 묶인 사람 review는 별도 필드다. 정적 gold를 live source에 자동 이식하지 않으며 실제 source ID·locator·답·권리의 사람 검수와 mapping이 필요하다. code/plugin·가상 fixture·실제 HTTP preflight 성공은 실제 LLM의 답변 성능을 뜻하지 않는다.
 
-필수 저비용 대조군은 다음과 같다.
+## 3. 하위 과제·source 범위 분석
 
-- blind/항상 같은 verdict/항상 유보: 환경 이름·개수·형식 shortcut 확인.
-- DOI/version dedup: 서지 중복만 제거.
-- text dedup/near-duplicate: 표현 중복만 제거.
-- CITES/common-parent discount: 인용 상위 출처만 사용한 단순 계보 대조. [CONFPROP](https://doi.org/10.1007/s44163-026-02245-5)의 문제 설정을 새 발명으로 부르지 않음.
-- always-merge/always-separate group: 새 지표의 퇴화 해법 점검.
-- oracle-read: 같은 LLM에 충분 근거만 제공하고 정답 verdict/unit ID는 숨겨 검색 병목 측정.
-- demo oracle: 현재 fixture에서 gold 답까지 아는 소프트웨어 양성 대조이며 위 oracle-read LLM 결과와 다름.
+6종 private primary task는 논문 내부 복합 근거, 논문 사이 연결, 조건 비교, 정량 추론, 상충/부족 판단, 결과 원천이다. secondary tag는 중복 가능하며 전체 N에 다시 더하지 않는다. 한 논문/여러 논문은 agent에게 주는 모드가 아니라 **검수한 충분근거 조합의 paper-family 수를 바탕으로 한 사후 분석 축**이다.
 
-## 4. 실험 ID와 결정할 질문
+검수한 조합 중 한 paper로 충분한 대안이 있으면 그 해결을 인정한다. 알려진 조합이 모두 두 paper를 쓴다고 더 적은 대안이 절대로 없다고 증명한 것은 아니다. `known_alternative_paper_counts`는 알려진 대안들의 수이며 전역 최소 논문 수가 아니다. 미확정 범위는 unknown/coverage 한계를 남긴다. 이 값이나 task tag를 질문·도구·ID·manifest의 agent view에 넣지 않는다.
 
-| ID | 실험 | 필수 해석 |
+질문에 '논문 두 편을 사용하라' 같은 힌트를 넣지 않는다. 문항별 정답 source만 검색 가능한 작은 환경을 만들거나 single/multi에 따라 다른 도구 예산을 공개하는 우회 누출도 검사한다. 후보 archive는 background/distractor를 포함하고 archive 크기와 충분근거 논문 수를 구별한다.
+
+## 4. main 비교와 실험 ID
+
+파일럿 후 서로 다른 backbone 두 계열을 snapshot으로 고정하고 각 backbone의 **단발 RAG / 반복 agent / CITES-hybrid / 계획·근거 memory agent** 네 설정을 같은 archive·색인·권한·총 budget으로 비교한다. provenance-aware와 multi-agent는 전체 또는 공통 층화 subset에서 추가하고 분모를 명시한다. 실제 실행하지 않은 provider/model 점수는 만들지 않는다.
+
+| ID | 실험 | 확인할 것 |
 |---|---|---|
-| E0 | fixture·형식·hash·격리·budget·오류 분모 | 소프트웨어 검증. 실제 모델 능력 결과 아님 |
-| E1 | 자연 문헌 test에서 8설정 비교 | 최종 의미 판단·획득·인용·unit grouping·비용을 분리 |
-| E2 | 같은 결과의 반복 / 새 결과 triplet | record 수·paper 수·원문 언어 구성·질문·조건·질문 언어 고정, GLRS와 각 component |
-| E3 | 표현 유사성 높음/낮음 × 결과 단위 같음/다름 | 일반 중복 제거로 설명되는지 검증하는 핵심 novelty gate |
-| E4 | 같은 bundle의 KO/EN 질문 대조 + query rewriting; 원문 언어 strata | KO/EN 질문은 같은 원문·조건을 유지한 paired 대조. EN-only/KO-only/mixed source bundle 비교는 내용·분야가 다른 관측 층화 분석 |
-| E5 | 실제 검색 / oracle-read / oracle lineage | 발견·해석·출처 복원의 병목 분리. 상한 대조는 main 순위에서 분리 |
-| E6 | graph·reranker·memory·verifier 각각 제거 | 한 번에 하나만 변경, 동일 backbone과 총 예산 |
-| E7 | budget·단일/다중 agent | 실패 포함 성능-비용 Pareto, tool·LLM 합산 지출 |
-| E8 | metric meta-eval | 전문가 품질 순위·반례·기존 지표와의 추가 식별력 |
-| E9 | source-family heldout, 문서 순서·opaque ID·제목 대조 | 과적합/순위·형식 shortcut/주제 전이 |
+| E0 | 계약·fixture·replay·hash·출력/오류 분모 | 소프트웨어 검증. 과학 성능 아님 |
+| E1 | 6종 자연 과제에서 같은 8개 설정 비교 | 답·조건·근거 지원·연결·종료·비용; private primary task와 source 범위별 분포 |
+| E2 | required-source-count 미제공 vs oracle 대조 | main은 미제공. oracle은 검수한 범위 정보의 이득과 한계를 보는 별도 특권 조건 |
+| E3 | 실제 검색 vs 충분근거 oracle-read | 발견 실패와 근거 연결/추론 실패 분리. 답·private rubric은 숨김 |
+| E4 | 같은 원문 KO/EN 질문 대조·query rewriting | 질문 언어 효과. 원문 EN/KO/mixed 차이는 관측 층화 분석 |
+| E5 | 조건·단위·수치·상충 근거 대조 | 정보 하나를 무시한 shortcut과 계산/조건 적용 오류 |
+| E6 | planner·graph·reranker·memory·verifier 제거 | 한 번에 하나, 동일 backbone과 총 budget |
+| E7 | 적응적 종료·고정 depth·budget·multi-agent | 조기 종료·불필요 탐색과 실패 포함 성능-비용 curve |
+| E8 | 채점·후보 지표 meta-eval | 전문가 블라인드 품질·기존 점수·0점/동점·대안 근거 감점 여부 |
+| E9 | source-family holdout·archive 크기·순서·opaque ID 대조 | 누출·주제 전이·source 수 힌트·정답 source만 노출하는 shortcut |
+| E10 | offline archive vs live interleaved vs staged 획득 대조; frozen replay 검증 | 같은 질문·기록 예산에서 발견/fetch/parse·읽기·종료·cache·실패·비용을 분리. live는 구조 진단/null semantic; replay는 네트워크·parser 없는 관측 검증 |
+| L1 | 원천 하위 track B/R/N | 같은 record/paper 수·원천 언어 구성·질문·조건·예산에서 재보고/새 unit 반응 |
+| L2 | 표현 유사도×동일/별도 원천 | DOI/text/common-parent 규칙으로 설명되지 않는 계보 판단 |
 
-E4의 source strata는 family/venue/연도/분야/길이/권리 확보율과 유효 표본 수를 함께 보고한다. 서로 다른 영어·한국어 논문에서 생긴 차이를 원문 언어의 인과 효과라고 해석하지 않는다. source language를 바꾸려면 별도의 내용 대응·권리·번역 검수가 필요하며, 원문의 자연 번역본과 같은 의미 질문 대조도 서로 다른 실험이다.
+L1/L2와 [GLRS](METRICS_KO.md)는 원천 과제에만 적용한다. 다른 task의 primary 결과에 GLRS=0을 넣거나, 전 task 평균 GLRS로 순위를 만들지 않는다. L2가 단순 dedup으로 해결되면 원천 하위 기여를 줄이되 나머지 과제의 정답·근거 결과를 그대로 보고한다.
 
-E3에서 효과가 DOI/text dedup 또는 공통 부모 규칙만으로 설명되면 새 계보 이해 기여를 축소한다. metric의 성능 순위가 전문가의 판단과 맞지 않으면 metric을 수정하고 새로운 잠금 자료에서 검증한다.
+필수 저비용 대조는 blind·항상 유보, DOI/version dedup, text/embedding dedup, 단순 CITES/common-parent grouping이다. always-merge/separate는 원천 지표 퇴화 대조다. gold 답을 아는 demo oracle과 충분근거만 받는 실제 LLM oracle-read는 서로 다른 역할이다.
 
-## 5. 표준 지표와 새 지표
+## 5. 지표와 해석
 
-최종 의미 판단: expert-adjudicated accuracy/F1 및 불확실/혼합 라벨 분포. 출력 오류도 분모다. 원문 획득: admissible result-unit recall과 읽기/검색 budget. 인용: 실제 open한 source, 주장 지원·귀속·조건 일치. 계보: unit coverage, grouping, unknown 처리. 실행: 성공 종료·오류/재시도·token·시간·실비.
+주 평가는 **답 형식별 정확성/의미 품질 + 실제 근거 지원·조건 일치 + 연결 실패 분석 + 실패 포함 비용**이다. 단답의 허용 alias, 수치의 단위·허용오차·계산식, 설명의 핵심 주장 rubric을 고정한다. 명제가 있는 decision task에만 네 verdict를 평가하고, 단답·수치·설명을 일괄 supported로 채점하지 않는다. reference 문자열 일치는 구조 진단이며 과학적 의미 정확성 인증이 아니다.
 
-새 [GLRS](METRICS_KO.md)는 재보고 불변성과 새 결과 반응을 유효한 결과 단위 근거에 연결한다. 일반 B-cubed나 pair F1을 발명했다고 하지 않는다. 같은 결과의 대체 witness를 모두 강제하지 않고 적절한 1차 witness 하나로 unit coverage를 충족할 수 있어야 한다. 최종 verdict 정확도와도 분리한다.
+충분근거 조합은 대안들을 허용한다. 가능한 모든 source를 읽게 강제하는 recall이나 논문 수를 무조건 줄이는 점수를 primary로 두지 않는다. 알려진 충분 조합을 놓친 비율·불필요 열람·종료 행동을 보고하되 더 짧은 유효 대안을 발견하면 검수·재채점 규칙을 적용한다. 미검수 최소 source 수를 정답으로 만들지 않는다.
 
-도구 replay나 조건 문자열 일치는 구조 진단이다. 과학적 entailment·출처 판정의 타당성은 사람이 확인하거나 사람과 검증한 judge를 쓴다. 두 검수자의 원래 평가는 별도 ledger에 보관하고, 조정된 최종 review만 response hash에 묶어 scorer로 전달한다.
+GLRS는 획득·인용한 근거의 원천 그룹·반복 불변성·새 unit 반응에 관한 별도 후보 지표다. 최종 답이나 인용의 과학적 정확성을 보증하지 않는다. 일반 연결/충분성의 새 지표를 추가하면 식·반례·shortcut·사람 meta-eval과 독립 validation을 먼저 정의하고 검증 전 세계 최초/primary 확정을 하지 않는다.
 
-## 6. 통계와 표본 수
+사람 R1/R2 원본은 보존하고 조정된 의미 review를 응답 hash와 연결한다. task마다 독립 reviewer·조건·대안 근거·미확인 정보를 확인하며, 자동 replay가 의미 truth를 판정했다고 하지 않는다.
 
-독립 표본 단위는 기본 문항/공유 결과 source family다. 번역·triplet arm·반복 run·같은 원문 버전을 새 N으로 세지 않는다. primary estimand와 가중법을 사전 등록하고 family cluster bootstrap/paired 차이를 사용한다. source-family가 하나면 유효한 family CI를 보고하지 않는다.
+## 6. 통계·파일럿·비용
 
-핵심 단일 비교/지표를 정하고 다중 ablation은 교정하거나 탐색 분석으로 표시한다. 평균·95% CI·실패율·class 분포·자료형별 coverage를 함께 보고한다. 결과를 보고 유리한 subset이나 임계값을 바꾸지 않는다. unit label이 미확정인 자료의 GLRS 적용률과 제외 이유도 공개한다.
+기본 문항/source family를 resampling 단위로 삼고 번역·반복·통제 arm을 새 독립 N으로 세지 않는다. primary task tag 기반 집계와 전체 평균 가중법을 사전 등록하고 overlapping secondary tag 점수는 별도 분석으로 표시한다. unknown source 범위를 임의로 single/multi에 넣지 않는다. class/task/source-scope 분포와 실패·미확인·제외율을 함께 보고한다.
 
-표본 수는 pilot에서 family 내 상관과 실제 disagreement, 유효 triplet 비율을 관측한 뒤 최소효과에 대한 simulation으로 정한다. 240/300이라는 숫자 자체가 power 증거는 아니다.
+5인×8문항=40 pilot는 유지한다. 모든 사람이 여러 task를 탐색하고, 충분근거 검수 시간·대안 발견률·초기 IAA·source 연결 component·실제 token/latency로 확장을 결정한다. 240/300은 계획치이며 power의 증거가 아니다.
 
-## 7. 단계별 실행량과 비용
+첫 preflight 예시는 8문항×2질문언어×2모델×2설정×1회=64 episodes다. pilot 전체 40×2×3반복×4모델×2설정=1,920은 1,920개 독립 문제라는 뜻이 아니다. 계보 triplet은 해당 subset에만 arm 수를 곱한다. 각 run의 input/output token·검색·저장·GPU 시간과 multi-agent 내부 호출을 합산한다. 실행·단가가 정해지지 않은 현재 총액을 확정하지 않는다.
 
-처음 model preflight는 8개 기본 문항×2언어×2모델×2설정×1회=64 episodes 정도로 작게 시작한다. triplet을 추가하면 arm 수를 곱한다. pilot 전체를 여러 번 실행하기 전에 p50/p90 token·latency·실비·오류를 기록한다.
+## 7. 재현성과 GPU
 
-확장 예시는 [팀 계획](TEAM_AND_DATA_KO.md)의 240그룹 중 개발40/calibration40/test160을 따른다. test160×2언어×8설정×2회=5,120 natural episodes다. 그 안의 60그룹을 유효 triplet으로 추가 검증하면 60×3arm×2언어×8설정×2회=5,760이며, 동일한 B run 1,920개를 재사용할 수 있는 정확히 같은 조건이면 총8,960개다. 이는 계획 산식이지 실행·확보한 수가 아니다. semantic review와 metric validation 비용은 별도다.
+data/case/source hash, parser·색인·embedding·reranker·prompt·policy/code hash, exact model snapshot, seed·예산·retry·비용·오류를 기록한다. provider alias와 resolved model을 구분한다. 숨겨진 test를 프롬프트·중단 기준 선택에 반복 사용하지 않는다.
 
-비용은 각 run의 실제 input/output token에 freeze 시점 공식 단가를 곱하고 검색·저장·GPU 시간을 더한다. 모델과 단가가 정해지지 않은 현재 단계에서 총 비용을 확정하지 않는다. multi-agent 내부 호출과 verifier 비용도 모두 더한다. 반복과 번역을 문제 수로 부풀려 효율이 좋아 보이게 하지 않는다.
+단위·fixture 검증은 CPU다. 공개 코드는 할당받은 GPU index/UUID를 명시하고 한 장·여러 worker·외부 tensor parallel은 [GPU 매뉴얼](GPU_EXECUTION_KO.md)을 따른다. 이 호스트의 실제 GPU 실행은 사용자 지시대로 물리3만 허용한다. GPU를 새로 실행하지 않은 문서/fixture 작업을 모델 실험이라고 쓰지 않는다. 과거 [실제 smoke](REAL_LLM_SMOKE_KO.md)와 [검증 기록](VALIDATION_KO.md)은 당시 hash의 사실로 보존한다.
 
-## 8. 재현성과 GPU
+## 8. 본 논문 결과표
 
-모든 run은 data/case/source hash, parser·embedding·reranker·prompt·policy source hash, exact model snapshot, generation 옵션, code commit/dirty 상태, seed, budget, error/retry, 사용량을 보존한다. provider가 요청한 alias와 다른 resolved model을 반환하면 기록한다. 동작하지 않은 모델을 성공 denominator에서 제거하지 않는다.
+- Main: model/setting/snapshot, 전체 및 private primary task별 N/family, 답·근거·조건 품질, 오류·종료·token/비용·CI.
+- Evidence scope: 검수한 충분근거의 paper-count 분포, 한 paper 대안 있음/알려진 복수 paper 대안만 있음/unknown, source-count oracle gap과 archive 크기 민감도.
+- Task diagnostics: 내부/교차 논문 연결, 조건 비교·정량 계산·상충/부족, 필요한 근거 누락·조기 종료·불필요 탐색.
+- Acquisition: offline/live interleaved/staged, cold/warm, 별도 frozen replay, 질의·fetch·parse·로컬 검색·읽기·종료의 성공/실패·coverage·source 매핑·단계별 비용. live 구조 진단과 hash-bound 사람 응답 review를 구분.
+- Lineage subset: GLRS/component·유효 triplet N·unknown coverage, B/R/N·표현 유사도·dedup 대조.
+- Language/appendix: 같은 원문 KO/EN paired gap, 원문 언어 strata 관측 분석, 모든 실패·미확인·라벨/권리/split 감사와 hyperparameters.
 
-수집·fixture·unit test는 CPU다. 로컬 단일 모델 backend는 사용자가 선택한 물리 GPU UUID 하나로 격리하고 logical cuda:0에 배치한다. 공개 저장소는 특정 GPU 번호를 강제하지 않는다. 여러 실험의 병렬 worker와 큰 모델 하나의 tensor parallel은 별개이며 [GPU_EXECUTION_KO.md](GPU_EXECUTION_KO.md)의 방식·한계를 따른다. GPU 수·GPU시간·token·총 호출량을 모두 기록한다.
-
-이 세션의 실제 GPU 실행은 사용자에게 지정받은 물리3에서만 허용한다. 실제 LLM smoke는 연결·오류 계측 확인용으로 본 데이터 성능과 분리하며 [검증 기록](VALIDATION_KO.md)에 실행 여부를 남긴다.
-
-## 9. 본 논문 결과표 틀
-
-- Main: setting/model/snapshot, N과 family 수, failure-inclusive semantic score, citation support, unit coverage, GLRS/component, 비용·CI.
-- Control: repetition invariance/new-unit response, high/low lexical similarity, DOI/text/CITES baseline.
-- Language: 같은 원문을 사용한 KO/EN 질문 paired gap과 oracle-read gap. 원문은 EN-only/KO-only/mixed strata의 N·family 수·분야·venue·접근성 구성을 함께 보고하고 관측 차이로 제한.
-- Metric: 전문가 순위 일치·기존 점수와의 불일치·공격 baseline·적용률/unknown.
-- Appendix: 모든 실패·exclusion·raw disagreement·budget curve·split component와 전체 hyperparameters.
-
-실험 전에는 이 표에 예상 성능을 채우지 않는다.
+실험 전에는 예상 성능을 결과표에 기입하지 않는다.

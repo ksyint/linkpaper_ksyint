@@ -12,6 +12,7 @@ on:
       - "scripts/run_research*.sh"
       - "scripts/setup_research_env.sh"
       - "scripts/run_korean_agent_demo.sh"
+      - "scripts/run_live_paper_demo.sh"
       - "scripts/hf_agent_worker.py"
       - "scripts/run_hf_agent_smoke.py"
   pull_request:
@@ -21,6 +22,7 @@ on:
       - "scripts/run_research*.sh"
       - "scripts/setup_research_env.sh"
       - "scripts/run_korean_agent_demo.sh"
+      - "scripts/run_live_paper_demo.sh"
       - "scripts/hf_agent_worker.py"
       - "scripts/run_hf_agent_smoke.py"
   workflow_dispatch:
@@ -43,7 +45,7 @@ jobs:
       # API 변경(예: search -> query_points)을 잡아 주는데, 드라이버가 없으면
       # 조용히 skip되어 의미가 없어진다.
       - name: Install
-        run: pip install -e '.[dev,stores]'
+        run: pip install -e '.[dev,stores,acquire]'
 
       - name: Unit and integration tests
         run: pytest -q
@@ -127,7 +129,7 @@ jobs:
         with:
           python-version: "3.12"
       - name: Install CPU harness
-        run: pip install -e .
+        run: pip install -e '.[acquire]'
       - name: Validate tools, controls and integrated GLRS on original fixtures
         env:
           LINKPAPER_EVAL_PYTHON: python
@@ -135,11 +137,16 @@ jobs:
         run: |
           python ../scripts/hf_agent_worker.py --help
           python ../scripts/run_hf_agent_smoke.py --help
+          python -m linkpaper_eval.paper_acquisition --help
+          python -m linkpaper_eval.live_paper_bench --help
           LINKPAPER_EVAL_PYTHON="$(command -v python)" bash ../scripts/run_korean_agent_demo.sh "${GITHUB_WORKSPACE}/evaluation/runs/korean-agent-smoke"
+          LINKPAPER_EVAL_PYTHON="$(command -v python)" bash ../scripts/run_live_paper_demo.sh "${GITHUB_WORKSPACE}/evaluation/runs/live-paper-fixture-smoke"
       - uses: actions/upload-artifact@v4
         with:
           name: korean-agent-fixture-${{ github.run_number }}
-          path: evaluation/runs/korean-agent-smoke/
+          path: |
+            evaluation/runs/korean-agent-smoke/
+            evaluation/runs/live-paper-fixture-smoke/
           retention-days: 14
 
   ragas-contract:

@@ -99,6 +99,10 @@ def construct_triplets(corpus: list[Evidence], cases: list[Case], predictions: l
         except KeyError as exc:
             raise ValueError('Triplet references an unknown case ID') from exc
         base = selected['B']
+        if any(case.task_type != 'result_provenance' for case in selected.values()):
+            raise ValueError('GLRS triplets apply only to the result_provenance subtrack')
+        if any(case.gold.answer_type != base.gold.answer_type for case in selected.values()):
+            raise ValueError('Matched cases require one answer type')
         base_counts = _source_counts(base, evidence_lookup)
         for case in selected.values():
             counts = _source_counts(case, evidence_lookup)

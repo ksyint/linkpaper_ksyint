@@ -85,15 +85,15 @@
   },
   {
     "id": "scholargym",
-    "title": "ScholarGym: Benchmarking Deep Research Workflows on Academic Literature Retrieval",
+    "title": "ScholarGym: Benchmarking Large Language Model Capabilities in the Information-Gathering Stage of Deep Research",
     "date": "2026-01-29",
     "date_basis": "first arXiv",
     "primary_url": "https://arxiv.org/abs/2601.21654",
     "artifact_url": "https://huggingface.co/datasets/shenhao/ScholarGym",
     "license_checked": "Apache-2.0 official HF data card; underlying paper rights separate",
     "checked_at": "2026-11-02",
-    "verification_scope": "primary abstract or official README; selected closest papers full HTML sections",
-    "relation_to_proposal": "Deterministic scholarly retrieval and planning/tool/relevance stages already exist"
+    "verification_scope": "Official arXiv v3 title/abstract rechecked 2026-11-02; prior title wording superseded",
+    "relation_to_proposal": "Static scholarly retrieval, query planning/tool invocation/relevance assessment; broader QA acquisition/answer decomposition must add distinct evidence"
   },
   {
     "id": "paperarena",
@@ -514,5 +514,41 @@
     "checked_at": "2026-11-02",
     "verification_scope": "Official GPU/runtime documentation or model card; manual commands are not a claim of executed multi-GPU/TP experiments",
     "relation_to_proposal": "Runtime selection and reproducibility; not benchmark novelty"
+  },
+  {
+    "id": "arxiv_api_manual",
+    "title": "arXiv API User Manual",
+    "date": "2026-11-02",
+    "date_basis": "accessed",
+    "primary_url": "https://info.arxiv.org/help/api/user-manual.html",
+    "artifact_url": null,
+    "license_checked": "Documentation reference; no benchmark data imported",
+    "checked_at": "2026-11-02",
+    "verification_scope": "Official API/parser documentation",
+    "relation_to_proposal": "Official metadata query and Atom API; independent acquisition implementation"
+  },
+  {
+    "id": "arxiv_api_terms",
+    "title": "Terms of Use for arXiv APIs",
+    "date": "2026-11-02",
+    "date_basis": "accessed",
+    "primary_url": "https://info.arxiv.org/help/api/tou.html",
+    "artifact_url": null,
+    "license_checked": "Documentation reference; no benchmark data imported",
+    "checked_at": "2026-11-02",
+    "verification_scope": "Official API/parser documentation",
+    "relation_to_proposal": "Sequential API requests and provider scope; article rights remain separate"
+  },
+  {
+    "id": "pypdf_extraction",
+    "title": "pypdf text extraction documentation",
+    "date": "2026-11-02",
+    "date_basis": "accessed",
+    "primary_url": "https://pypdf.readthedocs.io/en/stable/user/extract-text.html",
+    "artifact_url": null,
+    "license_checked": "Documentation reference; no benchmark data imported",
+    "checked_at": "2026-11-02",
+    "verification_scope": "Official API/parser documentation",
+    "relation_to_proposal": "PDF parser limitations; raw text extraction is not verified scientific gold"
   }
 ]

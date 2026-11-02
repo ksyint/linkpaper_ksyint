@@ -6,9 +6,13 @@
 
 ## 1. 무엇을 새로 수집하고 라벨링하는가
 
-후보 연구 질문은 **영어 논문을 더 많이 포함하고 한국어 논문도 포함한 코퍼스에서, 한국어로 질문받은 에이전트가 여러 문헌의 실험 결과를 같은 원래 결과의 재서술과 새 reported unit으로 구분하고 근거·조건을 추적할 수 있는가**이다. 최종 기여의 범위와 선행연구 대비는 별도 연구 설계/문헌 문서에서 검증한다. 일반적인 문서 유효성 판정, counterfactual·중복 교란, citation checking 자체를 새 능력으로 소개하지 않는다.
+후보 연구 질문은 **영어 다수·한국어 포함 원문에서, 필요한 논문 수를 알려주지 않아도 agent가 하나 또는 여러 논문의 여러 근거를 연결해 한국어 질문에 답하고 충분한 근거와 조건을 제시할 수 있는가**이다. 결과 원천·재보고 판별은 여러 하위 과제 중 하나다. 한 논문 내부 복합 근거, 논문 사이 연결, 조건 비교, 정량 추론, 상충/근거 부족, 결과 원천의 6종을 private primary/secondary tag로 수집한다. 언어·멀티홉·source 수 비공개 자체를 새 능력의 최초 제안이라고 하지 않는다. [연구 설계](RESEARCH_PROPOSAL_KO.md)를 따른다.
 
-여기서 **결과 계보(result provenance lineage)**와 **통계적 독립성(statistical independence)**은 다르다.
+각자는 여섯 과제 유형을 모두 후보 탐색 범위에 두고 자기 8개를 한 유형으로만 채우지 않도록 검토한다. 처음에는 가능한 한 3종 이상의 primary task를 시도하되 확보가 안 되면 수정 사유를 남긴다. task tag는 중복 능력을 대표하는 운영 분류이지 서로 배타적인 정답 유형이 아니다. agent에게 task tag, single/multi 정답 태그, 필요한 논문/근거 수를 주지 않는다.
+
+후보 source store에는 한 논문 안에서 충분한 사례와 여러 논문에 걸친 사례, background/distractor를 함께 확보한다. 검수한 대안 충분근거 조합마다 논문 family 수를 기록하되, 그 최소값은 **알려진 조합 중 최소**이지 미발견 대안까지 배제한 전역 최소의 증명이 아니다. 대안 탐색·검수가 불완전하면 범위는 unknown으로 남긴다. 실제로 읽은 논문 수와 정답에 필요한 논문 수를 혼동하지 않는다.
+
+아래 결과 계보 규칙은 **결과 원천 하위 과제**에 적용한다. 일반 질문에 결과 그룹을 의무로 요구하지 않는다. **결과 계보(result provenance lineage)**와 **통계적 독립성(statistical independence)**은 다르다.
 
 - 서로 다른 논문·저자·DOI라는 이유로 독립 실험이라고 라벨링하지 않는다. 동일 저자의 후속 논문도 새 실험을 보고할 수 있고, 다른 저자의 논문도 같은 표나 원래 결과를 다시 인용할 수 있다.
 - 수치가 같다는 사실만으로 같은 실험이라고 하지 않는다. 우연히 같은 수치가 나온 경우, 반올림, 공통 baseline 표가 있을 수 있다.
@@ -20,13 +24,15 @@
 | 단위 | 필수 내용 | 추정으로 채우지 않는 것 |
 |---|---|---|
 | source document | 원본 URL/DOI 또는 발행기관 문서 ID, 버전, 본문 언어, venue/분야/연도/출판 상태, 문서 hash, 이용 조건 | DOI가 없는데 DOI를 만들어 넣지 않음 |
-| reported result unit | 원문상 실험/측정/분석 식별자, 결과 위치, 조건, 결과값/범위, 해당 단위를 보고했다고 판단한 근거 | 독자 재현 실험을 했다는 추정 |
+| evidence record | 정의·방법·조건·수치·각주·결과의 locator와 질문 관련 내용, 다른 근거와 연결하는 이유 | 단일 record만으로 질문 전체가 해결된다는 추정 |
+| sufficient evidence set | 정답의 핵심 주장을 함께 뒷받침하는 근거 ID 집합과 허용 대안, 각 집합의 paper family 수 | 검수한 대안의 수가 전역 최소라는 추정 |
+| reported result unit — 원천 과제 | 원문상 실험/측정/분석 식별자, 결과 위치, 조건, 결과값/범위, 해당 단위를 보고했다고 판단한 근거 | 독자 재현 실험을 했다는 추정 |
 | claim mention | 사람이 짧게 재서술한 주장, 그 주장이 등장한 문서와 문단/표 위치 | 문서 전체가 주장을 지지한다는 포괄 판정 |
 | lineage edge | 두 mention/unit 사이의 관계, 출처를 잇는 실제 근거, 판정 가능성 | 인용 링크가 있다는 이유만으로 결과 재사용 확정 |
 | base case | 한 개의 독립적으로 작성한 한국어 연구 질문과 필요한 source bundle, gold 판정 대상 | 기존 benchmark 질문 번역·어휘 교체 |
 | language variant/run | 같은 base case의 영어 질문, 표기 변형, 반복 실행 | 새로운 독립 표본 수로 계산 |
 
-문서의 결과 단위는 원문이 식별 가능한 수준까지만 자른다. 예를 들어 한 논문의 동일 실험군을 여러 표/문단에서 보고한 경우 한 계보의 여러 mention이 될 수 있다. 같은 데이터셋에서 새 방법이나 조건의 실험값을 별도로 보고했다면 새 reported unit일 수 있지만, 같은 study/evaluation family에 묶일 수 있다. 어떤 경우든 실험 단위의 세분화 규칙을 codebook과 주석 근거에 남긴다.
+일반 과제는 방법·결과·조건·표·각주의 근거를 연결하고, 원천 과제의 결과 단위는 원문이 식별 가능한 수준까지만 자른다. 예를 들어 한 논문의 동일 실험군을 여러 표/문단에서 보고한 경우 한 계보의 여러 mention이 될 수 있다. 같은 데이터셋에서 새 방법이나 조건의 실험값을 별도로 보고했다면 새 reported unit일 수 있지만, 같은 study/evaluation family에 묶일 수 있다. 어떤 경우든 실험 단위의 세분화 규칙을 codebook과 주석 근거에 남긴다.
 
 ### 1.2 edge 판정 초안과 유보 조건
 
@@ -62,6 +68,12 @@ ScienceON/기관 리포지터리 등 추가 탐색처는 후보로 확장할 수
 
 모든 사람은 새로운 검색어와 source pool에서 출발한다. K-BrowseComp/KoTAU의 문제·정답·gold chain·seed 목록·생성 프롬프트를 수집 시드로 사용하지 않는다. 다른 benchmark를 비교 실험에 쓰는 경우도 원래 split과 인용을 유지한 별도 external evaluation으로 둔다.
 
+### 2.1.1 offline·live interleaved·replay에서의 source 수집
+
+같은 질문을 저장 archive에서 푸는 offline, 한 episode의 `Policy.step`이 외부 발견·fetch·로컬 검색·읽기와 답변을 선택하는 live interleaved, 저장한 hash-bound artifact로 관측을 재구성하는 frozen replay를 구분한다. 발견→수집·파싱→snapshot→offline QA인 staged 대조도 별도로 둔다. 수집자는 질의·후보·원문 hash·parser·실패·시각·cold/warm 상태·단계별 비용을 남긴다. live의 기본 provider는 arXiv이며 전체 웹·GUI·한국 발행처 live를 포괄한다고 하지 않는다. 모든 main 모드에서 필요한 논문 수·task tag·gold는 공개하지 않는다.
+
+live의 파싱 산출물은 draft이고 개별 버전의 권리는 미확인 상태다. 실제 획득한 version·locator·source ID와 정답을 사람이 대조·매핑하기 전에는 정적 gold/GLRS를 자동 적용하지 않는다. 현재 live 점수는 구조 진단이며 `scientific_semantic_accuracy=null`을 유지하고, 응답 hash에 묶인 사람 review는 별도 기록한다. frozen replay는 네트워크·parser를 다시 호출하지 않는 관측 재현이지 새 모델 run이 아니다. 기본 plugin/가상 fixture/HTTP 경로 검증과 실제 LLM 성능을 구분한다. 기존 Neo4j/Qdrant production API 완성 여부도 별개다.
+
 ### 2.2 pilot 모집단과 포함 조건
 
 40개 base case를 목표로 하되, 처음에는 1인 32개씩 총 **160개 candidate record**를 수집한다. 25%가 통과한다는 것은 인력 산정을 위한 가정이며 채택률을 맞추려고 기준을 낮추지 않는다.
@@ -69,8 +81,8 @@ ScienceON/기관 리포지터리 등 추가 탐색처는 후보로 확장할 수
 포함 조건은 다음과 같다.
 
 1. 주요 방법/결과/해석의 본문 언어를 영어·한국어·혼합으로 확인한다. 영어 논문을 다수로 구성하며 한국어 논문을 포함한다. 저자 국적/기관·국내외 venue·초록 언어만으로 판정하지 않고 본문 근거 위치를 남긴다.
-2. 영어·한국어·혼합 원문 bundle을 읽고 한국어로 새로 작성한 질문이 특정 실험 조건과 결과의 출처를 확인하도록 요구한다. 다른 benchmark의 영어 문제 번역본을 원본 한국어 문제로 제시하지 않는다. 같은 질문의 영어 대조본은 source 언어와 별도로 기록한다.
-3. 원래 결과와 후속 재서술/확장/검토를 연결하거나, 새 reported unit 여부를 확인할 수 있는 공개 자료가 있다. 기본 source bundle은 2~5개 문서, 핵심 mention 4~12개를 작업량 가정으로 한다.
+2. 영어·한국어·혼합 원문에서 한국어 질문을 독립 작성한다. 하나 또는 여러 논문의 여러 근거 연결이 실제로 필요해야 하며 단일 표 셀 복사만으로 전부 만들지 않는다. 필요한 논문 수·정답 source 목록을 질문에 넣지 않는다. 다른 benchmark 문제를 번역한 것을 원본 문항으로 제시하지 않는다. KO/EN 질문 대조는 source 언어와 별도로 검수한다.
+3. 질문에 대한 조건·답·충분근거 조합과 가능한 대안을 원문에서 확인할 수 있다. 한 paper로 충분한 대안도 인정하고, 알려진 대안이 복수 paper를 쓴다는 이유로 더 적은 대안이 없다고 단정하지 않는다. 수작업 검토 packet 1~5개 문서·근거 4~12개는 단가 가정이며 agent의 정답 source 수 힌트가 아니다. 원천 과제에는 원 결과·재서술·새 분석의 추가 관계 증거가 필요하다.
 4. text-first prototype에서 문단/표의 텍스트와 원문 locator를 사람이 대조할 수 있다. PDF 표가 필요하면 원본 page/table/row/column locator를 남기되 OCR 추출물만 gold로 삼지 않는다.
 5. 해당 버전의 다운로드·내부 처리·주석 작성·재배포 범위를 각각 검토했다. 공개 test에 넣을 문서는 frozen corpus 또는 합법적인 재현 방법을 제공할 수 있어야 한다.
 6. 두 명의 독립 reviewer와 제3자의 조정으로 판정 가능성을 검증할 수 있다. 분야 전문 판단이 팀 역량을 넘으면 외부 검토 또는 보류가 필요하다.
@@ -91,7 +103,7 @@ pilot은 다섯 사람이 각 8개 base case를 만드는 40개 계획을 유지
 
 담당별 8개는 정밀한 분야·venue·원문 언어 순위 추정용 표본이 아니다. 확보 가능성이 낮으면 분야를 임의로 바꾸기 전에 수정 사유와 날짜를 protocol log에 쓴다. pilot에서 한 발행처가 대부분을 차지하지 않도록 같은 학술지/기관에 최대 8개 base case, 같은 연구과제·실험 family에 원칙적으로 1개 base case를 목표로 한다. 연결 문서의 저자가 같은 것은 허용하고 그 때문에 자동 탈락시키지 않는다.
 
-결과 관계의 목표 구성은 재서술 중심 12, 새 보고 단위 중심 12, 부분 재사용/확장 중심 8, 공개 정보 부족 중심 8개다. 이 비율은 **stress-test 층화 설계**이며 영어·한국어 학술 문헌 전체의 발생률을 추정하는 표본이 아니다. 다중 관계가 있는 case는 주된 판정 대상으로 하나의 strata를 정하고 전체 edge 분포도 별도로 공개한다. 목표 quota가 불가능하면 사례를 만들어 채우지 말고 실제 가능 수와 탈락 원인을 보고한다.
+기존의 재서술12/새 보고12/부분 재사용8/정보 부족8이라는 전체 40개 배분은 새 핵심 과제의 quota로 사용하지 않는다. 여섯 유형을 후보로 탐색하고 primary task별 총 40개 분포를 pilot protocol에 기록하며 secondary tag는 중복 허용한다. 한 논문 안의 여러 근거로 충분한 조합, 알려진 복수 논문 조합, 아직 source 범위를 확정하지 못한 경우를 private 층화한다. 이 구성은 stress-test 설계이며 학술 질문 전체의 발생률을 추정하는 표본이 아니다. 원천 subset에서만 관계 종류와 유효 B/R/N 수를 따로 보고한다. 목표 분포가 불가능하면 실제 가능 수와 탈락 이유를 남긴다.
 
 후보 제외 전후의 분모, 검색어·날짜·포털·venue·발행연도·분야·기관·출판 상태·원문 언어·OA 조건, 누락 원인을 보존한다. agent 실패 여부로만 main test 문항을 선택하지 않는다. 개발용 adversarial stress set은 모집단 성능 추정과 분리해 표시한다.
 
@@ -101,7 +113,7 @@ pilot은 다섯 사람이 각 8개 base case를 만드는 40개 계획을 유지
 
 | 담당 | 후보 수집과 8개 base case | 추가 소유 산출물 | 직접 수작업/검증 |
 |---|---|---|---|
-| **김수용 — 제1저자** | AI·컴퓨터 영어·한국어 논문: 평가 데이터/조건/metric이 명시된 실험·분석 결과와 후속 문헌 | 연구 질문, unit/lineage codebook v1, episode·gold 경계, main protocol, 논문 주장–근거 장부 | 원래 reported unit 정의, 조건별 구분, 자기 8개와 타인 review, 조정 결과 검토. 자기 문항의 분쟁을 단독 확정하지 않음 |
+| **김수용 — 제1저자** | AI·컴퓨터 영어·한국어 논문: 평가 데이터/조건/metric이 명시된 실험·분석 결과와 후속 문헌 | 연구 질문, 6종 task/답 형식/충분근거 codebook, episode·gold 경계, main protocol, 논문 주장–근거 장부 | 근거 연결·대안 답·답 형식 기준, 원천 subset의 unit 경계, 자기 8개와 타인 review, 조정 결과 검토. 자기 문항의 분쟁을 단독 확정하지 않음 |
 | **정상헌 — 순위 미정** | 물리·화학 영어·한국어 논문: 측정 대상·장비·조건·분석 절차와 결과 재서술 문헌 | `source_registry`·`rights_registry`, 버전/정정본 체크, 원문 hash·수집 로그 표준 | 문서별 실제 이용 조건/본문 언어/출처 확인, 같은 결과 인용 관계의 근거 위치, 자체 8개와 순환 review |
 | **남두현 — 순위 미정** | 재료·기계·에너지 영어·한국어 논문: 시료·장비·처리·성능 조건이 식별되는 실험과 후속 보고 | 조건 표준화 사전, reported-unit/mention/edge annotation 지침, ambiguity register | 단위·조건·metric의 대응과 부분 재사용 경계, `unknown` 처리, 자기 8개와 순환 review |
 | **오창원 — 순위 미정** | 환경·토목 영어·한국어 논문: 측정 위치·기간·protocol·조건과 후속 보고 | 한국어 질문–영어 질문 대응표와 원문 언어별 검수표, bilingual review rubric, valid-alternative-evidence 목록 | KO/EN의 지시 대상·범위·부정·시점·허용 유보가 같은지 검토. 자기 번역을 유일한 최종 검수자로 확정하지 않음 |
@@ -127,7 +139,7 @@ R1/R2는 출제자의 잠정 gold와 서로의 라벨을 보지 않고 같은 �
 
 | 사람 | 오늘/첫 작업일 완료 기준 | 첫 주 말 검토 가능한 파일 |
 |---|---|---|
-| 김수용 | unit 대조 예시를 실제 권리 검토 완료 원문 2쌍으로 설명하고, 8개 질문 ID의 작성 양식 확정 | codebook 초안, 자기 후보 32행, 권리 통과 packet 4개, 범위/중단 기준 |
+| 김수용 | 권리 검토 완료 원문으로 논문 내부/교차 논문 연결 연습을 각각 설명하고, source 수 비공개·대안근거·답 형식 양식 확정 | codebook 초안, 자기 후보 32행, 권리 통과 packet 4개, 범위/중단 기준 |
 | 정상헌 | 모든 사람의 source sheet 필수 열과 rights 판정 기준 배포, 자기 후보 32행 | source/rights registry v1, publisher 정책 URL·확인일, 보류 사유 목록 |
 | 남두현 | domain 공통 조건 표와 `unresolved`의 실제 판정 절차 작성, 자기 후보 32행 | unit/edge 주석 양식, 조건 사전 v1, 불명확 사례 기록 |
 | 오창원 | 한국어/영어 질문에서 유지할 조건 체크리스트 작성, 자기 후보 32행 | bilingual 양식, 지시 대상/시점/조건/유보 검사표 |
@@ -157,7 +169,7 @@ R1/R2는 출제자의 잠정 gold와 서로의 라벨을 보지 않고 같은 �
 
 권리 증거 자체의 원문/화면을 저장하는 경우도 허용 범위를 확인한다. 수집 가능한 라이선스라고 해서 모든 2차 표/그림의 권리가 같은 것은 아니다. 포털 검색 결과를 source 원문의 이용허락으로 대체하지 않는다.
 
-### 4.2 Unit / mention / lineage 표
+### 4.2 Evidence / reasoning / unit / lineage 표
 
 | 필드 | 의미 |
 |---|---|
@@ -176,26 +188,30 @@ R1/R2는 출제자의 잠정 gold와 서로의 라벨을 보지 않고 같은 �
 
 ### 4.3 Question / annotation / adjudication / split 표
 
-- Question: `base_case_id`, `author`, `candidate_ids`, `source_bundle_ids`, `source_language_profile`, `record_source_language_counts`, `source_paper_language_profile_counts`, `task_family_id`, `question_ko`, `question_en`, `required_conditions`, `permitted_abstention`, `label_track`, `expected_answer_type`, `tool_budget`, `variant_id`, `language_reviewers`, `created_at_utc`, `revision`.
-- Independent annotation: `base_case_id`, `reviewer_id`, `review_round`, `codebook_version`, `source_hashes`, `unit_ids`, `edge_labels`, `supporting_locators`, `accepted_alternative_evidence`, `possible_alternative_answer`, `uncertainty_reason`, `annotation_started_at`, `annotation_finished_at`. 출제자 gold를 보지 않았다는 기록을 포함한다.
+- Question (private 운영 장부): `task_type`, `secondary_task_tags`, `answer_type` (`decision/short/numeric/explanation`), `reference_answers_or_rubric`, `sufficient_evidence_sets`, `known_alternative_paper_counts`, `known_alternative_evidence_counts`, `global_minimum_certified` (기본 false), `source_scope_review_status`, `reasoning_links`, `base_case_id`, `author`, `candidate_ids`, `source_bundle_ids`, `source_language_profile`, `record_source_language_counts`, `source_paper_language_profile_counts`, `task_family_id`, `question_ko`, `question_en`, `required_conditions`, `permitted_abstention`, `label_track`, `tool_budget`, `variant_id`, `language_reviewers`, `created_at_utc`, `revision`.
+- Independent annotation: 답·단위/오차·핵심 주장 rubric, 대안 충분근거 집합, 조건/계산/근거 연결, source 범위 미확인 이유를 기록한다. 원천 subset에서만 unit/edge를 추가한다. `base_case_id`, `reviewer_id`, `review_round`, `codebook_version`, `source_hashes`, `unit_ids`, `edge_labels`, `supporting_locators`, `accepted_alternative_evidence`, `possible_alternative_answer`, `uncertainty_reason`, `annotation_started_at`, `annotation_finished_at`. 출제자 gold를 보지 않았다는 기록을 포함한다.
 - Adjudication: 원래 R1/R2 값, 불일치 종류, 추가 원문 확인, 조정자, 최종 라벨/유보, 변경 이유, 반영 codebook version, 처리 시각. disagreement 원본을 덮어쓰지 않는다.
 - Split: `base_case_id`, `source_version_family`, `study_family_id`, `result_family_id`, `task_family_id`, `connected_component_id`, `split`, `freeze_at_utc`, `gold_visibility`, `release_status`. family 판단 근거와 unresolved 연결도 남긴다.
+- Acquisition: `mode` (`offline_archive/live_interleaved/staged_acquire_then_answer/frozen_replay`), provider/질의·후보·실제 source ID·fetch/parse 결과·시각·cache 상태·snapshot hash·단계별 비용·gold 매핑 상태를 별도 장부에 기록한다. live와 replay를 구분한다.
 - Episode: model ID/version, endpoint 종류, 질문 언어와 실제 획득한 원문 언어 구성, prompt/tool/schema hash, corpus/snapshot hash, seed/repeat ID, 검색/읽기/token/시간 budget와 실제 사용량, tool trace, 오류·재시도, 최종 예측 및 채점기 버전. API/compute 비용은 원문/정답 파일과 분리된 실행 장부에 기록한다.
 
-원문 언어 profile은 English-only/Korean-only/mixed bundle을 구별하되 record의 `mixed` 판정도 보존한다. paper별 profile은 같은 paper_id의 visible record에 있는 선언 언어의 정렬된 집합이다(예: `en+ko`; `mixed`는 별도 값). `record_source_language_counts`와 `source_paper_language_profile_counts`를 B/R/N에서 각각 맞추며, 단순 EN/KO 이진화로 혼합 원문을 지우지 않는다. source 언어가 다른 자연 사례의 점수 차이는 분야·연도·venue·길이·접근성 차이가 섞인 관측 분석이다. 원문을 동일하게 둔 KO/EN 질문 대조와 구별한다.
+필수 source 수·task tag·충분근거 집합은 agent 공개 질문/도구/로그 view에서 숨긴다. `known_alternative_paper_counts`는 검수한 각 대안의 paper family 수로서 source 범위 진단이며 절대적 최소 source 수 정답이 아니다. reference 문자열 일치도 사람 의미 검수를 대신하지 않는다.
+
+원문 언어 profile은 English-only/Korean-only/mixed bundle을 구별하되 record의 `mixed` 판정도 보존한다. paper별 profile은 같은 paper_id의 visible record에 있는 선언 언어의 정렬된 집합이다(예: `en+ko`; `mixed`는 별도 값). 원천 하위 track의 `record_source_language_counts`와 `source_paper_language_profile_counts`를 B/R/N에서 각각 맞추며, 단순 EN/KO 이진화로 혼합 원문을 지우지 않는다. source 언어가 다른 자연 사례의 점수 차이는 분야·연도·venue·길이·접근성 차이가 섞인 관측 분석이다. 원문을 동일하게 둔 KO/EN 질문 대조와 구별한다.
 
 같은 source/result/study family의 버전·정정본·한국어/영어 질문·가벼운 paraphrase·반복 실행은 모두 같은 split connected component에 둔다. 확실치 않은 연결은 우선 보수적으로 같은 component에 묶고 확장이 너무 커지면 별도 split 정책을 문서화한다. 이 규칙은 문헌 계보를 이용한 누출 방지용 grouping이지 통계적 독립성 증명이 아니다.
 
 ## 5. 수작업 라벨과 IAA
 
-자동화 가능한 것은 metadata 후보 수집, URL/버전/hash 기록, 허용된 원문 파싱, 표 위치 후보 탐색, near-duplicate 후보 탐색, 빈 양식 검증이다. 사람이 해야 하는 것은 결과 보고 단위의 경계, 원래 결과 재서술/새 보고/부분 재사용 여부, 조건·표·각주의 연결, 원문상 부족 정보, 대안 근거/답, 한국어 맥락과 KO/EN 의미 동일성이다. LLM은 후보를 제안할 수 있으나 최종 gold와 독립 human review를 대체하지 않는다.
+자동화 가능한 것은 metadata 후보 수집, URL/버전/hash 기록, 허용된 원문 파싱, 표 위치 후보 탐색, near-duplicate 후보 탐색, 빈 양식 검증이다. 사람이 해야 하는 것은 답 형식에 맞는 정답/rubric, 조건·표·각주·수치·계산·논문 간 연결, 충분근거와 허용 대안, source 범위 미확인, 한국어 질문과 KO/EN 의미 동일성이다. 결과 단위 경계·재서술/새 보고/부분 재사용은 원천 subset에서 추가한다. LLM은 후보를 제안할 수 있으나 최종 gold와 독립 human review를 대체하지 않는다.
 
 **조정 전 IAA를 먼저 계산한다.** 두 reviewer가 합의한 뒤 같은 답을 다시 기입한 수치로 IAA를 만들지 않는다.
 
 | 항목 | 조정 전 기록/통계 |
 |---|---|
-| lineage category | raw agreement, label별 confusion, Krippendorff α 등 불완전 reviewer 배치를 처리하는 nominal agreement, eligible pair 분모 |
-| unit/mention 식별 | 정렬 규칙을 동결한 뒤 unit/edge set agreement 및 disagreement 수. 임의로 node ID만 달라진 경우와 의미 차이를 구분 |
+| 답·충분근거·source 범위 | 답 형식별 일치와 대안 근거 누락, 검수한 source 범위와 unknown 이유의 불일치. private tag는 집계용이며 정답 단서로 쓰지 않음 |
+| lineage category — 원천 subset | raw agreement, label별 confusion, Krippendorff α 등 불완전 reviewer 배치를 처리하는 nominal agreement, eligible pair 분모 |
+| unit/mention 식별 — 원천 subset | 정렬 규칙을 동결한 뒤 unit/edge set agreement 및 disagreement 수. 임의로 node ID만 달라진 경우와 의미 차이를 구분 |
 | 조건 값/결과값 | exact normalized agreement와 불일치 원문 표기, 단위 변환 오류율 |
 | 근거 locator | 동일 표/문단 및 허용 대안 evidence의 합의율. 완전히 같은 text offset만 유일 정답으로 강제하지 않음 |
 | KO/EN 동등성 | 조건 누락, 부정/시점/지시 대상/유보 변경 각각의 reviewer 판정과 수정 전후 로그 |
@@ -211,7 +227,7 @@ pilot 운영 gate 초안은 핵심 edge raw agreement 85% 이상, nominal agreem
 |---|---|---|---|
 | 1주 | 160 candidate screening, 권리/언어/버전 확인, 2쌍 공동 calibration 후 codebook 초안 | 1인 후보 32행, 권리 통과 우선 packet 4개; 김수용 codebook, 정상헌 rights표, 남두현 조건표, 오창원 bilingual표, 이상민 split표 | 공동 calibration 자료는 IAA/test에서 제외. source/rights 필수 열이 채워지고 unverified 데이터가 gold에 없음 |
 | 2주 | 1인 4개씩 20개 base case 초안, independent review 시작 | 잠정 gold는 출제자만 접근; R1/R2는 원문 packet으로 독립 주석 | alternate answer와 unknown을 기록. 원문 locator/hash 및 KO 원문 질문 존재 |
-| 3주 | 1인 나머지 4개씩 총 40개 초안, KO/EN 의미 검토, 누출 family 연결 | 전 사례 source/unit/mention/edge/question 표, 최소 20개에 blinded double review | 자기 문항 self-review 없음. 해시/버전 일치와 연결 component 검사 통과 |
+| 3주 | 1인 나머지 4개씩 총 40개 초안, KO/EN 의미 검토, 누출 family 연결 | 전 사례 source/evidence/조건/충분근거/question 표; 원천 subset만 unit/edge 추가, 최소 20개에 blinded double review | 자기 문항 self-review 없음. 해시/버전 일치와 연결 component 검사 통과 |
 | 4주 | double review 완료, 조정 전 IAA, adjudication, codebook 변경 기록 | 40개 전부 2인 독립 review; 불일치 조정표·대안 근거·수작업 시간 보고 | unresolved를 임의 확정하지 않음. 권리/개인정보 및 gold 분리 gate 100% 확인 |
 | 5주 | CPU 검증과 작은 agent preflight, protocol 동결, scale/no-go 결정 | completeness/누출 감사, pilot IAA와 비용/시간, baseline trace, 논문 주장–증거 목록 | 실제 반복 비용·최소효과·성능 분포로 확장 가능성을 판단. 허위 성능표/미실행 항목 없음 |
 
@@ -219,7 +235,7 @@ pilot 운영 gate 초안은 핵심 edge raw agreement 85% 이상, nominal agreem
 
 ## 7. 인력·예산 가정과 확장 중단 기준
 
-각 사람의 공통 업무 가정은 다음과 같다. **실측이 아니며,** 문서 2~5개/mention 4~12개 정도의 text-first case와 분야 이해가 있는 검토자를 전제로 한다.
+각 사람의 공통 업무 가정은 다음과 같다. **실측이 아니며,** 수작업 검토 packet 문서 1~5개/근거 4~12개 정도의 text-first case와 분야 이해가 있는 검토자를 전제로 한다.
 
 | 업무 | 1인 분량 | 단위 시간 가정 | 1인 시간 |
 |---|---:|---:|---:|
@@ -276,7 +292,7 @@ sheets = {
     'sources': ['candidate_id','source_id','collector','discovery_url','canonical_url','doi_or_report_id','title','publisher','venue','publication_year','domain','publication_status','publication_date','version_id','primary_language','language_evidence_locator','fetched_at_utc','raw_sha256','parser_name_version','rights_status','rights_evidence_url','rights_reviewer','redistribution_allowed','privacy_screen_status','exclusion_reason'],
     'units': ['reported_unit_id','source_id','study_family_id','result_family_id','original_unit_locator','dataset_or_sample','method_or_treatment','comparator','metric','unit','condition_values','reported_value_raw','statistical_independence_status','uncertainty_reason'],
     'edges': ['base_case_id','from_id','to_id','lineage_label','supporting_locators','alternative_explanations','annotator','codebook_version'],
-    'questions': ['base_case_id','author','source_bundle_ids','source_language_profile','record_source_language_counts','source_paper_language_profile_counts','task_family_id','question_ko','question_en','required_conditions','permitted_abstention','label_track','revision'],
+    'questions': ['task_type','secondary_task_tags','answer_type','reference_answers_or_rubric','sufficient_evidence_sets','known_alternative_paper_counts','known_alternative_evidence_counts','global_minimum_certified','source_scope_review_status','base_case_id','author','source_bundle_ids','source_language_profile','record_source_language_counts','source_paper_language_profile_counts','task_family_id','question_ko','question_en','required_conditions','permitted_abstention','label_track','revision'],
     'reviews': ['base_case_id','reviewer_id','review_round','codebook_version','source_hashes','unit_ids','edge_labels','supporting_locators','accepted_alternative_evidence','possible_alternative_answer','uncertainty_reason','annotation_started_at','annotation_finished_at'],
     'adjudications': ['base_case_id','r1_original','r2_original','disagreement_type','extra_evidence','adjudicator','final_label','reason','resolved_at_utc'],
     'splits': ['base_case_id','source_version_family','study_family_id','result_family_id','task_family_id','connected_component_id','split','freeze_at_utc','gold_visibility'],
@@ -305,6 +321,6 @@ PY
 
 ## 구현 granularity 보충 (2026-11-02)
 
-코드의 public document_id는 원문 locator가 있는 **근거 record**다. 질문 관련 result unit 하나당 record를 두며, 한 논문의 여러 결과는 동일 paper_id 아래 다른 record로 나타낸다. 실제 논문 수와 record 수를 모두 수집·통제한다. standalone GLRS는 record 수를 검사하고 agent-lineage bridge는 source paper 수, record별 source language 빈도, paper별 언어 profile 빈도까지 비교한다. standalone GLRS의 질문 `language` 필드는 원문 언어 구성을 대신하지 않는다. 본문·표의 위치/조건을 사람이 확인해야 하며 record schema가 과학적 unit 경계를 자동 판정하지 않는다.
+코드의 public document_id는 원문 locator가 있는 **근거 record**다. 일반 과제의 record는 질문 관련 정의·방법·조건·결과를 담을 수 있다. 원천 과제에서는 result unit 최대 하나당 record를 두며, 한 논문의 여러 근거는 동일 paper_id 아래 다른 record로 나타낸다. 실제 논문 수와 record 수를 모두 수집·통제한다. GLRS는 결과 원천 하위 과제에만 적용한다. standalone GLRS는 record 수를 검사하고 agent-lineage bridge는 source paper 수, record별 source language 빈도, paper별 언어 profile 빈도까지 비교한다. standalone GLRS의 질문 `language` 필드는 원문 언어 구성을 대신하지 않는다. 본문·표의 위치/조건을 사람이 확인해야 하며 record schema가 과학적 unit 경계를 자동 판정하지 않는다.
 
 5개 탐색 영역은 후보 발굴 업무의 초기 배분이며 각 이름의 분야 전문성을 인정한 것이 아니다. 파일럿 판정 역량과 외부 검토 확보를 확인한 뒤 본 gold는 신뢰할 수 있는 1–2개 영역으로 좁힐 수 있다. 그 경우 모집단·분야 범위와 제외율을 다시 기록하고 5분야 일반화 주장을 하지 않는다.

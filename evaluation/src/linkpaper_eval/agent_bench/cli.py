@@ -41,7 +41,10 @@ def main(argv=None):
     corpus, cases = read_rows(args.corpus, Evidence), read_rows(args.cases, Case)
     validation = validate_study(corpus, cases, publication=args.publication)
     if args.command == 'validate':
-        print(json.dumps(validation, ensure_ascii=False, indent=2))
+        # Cardinalities are private evaluator diagnostics, not public task
+        # instructions. Avoid dumping a per-case gold-support registry to logs.
+        print(json.dumps({key: value for key, value in validation.items()
+                          if key != 'private_support_profiles'}, ensure_ascii=False, indent=2))
         return 0
     if args.out is None:
         parser.error('--out is required')
@@ -77,7 +80,10 @@ def main(argv=None):
     args.out.mkdir(parents=True, exist_ok=False)
     (args.out / 'predictions.jsonl').write_text(''.join(p.model_dump_json() + '\n' for p in predictions), encoding='utf-8')
     (args.out / 'scores.json').write_text(json.dumps(scores, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
-    manifest = {'schema_version': 1, 'seed': args.seed, 'budget': budget.model_dump(),
+    manifest = {'schema_version': 2, 'seed': args.seed, 'budget': budget.model_dump(),
+                'public_task_fields': ['task_id', 'question', 'question_language'],
+                'required_source_count_disclosed': False,
+                'supported_answer_types': ['decision', 'short', 'numeric', 'explanation'],
                 'cases_sha256': digest(args.cases.read_text(encoding='utf-8')),
                 'corpus_sha256': digest(args.corpus.read_text(encoding='utf-8')),
                 'agent': args.agent if args.command == 'run-demo' else args.policy,

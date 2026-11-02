@@ -18,7 +18,7 @@
 
 </div>
 
-> **2026-11-02 연구 확장:** [한국어 연구 에이전트 벤치마크 설계·실행 안내](docs/research/korean-agent-20261102/README.md). **영어 논문 비중이 높은 영어·한국어 원천**에 한국어 질문과 영어 대조 질문을 자체 작성한다. AI에 한정하지 않고 자연과학·공학·환경·생명과학 등의 논문도 포함한다. 같은 실험 결과의 재인용과 새 결과 단위를 구별하는 도구 agent 평가, GLRS 후보 지표, 에이전트/구성요소별 실험, 5인 수집·수작업 검수 계획을 정리했다. [실제 수집 예시](collection_examples/20261102/README_KO.md)도 별도 제공한다. 현재는 CPU fixture로 검증한 프로토타입이며 실제 benchmark gold·모델 성능·메인 학회 채택을 주장하지 않는다. GPU 선택과 단일·다중 GPU 실행은 [GPU 매뉴얼](docs/research/korean-agent-20261102/GPU_EXECUTION_KO.md)을 따른다.
+> **2026-11-02 연구 확장 v2:** [한국어 학술 에이전트 벤치마크](docs/research/korean-agent-20261102/README.md)는 **필요한 논문 수를 알려주지 않은 상태에서 하나 또는 여러 논문의 근거를 찾아 연결하는 QA**다. **영어가 다수인 영어·한국어 다분야 논문**을 사용한다. [여섯 과제 유형](docs/research/korean-agent-20261102/TASK_SUITE_KO.md)에 단일/다중 문헌 연결·비교·수치·상충/충분성·결과 원천을 포함하며, GLRS는 결과 원천 하위 track 전용이다. 저장된 archive와 benchmark 도중 외부 논문 검색·수집·열람을 비교하고, 수집 snapshot·replay·실패·비용을 남긴다. [실제 CSV 작성 예시](collection_examples/20261102/csv_labeling/README_KO.md), 5인 검수·실험 계획과 [GPU 매뉴얼](docs/research/korean-agent-20261102/GPU_EXECUTION_KO.md)을 제공한다. 현재는 프로토타입이며 실제 gold·본 성능·메인 학회 채택은 검증 전이다.
 
 ### 📖 Introduction
 
@@ -153,7 +153,7 @@ docker compose up -d
 
 ### 🧪 Research Direction
 
-현재 방향은 **주요 학회 main track 수준의 검증을 목표로 하는 문헌 근거 계보 agent benchmark**이며 [최신 연구 설계](docs/research/korean-agent-20261102/README.md)를 따릅니다. 영어가 다수인 영어·한국어 다분야 논문에서 같은 실험 결과의 재보고와 새 결과 보고를 구별하는지 평가합니다. 신규성·사람 gold·본 실험은 검증할 과제이며 학회 채택을 보장하지 않습니다.
+현재 방향은 **주요 학회 main track 수준의 검증을 목표로 하는 학술 근거 연결 agent benchmark**이며 [최신 연구 설계](docs/research/korean-agent-20261102/README.md)를 따릅니다. 필요한 문헌 수를 알려주지 않고, 하나 또는 여러 논문의 근거를 찾아 연결해 답하는 능력을 평가합니다. 저장된 논문과 외부 발견·수집이 필요한 환경을 구분하며, 결과 계보는 여러 하위 과제 중 하나입니다. 신규성·사람 gold·본 실험은 검증할 과제이며 학회 채택을 보장하지 않습니다.
 
 이전 NeurIPS 2027 벤치마크·평가 트랙 제안과 전체 근거를 미리 주는 packet 실험은 [과거 연구 문서](docs/research/neurips-2027/README.md)와 [packet 실행 안내](evaluation/RESEARCH.md)에 보존했습니다. 현재 도구 agent 설정과 구분합니다. 로컬 로더의 단일 GPU 선택, 여러 worker 및 외부 tensor-parallel 서버 실행은 [최신 GPU 매뉴얼](docs/research/korean-agent-20261102/GPU_EXECUTION_KO.md)을 따릅니다. 가상 fixture는 실행 검증용입니다.
 

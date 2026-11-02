@@ -1,21 +1,25 @@
 # 우리 파이프라인의 신규성 후보와 비교 기준
 
-확인일: 2026-11-02. **현재는 신규성이 입증된 benchmark가 아니라 검증할 기여 후보**다. 가장 강한 주장은 '실제 논문 결과의 원천을 사람이 확인하고, agent가 같은 결과의 재보고와 새 결과 보고를 구별하는 능력을 통제된 탐색 환경에서 측정한다'는 것이다. 한국어·논문 QA·GraphRAG·수작업·CSV 자체를 신규성으로 삼지 않는다.
+확인일: 2026-11-02. **핵심 과제 v2는 필요한 논문 수를 알려주지 않는 단일/다중 논문 근거 연결 QA**다. 저장된 archive와 episode 내 외부 논문 발견·수집을 비교한다. 결과 원천 추적은 여섯 하위 유형 중 하나다. 현재는 신규성이 입증된 benchmark가 아니라 검증할 기여 후보이며, 한국어·논문 QA·GraphRAG·수작업·CSV·외부 검색 자체를 신규성으로 삼지 않는다. 최신 전체 계약은 [TASK_SUITE_KO.md](TASK_SUITE_KO.md), 메인 논문의 입증 조건은 [MAIN_TRACK_EVIDENCE_KO.md](MAIN_TRACK_EVIDENCE_KO.md)를 따른다.
 
 ## K-BrowseComp·KoTAU와의 차이
 
 | 축 | K-BrowseComp | KoTAU | LinkPaper-KoEvidence 후보 |
 |---|---|---|---|
-| 핵심 과제 | 한국 맥락 웹의 멀티홉·병렬 제약을 풀어 짧은 정답 검색 | 여행 조건을 충족하는 기차·숙소·지도 도구 사용과 예약 상태 변경 | 문헌의 결과·조건·원천을 찾아 재보고와 별도 reported-result unit을 구별 |
-| 정답/주석 | 정답, expected chain, URL, 중간 값 checklist | task 입력과 disclosure; 별도 라벨 proposal의 최종 상태·reference calls 등 | 판정·조건·대안 근거와 atomic record별 결과 원천 그룹·unknown |
-| 진단 | 정답·보정과 trajectory 실패 분석, adversarial synthetic | 관측 coverage·누락/오래된 정보 등 진단과 실행 상태 | 실제 읽고 인용한 근거의 그룹 정합성, 반복 보고 불변성·새 unit 반응 |
-| 주 측정 단위 | 정보 요구를 해결하는 답과 근거 경로 | 사용자 요구를 실행하는 행동·상태 | 질문 관련 결과 보고 단위와 그 원천 관계 |
+| 핵심 과제 | 한국 맥락 웹의 멀티홉·병렬 제약을 풀어 짧은 정답 검색 | 여행 조건을 충족하는 기차·숙소·지도 도구 사용과 예약 상태 변경 | 필요한 문헌 수를 모르는 상태의 단일/다중 논문 근거 연결 QA |
+| 정답/주석 | 정답, expected chain, URL, 중간 값 checklist | task 입력과 disclosure; 별도 라벨 proposal의 최종 상태·reference calls 등 | 숫자·단답·설명·판정 답, 조건·단계·대안 충분근거; 해당 과제의 원천 그룹 |
+| 진단 | 정답·보정과 trajectory 실패 분석, adversarial synthetic | 관측 coverage·누락/오래된 정보 등 진단과 실행 상태 | 발견·확보·조건·근거 연결·종료 실패와 원천 하위 track의 GLRS |
+| 환경 | 기본 search API 반복, open_url은 기본 agent와 구분 | 고정 여행 DB와 상태 변경 tool | 저장 archive / episode 내 외부 논문 search·fetch·열람 / frozen replay |
 
 K-BrowseComp는 이미 300개 verified·100개 synthetic 문항과 경로·checklist를 제공한다. '최종 정답만 본다'거나 '우리만 중간 근거를 본다'는 비교는 틀리다. checklist는 대안 경로를 금지하는 강제 순서가 아니다. [공식 논문](https://arxiv.org/html/2606.02404v1), [공식 저장소](https://github.com/prometheus-eval/K-BrowseComp), [데이터 카드](https://huggingface.co/datasets/prometheus-eval/k-browsecomp/raw/main/README.md)
 
 KoTAU는 로컬 main `f88a6a462cc27cec5d18c160ff932a8a145681e6`와 라벨 proposal `66556653d706d8187d157a2e96cdc206f4557d21` 기준이다. main의 공인 채점 미확정과 proposal의 평가 설계를 구분한다. main에 grader가 아직 없다는 사실은 우리 연구의 신규성이 아니다. snapshot·도구 allowlist·관측/private gold 분리도 이미 구현돼 있다. 공개 웹 접근 실패를 프로젝트 부재로 해석하지 않는다. [조사 범위·파일 근거](audits/local/LOCAL_BENCHMARK_AUDIT_KO.md)
 
-## 추가로 측정하려는 것
+## 전체 suite와 구체적인 원천 진단
+
+여섯 유형은 단일 논문 내 연결, 논문 간 연결, 조건 비교, 수치 추론, 상충/충분성, 결과 원천이다. task·필요 문헌 수·충분근거집합은 private다. 일반 QA에 계보 그룹이나 GLRS를 강요하지 않는다. 한 논문 안의 여러 근거를 연결하는 것도 유효한 core 문제다.
+
+아래 B/R/N은 전체 benchmark의 정의가 아니라 결과 원천 **하위 track**의 구체적인 통제 실험이다.
 
 가상의 예로 A가 실험 결과를 보고하고 B·C가 그 결과를 재인용했다면 문헌은 3개여도 원래 결과가 3개 생긴 것은 아니다. 반면 표현과 수치가 비슷해도 D가 새 실험·분석 결과를 보고했다면 별도 reported unit일 수 있다. 어느 쪽도 DOI·저자·문장 유사도만으로 확정하지 않는다. 새 reported unit은 통계적 독립성의 증명이 아니다.
 
@@ -29,9 +33,12 @@ KoTAU는 로컬 main `f88a6a462cc27cec5d18c160ff932a8a145681e6`와 라벨 propos
 
 질문·조건·문헌/record 수·원천 언어 구성·예산을 맞추고, 길이·검색 순위·관련성 차이도 검사한다. R에서 문헌 수나 반복 표현에 끌려 결과 수를 부풀리는지, N에서 새 unit의 근거를 실제 취득·인용하는지 평가한다. N에서 최종 verdict가 반드시 뒤집혀야 하는 것은 아니다. 위 구성은 설명용이며 실제 완성된 자료가 아니다.
 
-GLRS는 이 비교에서 **취득·인용한 근거의 계보 정합성, 반복 보고 불변성, 새 unit 반응**을 결합한 후보 지표다. 정답이나 개별 citation이 맞아도 원천을 중복 집계하는 실패를 추가로 식별하려 한다. 수학적 최초나 사람 타당성이 검증됐다는 주장은 하지 않는다. [지표 정의·한계](METRICS_KO.md)
+GLRS는 이 하위 비교에서 **취득·인용한 근거의 계보 정합성, 반복 보고 불변성, 새 unit 반응**을 결합한 후보 지표다. 전체 QA는 답·조건·근거 충분성·오류·비용을 별도로 보고한다. 수학적 최초나 사람 타당성이 검증됐다는 주장은 하지 않는다. [지표 정의·한계](METRICS_KO.md)
 
 ## 더 가까운 선행연구도 넘어야 한다
+
+- [PaperArena](https://arxiv.org/abs/2510.10909)는 여러 논문의 정보를 통합하는 도구 agent QA를, [AgentHop](https://arxiv.org/abs/2609.34428)는 과학 QA의 획득·합성·도구·자원 진단을 이미 다룬다. 과제를 넓혔다는 사실만으로 신규성이 커지는 것은 아니다.
+- [ScholarGym](https://arxiv.org/abs/2601.21654)는 학술 정보 수집을 query planning/tool invocation/relevance assessment로 나눈다. 우리는 저장/외부 발견 조건에서 답·근거 연결·충분성과 어떤 추가 병목을 식별하는지 실제로 보여야 한다.
 
 - [CUE-R](https://arxiv.org/abs/2604.05467)는 REMOVE/REPLACE/DUPLICATE와 정답·grounding·confidence·trace 반응을 이미 다룬다. 중복 자료 개입 자체가 신규성은 아니다.
 - [RARE](https://aclanthology.org/2026.acl-long.923/)는 atomic fact 중복 추적과 redundancy-aware retrieval 평가를 이미 다룬다. 같은 사실의 반복과 실제 실험/결과 원천의 재사용을 구별해야 한다.
@@ -47,4 +54,4 @@ GLRS는 이 비교에서 **취득·인용한 근거의 계보 정합성, 반복 
 4. 표현 유사도×원천 동일성을 교차하고 문헌·길이·언어·검색 순위·budget 차이가 효과를 설명하는지 검사한다.
 5. GLRS와 단순 정확도/F1/count 점수를 전문가의 블라인드 출력 평가와 비교한다. strict gate의 0점·동점률 및 대안 근거의 부당한 감점도 검사한다.
 
-현재 구현한 harness·replay·그룹 검증은 평가를 수행할 기반이다. 실제 과학적 신규성은 아직 입증하지 않았다. CSV의 9개 모범 문항은 라벨링 연습용으로, 본 분석용 교차 논문 family나 B/R/N gold가 아니다. DOI/text dedup으로 대부분 해결되거나 지표가 사람 평가에 추가 설명력을 주지 못하면 새 능력·primary metric 주장을 낮추거나 연구 질문을 수정한다.
+현재 구현한 harness·획득/live·replay·그룹 검증은 평가를 수행할 기반이다. 실제 과학적 신규성은 아직 입증하지 않았다. CSV의 9개 모범 문항은 수치·조건·서술·계보 작성 연습용으로, 본 분석용 교차 논문 family나 B/R/N gold가 아니다. 원천 하위 track이 DOI/text dedup으로 대부분 해결되거나 지표가 사람 평가에 추가 설명력을 주지 못하면 그 하위 기여 주장을 낮춘다. 전체 suite의 주장도 일반 QA 선행연구와의 실제 추가 발견에 한정한다.

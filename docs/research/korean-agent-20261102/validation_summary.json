@@ -1,10 +1,10 @@
 {
-  "scope": "CPU synthetic contract validation plus separately documented historical single-GPU protocol smoke; no scientific model performance",
+  "scope": "V2 scholarly QA, acquisition and live/replay protocol validation; separate historical GPU smoke; no new scientific model performance",
   "test_result": {
-    "passed": 275,
+    "passed": 336,
     "skipped": 4,
     "skips": "Ragas optional module/contract entries and opt-in Docker Neo4j integration",
-    "elapsed_seconds": 3.68
+    "elapsed_seconds": 4.12
   },
   "gpu_execution": true,
   "paid_model_api_calls": false,
@@ -152,21 +152,26 @@
     }
   },
   "source_hashes": {
-    "evaluation/src/linkpaper_eval/agent_bench/contracts.py": "66319eb3a9a53685a8fa0dd7f9cf931b163ee9bbb51db08380996fb11632a485",
-    "evaluation/src/linkpaper_eval/agent_bench/environment.py": "0c51ca14e853e970e4dc1a24159c9e2974bb99b6045706e75440b4228bd64c53",
-    "evaluation/src/linkpaper_eval/agent_bench/runner.py": "87d128d28659604d8326012e8f0c90183417f6d3fe0e6553755c5a7b21090477",
-    "evaluation/src/linkpaper_eval/agent_bench/scoring.py": "7f228eac11b2ab7bd50adbf710b308b0b52749bf7f872c9f3311b7bb0c15ec20",
+    "evaluation/src/linkpaper_eval/agent_bench/contracts.py": "c9244670ead43c13e453474b7dbfe1449dc65ef837d40d612c6af2b98317f5c1",
+    "evaluation/src/linkpaper_eval/agent_bench/environment.py": "5dfe7173df7fec9eafb22e67e467871fa49d148763c384d009810d42144586fa",
+    "evaluation/src/linkpaper_eval/agent_bench/runner.py": "7ad0173ae9010c2654ab673cd85101e64bc6eeff4184626b22f21a8ffb18496a",
+    "evaluation/src/linkpaper_eval/agent_bench/scoring.py": "35457875be8b29c0da45a737bd258304a54014338ca40934fce1e08184bad122",
     "evaluation/src/linkpaper_eval/agent_bench/__init__.py": "88cad72729248f4a83ffc6814e027ad3ffb2f9b7da436e2651a2ef67ea962322",
     "evaluation/src/linkpaper_eval/agent_bench/__main__.py": "f38fd2f2c920c29c828645e87ed64743d567aaaef7fba7a15d2c7d7f8094f91f",
-    "evaluation/src/linkpaper_eval/agent_bench/cli.py": "c71a6e4218eaa1dc1aca3df82d5c47a8cfc718feb29d193ac9397b755518b66e",
+    "evaluation/src/linkpaper_eval/agent_bench/cli.py": "dc869a533444ecd47345c95d9945b24089f7000b47490e2179c3e6692d9e1fed",
     "evaluation/src/linkpaper_eval/agent_bench_policy.py": "a5f83ba85e46781b918f4e90c69e8d8dbb89daefecc848159bfa429c899f32b9",
-    "evaluation/src/linkpaper_eval/agent_lineage.py": "3275c0a8e958bbb3d2496b709ea7042a9cc275b1ddd9a4c74878cf32e8536a66",
+    "evaluation/src/linkpaper_eval/agent_lineage.py": "c2355ca3aeb890dd7dcf89aff28d762bf3d593195d212d2f720fc8f6a59911e7",
     "evaluation/src/linkpaper_eval/lineage_metric.py": "6d264b16f6adb11d358f2544b53715e321cec89225d9ae782ce54032e6319368",
     "evaluation/src/linkpaper_eval/hf_agent_policy.py": "6aee24a27ce7148c4e86d211419bb1d746e1b2d36708286b928fd79ea68555a9",
     "evaluation/src/linkpaper_eval/research_bench/local.py": "6dc3ee9b8e7429e44c072a972cb7873c23d1cba9a45141459bdf151978499b13",
     "evaluation/src/linkpaper_eval/research_bench/config.py": "5233e68453e5550c39b48536c4cefd33a87656f727ad2c4ad0251a5c92dcf425",
-    "scripts/hf_agent_worker.py": "bbb91d11dedbf2895595c43b77912353c683499626a933f532988ac3a2a24f7b",
-    "scripts/run_hf_agent_smoke.py": "0592f3a57d4e74ce73ab0807f302d3eb1ea4ad983581524e32ee400bf4e9e0ee"
+    "scripts/hf_agent_worker.py": "eae73b618f300634df7e429799e1ddbe864f63298fe1b2a02fc122b2d9082625",
+    "scripts/run_hf_agent_smoke.py": "0592f3a57d4e74ce73ab0807f302d3eb1ea4ad983581524e32ee400bf4e9e0ee",
+    "scripts/run_live_paper_demo.sh": "4eb16ce4112e563f5d3126749ee8fe860f9e6bc46d2f10f1dba128a8c8a07be2",
+    "scripts/run_korean_agent_demo.sh": "821de860a94eeff6503f98e8c483cdce52fa81a1ecb215f90f22850907cad05a",
+    "evaluation/src/linkpaper_eval/cli.py": "51d15f54e670572f9bd06f54b23112503d226bee7d32738f86dfb3475b377c65",
+    "evaluation/src/linkpaper_eval/live_paper_bench.py": "d284eb89a7bbf15ff292317ef1f00b9d7125349245bc76862cfd224662f9275f",
+    "evaluation/src/linkpaper_eval/paper_acquisition.py": "be49483064f4943239aa190be3b9ddae75b8d42dc431609c8657965164db3527"
   },
   "unit_test_gpu_execution": false,
   "downloaded_model_count": 1,
@@ -194,13 +199,23 @@
     "interpretation": "Synthetic protocol smoke only; allthree outputs omitted claims andfailedschema; no modeltooltraversalsuccess/scientificperformanceclaim.",
     "historical_fixture_note": "Executed before language controls: B/N en2ko2, R en1ko3. Historical outputs retained; not rerun after fixture revision."
   },
-  "cpu_validation_run": "evaluation/runs/bilingual-source-validation-20261102",
+  "cpu_validation_run": "evaluation/runs/scholarly-qa-release-20261102",
   "source_scope": {
     "paper_languages": "English-majority English and Korean",
     "paper_domains": "multidisciplinary; not restricted to AI",
     "primary_question_language": "ko",
     "question_control": "en twins on same source corpus",
-    "real_gold_collected": false
+    "real_gold_collected": false,
+    "core_task": "One or multiple papers, multiple connected evidence, required paper count not revealed",
+    "task_types": [
+      "within_paper_composition",
+      "cross_paper_bridge",
+      "condition_comparison",
+      "quantitative_reasoning",
+      "conflict_and_sufficiency",
+      "result_provenance"
+    ],
+    "lineage_metric_scope": "result_provenance subtrack only"
   },
   "bridge_fixture_sha256": "ab4d5918fff7be317e1431363e64b3ed10455f17c6b7e77cd3a41ce26366df47",
   "bridge_fixture_language_revision": "bridge-source-03 English restatement; each arm en2/ko2; CPU only after earlier real GPU smoke",
@@ -219,10 +234,133 @@
     "manifest_path": "collection_examples/20261102/sources.json"
   },
   "final_static_checks": {
-    "python311_ast_files": 4,
-    "markdown_files_checked": 18,
+    "python_syntax_files": 14,
+    "markdown_files_checked": 25,
     "broken_relative_links": 0,
-    "csv_files_checked": 10,
+    "csv_files_checked": 18,
     "csv_lf_and_unique_headers": true
+  },
+  "v2_execution": {
+    "cpu": true,
+    "gpu": false,
+    "model_calls": 0,
+    "new_model_downloads": 0,
+    "paid_model_api_calls": 0,
+    "actual_paper_http": true
+  },
+  "general_qa_fixture": {
+    "cases": 7,
+    "records": 16,
+    "papers": 14,
+    "task_types": {
+      "within_paper_composition": 1,
+      "cross_paper_bridge": 1,
+      "condition_comparison": 1,
+      "quantitative_reasoning": 1,
+      "conflict_and_sufficiency": 2,
+      "result_provenance": 1
+    },
+    "question_languages": {
+      "ko": 7
+    },
+    "scientific_semantic_accuracy": null,
+    "role": "Original synthetic contracts only",
+    "oracle": {
+      "verdict_agreement": 1.0,
+      "reference_answer_match": 1.0,
+      "answer_contract_valid": 1.0,
+      "citation_read_validity": 1.0,
+      "sufficient_evidence_coverage": 1.0,
+      "condition_recall": 1.0,
+      "semantic_evidence_gate": 1.0,
+      "structural_pass": 1.0,
+      "error": 0.0,
+      "lineage_pair_agreement": 1.0,
+      "lineage_pair_coverage": 1.0,
+      "lineage_evaluable_cases": 1,
+      "review_coverage": 0.0,
+      "semantic_review_required_cases": 7,
+      "semantic_review_completed_cases": 0,
+      "decision_evaluable_cases": 3,
+      "reference_evaluable_cases": 3,
+      "scientific_semantic_accuracy": null
+    },
+    "blind": {
+      "verdict_agreement": 0.0,
+      "reference_answer_match": 0.0,
+      "answer_contract_valid": 1.0,
+      "citation_read_validity": 0.0,
+      "sufficient_evidence_coverage": 0.14285714285714285,
+      "condition_recall": 0.8571428571428571,
+      "semantic_evidence_gate": 0.0,
+      "structural_pass": 0.0,
+      "error": 0.0,
+      "lineage_pair_agreement": 0.0,
+      "lineage_pair_coverage": 0.0,
+      "lineage_evaluable_cases": 1,
+      "review_coverage": 0.0,
+      "semantic_review_required_cases": 0,
+      "semantic_review_completed_cases": 0,
+      "decision_evaluable_cases": 3,
+      "reference_evaluable_cases": 3,
+      "scientific_semantic_accuracy": null
+    }
+  },
+  "live_paper_smoke": {
+    "run": "evaluation/runs/live-paper-agent-final-20261102",
+    "provider": "arxiv",
+    "policy": "scripted protocol smoke; not LLM reasoning",
+    "tool_sequence": [
+      "tool_catalog",
+      "search_papers",
+      "fetch_paper",
+      "search_local",
+      "open",
+      "open"
+    ],
+    "paper_id": "1806.02375v4",
+    "title": "Understanding Batch Normalization",
+    "pdf_bytes": 3479757,
+    "pdf_sha256": "c76c69366a5ef7ff55c88a5cfafa8959c5a2339bd9c9c9afb2cda1291b75683a",
+    "pages": 24,
+    "indexed_passages": 62,
+    "opened_passages": 2,
+    "scheduled_episodes": 1,
+    "tool_failures": 0,
+    "structural_pass": 1.0,
+    "scientific_semantic_accuracy": null,
+    "replay_validated": true,
+    "network_calls_during_replay": 0,
+    "pypdf_version": "6.21.4",
+    "manifest_sha256": "242690b75a6fdd380d5acc7fc7418d166628c3d222d3ddf626cf3a86b79f0e19"
+  },
+  "worked_csv_examples": {
+    "questions": 9,
+    "per_paper": {
+      "ioffe15": 3,
+      "mora2011": 3,
+      "min2024": 3
+    },
+    "task_types": {
+      "quantitative_reasoning": 3,
+      "condition_comparison": 1,
+      "result_provenance": 1,
+      "within_paper_composition": 3,
+      "conflict_and_sufficiency": 1
+    },
+    "answer_types": {
+      "numeric": 3,
+      "explanation": 4,
+      "decision": 1,
+      "short": 1
+    },
+    "gold": false,
+    "public_fields": [
+      "문항ID",
+      "질문",
+      "질문언어"
+    ],
+    "bundle": "linkpaper_qa_suite_examples_20261102.tar.gz",
+    "bundle_bytes": 1322219
   }
 }

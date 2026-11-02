@@ -93,7 +93,7 @@ class LexicalPolicy:
 class OraclePolicy:
     """Privileged diagnostic upper control; evaluator supplies gold deliberately."""
     def __init__(self, environment, case):
-        self.identifiers = [environment.public_id(e) for e in case.visible_evidence_ids]
+        self.identifiers = list(environment._documents)
         self.gold = case.gold
         self.units = {i: environment._documents[i].study_unit_id for i in self.identifiers}
 
@@ -103,7 +103,9 @@ class OraclePolicy:
             if identifier not in opened:
                 return Action(tool='open', arguments={'document_id': identifier})
         names = {unit: f'group-{n}' for n, unit in enumerate(sorted({u for u in self.units.values() if u}))}
-        return Answer(verdict=self.gold.verdict, answer='정답에 접근하는 특권적 oracle 대조군입니다.',
+        return Answer(verdict=self.gold.verdict,
+                      answer=(self.gold.reference_answers[0] if self.gold.reference_answers
+                              else '정답에 접근하는 특권적 oracle 대조군입니다.'),
                       conditions=self.gold.expected_conditions,
                       study_groups={i: names[u] if u else None for i, u in self.units.items()},
                       claims=[Claim(text=e.observation['text'], citations=[e.observation['document_id']])

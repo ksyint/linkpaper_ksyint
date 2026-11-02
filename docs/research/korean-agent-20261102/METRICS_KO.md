@@ -1,5 +1,7 @@
 # GLRS: 근거계보 반응 점수 연구 후보
 
+**핵심 과제 v2에서 이 문서는 `result_provenance` 하위 track 전용이다.** 전체 benchmark는 필요한 논문 수를 알려주지 않는 단일/다중 논문 근거 연결 QA이며, 비교·계산·상충/충분성 등을 함께 다룬다. 일반 QA에는 GLRS를 강요하거나 미적용을 0점으로 평균내지 않는다. 전체 평가와 적용 분모는 [TASK_SUITE_KO.md](TASK_SUITE_KO.md)를 따른다. 아래의 primary GLRS라는 표현은 이 하위 track 안에서의 후보 주 점수다.
+
 작성일: 2026-11-02. **Grounded Lineage Response Score(GLRS)**는 이 브랜치에서 독립적으로 구현한 **연구 후보**다. 이미 알려진 cluster matching/precision–recall, count error, matched intervention과 보수적 결합을 사용한다. B-cubed는 비교용 보조 진단에만 사용한다. 이들의 수학적 최초 제안이나 과학적으로 검증된 새 지표라고 주장하지 않는다. 새로운 부분으로 검증할 대상은 “실제 결과 계보를 사람이 확인한 영어 다수·한국어 포함 실험 문헌과 한국어 중심 질문에서, 반복 보고에는 unit 수를 유지하고 새 보고 단위에는 반응하는가를 취득한 근거와 함께 측정한다”는 구성과 적용 범위다. 이 구성의 novelty와 타당성도 아래 비교·human meta-eval이 끝나야 주장할 수 있다.
 
 **최종 primary GLRS는 C/A를 포함한 엄격한 certificate 후보 점수다. 부드러운 일반 품질 순위 점수가 아니며, 부분 unit-matching G와 각 gate를 함께 보고한다.**

@@ -13,8 +13,10 @@
 | LinkPaper indexing, ID, 평가 기반 | 원 저장소 MIT + 기존 contributor 고지 | 기존 자산 재사용 |
 | LINK-DELTA packet 연구 코드 | fork의 기존 research branch | 이전 구현으로 명시 |
 | agent_bench 도구·격리·trace | 이번 branch 자체 작성 | 실행 가능한 새 프로젝트 코드; 도구 agent 방식 발명 주장은 아님 |
-| lineage_metric GLRS | 이번 branch 지표 후보; B-cubed·근거 개입은 선행 방법 | 구체적 운영화/타당성은 새로 검증할 대상 |
-| 영어 다수·한국어 포함 실제 결과 계보 gold | 본 corpus 구축·독립 검수 전 | 소량 수집 예시나 합성 fixture를 실제 benchmark gold/성능 결과로 발표하지 않음 |
+| 6종 학술 근거 연결 과제·source 수 비공개 | 확장된 프로젝트 설계; 학술 QA·멀티홉은 선행연구에 존재 | 실제 새 자료·대안 충분근거·조건/종료 분석의 추가 발견을 검증. 설정 자체의 최초 주장 금지 |
+| offline / live interleaved / frozen replay; staged 획득 대조 | 같은 Policy.step의 발견·fetch·검색·읽기 교차와 hash-bound 관측 재현 | arXiv 기본 provider 범위. 전체 웹·GUI·한국 발행처·production Neo4j/Qdrant API 완성이나 실제 LLM 성능으로 확대하지 않음 |
+| lineage_metric GLRS | 결과 원천 하위 track 후보; B-cubed·근거 개입은 선행 방법 | 전체 benchmark primary가 아닌 subset의 구체적 운영화/타당성을 검증 |
+| 영어 다수·한국어 포함 실제 답·근거 연결·대안·조건 gold 및 원천 subset | 본 corpus 구축·독립 검수 전 | 소량 수집 예시나 합성 fixture를 실제 benchmark gold/성능 결과로 발표하지 않음 |
 | KoTAU | 비교 조사. 전 branch에서 license 파일을 확인하지 못함 | 구현·task를 복사하지 않음 |
 | K-BrowseComp 및 학술 benchmark | 관련 연구 인용·공개 schema 비교 | 원 문제를 번역/부분 변형해 새 문항으로 발표하지 않음 |
 
@@ -36,9 +38,11 @@
 
 ## 5. 지표 독창성과 논문 검증
 
-원문은 영어 논문이 다수이고 한국어 논문을 포함하므로, 한국어 원문을 새로 다룬다는 주장만으로 기존 영어 scholarly benchmark와 구분하지 않는다. 주제는 AI에 한정하지 않는다. 주 질문의 한국어와 source_language를 분리하고 결과 단위 주석·탐색 통제·측정의 추가 가치를 검증한다. 여러 분야를 수집했다는 사실만으로 학문 전체를 검증했다고 하지 않는다.
+원문은 영어 논문이 다수이고 한국어 논문을 포함하므로, 한국어 원문을 새로 다룬다는 주장만으로 기존 영어 scholarly benchmark와 구분하지 않는다. 주제는 AI에 한정하지 않는다. 주 질문의 한국어와 source_language를 분리하고 한 논문/교차 논문 근거 연결·대안 충분성·조건·탐색 종료 분석의 추가 가치를 검증한다. 필요한 논문 수를 공개하지 않는 설정 자체를 최초라 부르지 않으며, 검수한 대안의 수를 전역 최소 source 수로 확정하지 않는다. 결과 원천은 여러 task 중 하나다. 여러 분야를 수집했다는 사실만으로 학문 전체를 검증했다고 하지 않는다.
 
-새 GLRS는 novelty **후보**다. CUE-R·RARE·CONFPROP·SciValidityBench 등의 지표가 이미 같은 판정을 제공하는지 식·입력·실패 사례를 대조한다. 동일한 측정을 재명명한 것으로 확인되면 원 지표를 인용하고 이 프로젝트의 새 지표라는 주장을 철회한다.
+offline archive, live interleaved, frozen replay를 구분하고 staged 획득 후 QA는 별도 대조로 둔다. live는 한 episode에서 같은 Policy.step이 search_papers/fetch_paper/search_local/open 후 Answer를 선택한다. replay는 hash-bound 원문/관측 artifact를 검증하며 네트워크나 parser를 다시 호출하지 않는다. live의 의미 정확도는 null이고 사람 응답 review는 별도 hash-bound 기록이다. source·정답·개별 버전 권리를 사람이 확인하기 전 정적 gold를 자동 이식하지 않는다. arXiv 기본 provider·plugin·가상 fixture·HTTP preflight의 구현 사실을 전체 웹/GUI·한국 발행처 coverage·production API·실제 LLM 성능으로 바꾸어 쓰지 않는다.
+
+새 GLRS는 결과 원천 하위 track의 novelty **후보**다. 전체 benchmark의 primary 점수로 사용하지 않는다. CUE-R·RARE·CONFPROP·SciValidityBench 등의 지표가 이미 같은 판정을 제공하는지 식·입력·실패 사례를 대조한다. 동일한 측정을 재명명한 것으로 확인되면 원 지표를 인용하고 이 프로젝트의 새 지표라는 주장을 철회한다.
 
 새 metric의 unit test 통과는 계산 구현의 증거다. 전문가 평가와의 일치·반례·단순 baseline 대비 추가 식별력이 확인되어야 논문 기여로 주장한다. 실제 모델 실험을 하지 않은 수치는 결과표에 넣지 않는다. 다른 논문의 실험 수치와 자체 측정치를 섞지 않는다.
 

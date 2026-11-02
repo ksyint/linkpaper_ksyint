@@ -79,6 +79,8 @@ def build_parser() -> argparse.ArgumentParser:
     subparsers.add_parser('agent', help='한국어 근거 탐색 agent 실행·검증 (agent --help)')
     subparsers.add_parser('lineage-metric', help='GLRS 결과 계보 반응 지표 (lineage-metric --help)')
     subparsers.add_parser('agent-lineage', help='검증한 agent trace를 GLRS에 연결 (agent-lineage --help)')
+    subparsers.add_parser('paper-acquire', help='외부 논문 검색·수집·freeze 및 기록 재생 (paper-acquire --help)')
+    subparsers.add_parser('live-paper', help='episode 안에서 외부 논문 검색·수집·열람 (live-paper --help)')
 
     # 벤치마크와 평가셋 생성 명령은 별도 패키지에서 등록한다. 위 세 명령의
     # 동작에는 영향이 없고, 등록이 실패해도 기존 명령은 그대로 쓸 수 있다.
@@ -103,6 +105,12 @@ def main(argv: list[str] | None = None) -> int:
     if arguments and arguments[0] == 'agent-lineage':
         from linkpaper_eval.agent_lineage import main as bridge_main
         return bridge_main(arguments[1:])
+    if arguments and arguments[0] == 'paper-acquire':
+        from linkpaper_eval.paper_acquisition import main as acquire_main
+        return acquire_main(arguments[1:])
+    if arguments and arguments[0] == 'live-paper':
+        from linkpaper_eval.live_paper_bench import main as live_paper_main
+        return live_paper_main(arguments[1:])
     args = build_parser().parse_args(arguments)
 
     # 부가 명령은 서브파서가 handler를 직접 지정한다.

@@ -17,6 +17,10 @@ dependencies = [
 dev = [
     "pytest>=8.3,<9.0",
 ]
+# Paper acquisition parses local/official-source PDFs on CPU; no model needed.
+acquire = [
+    "pypdf>=6.13,<7.0",
+]
 # Native API providers use the base httpx dependency. Local weights are optional.
 local = [
     "torch>=2.6,<3.0",
@@ -42,7 +46,7 @@ ragas = [
     "langchain-openai>=0.3,<0.4",
 ]
 all = [
-    "linkpaper-eval[dev,stores,bench,ragas]",
+    "linkpaper-eval[dev,stores,bench,ragas,acquire]",
 ]
 
 [project.scripts]
