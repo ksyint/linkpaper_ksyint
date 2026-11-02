@@ -13,3 +13,6 @@
 `questions_private`의 `source_language_profile`은 bundle의 원문 구성 요약이고, `record_source_language_counts`는 `en`/`ko`/`mixed` record 빈도다. `source_paper_language_profile_counts`는 paper_id별 visible record 언어의 정렬된 집합(profile) 빈도다. 예를 들어 한 paper의 기록이 en과ko이면 profile은 `en+ko`이며 선언값 `mixed`는 별도 값이다. `triplets_private`에는 B/R/N의 record 수·parent paper 수 외 두 원문 언어 빈도도 각각 일치하는지 남긴다. core bridge가 자동 대조한 결과와 사람이 언어 metadata·내용 대응을 확인한 note를 함께 보관한다. standalone GLRS의 `language`는 질문 언어로 source-language control을 자동 검증하지 않는다.
 
 소량 실제 원문 수집 예시는 [collection_examples](../../../../collection_examples/20261102/README_KO.md)를 참고한다. 그 폴더의 후보·미검수 주석을 이 빈 private gold 양식에 검수 완료로 옮기지 않는다. 이전 합성 fixture나 실제 smoke의 언어 통계는 각 당시 hash 기준의 기록이며 실제 corpus 수집 목표를 달성했다는 증거가 아니다.
+## 사람 입력용 Excel
+
+[human_labeling_template.xlsx](human_labeling_template.xlsx)를 검수자별로 복사해 사용한다. 세 데이터 시트는 근거·관계·정답이고, 안내·조정 시트를 추가했다. 실제 작성 순서와 수치 전사 예시는 [수작업 안내](../MANUAL_LABELING_KO.md)에 있다. 빈 양식이며 사람 검수 완료 표시나 정답을 미리 채우지 않았다. 기존 CSV는 운영·변환용 상세 양식으로 유지한다.
